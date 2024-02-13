@@ -21,14 +21,18 @@ function App(): React.JSX.Element {
   const Stack = createNativeStackNavigator();
   const isDarkMode = useColorScheme() === 'dark';
 
+  const onboardingComponent = () => {
+    return <OnboardingScreen skipText={'Skip'} text={'Screen 1'}/>
+  }
+
   return (
     <NavigationContainer>
         <StatusBar
           barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         />
         <Stack.Navigator>
-          {/* <Stack.Screen name='Onboarding' component={OnboardingScreen}/> */}
-          <Stack.Screen name='Home' component={HomeScreen}/>
+          <Stack.Screen name='Onboarding' component={onboardingComponent}/>
+          {/* <Stack.Screen name='Home' component={HomeScreen}/> */}
         </Stack.Navigator>
     </NavigationContainer>
   );
