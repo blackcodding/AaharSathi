@@ -1,5 +1,8 @@
 import { StyleSheet } from "react-native";
 import { DEFAULT_FONT_SIZE } from "../../Theme/Fonts";
+import { Dimensions } from "react-native";
+
+const {width} = Dimensions.get("window")
 
 export const generateStyles = () => {
     return StyleSheet.create({
@@ -8,17 +11,23 @@ export const generateStyles = () => {
             flexDirection: 'column',
             padding: 18,
         },
+        itemContainer: {
+            width: width - 18 * 2,
+            justifyContent: 'space-around',
+            alignItems: 'center',
+            marginVertical: 10,
+            marginRight: 10,
+        },
         imageContainer: {
-            alignSelf: 'center',
-            marginTop: 40,
+            marginTop: 30,
         },
         image: {
             width: 300,
             height: 300,
-            objectFit: 'contain' ,  
+            objectFit: 'contain' ,
         },
         text: {
-            alignSelf: 'center',
+            width: 320,
             fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
             fontWeight: '500',
             color: '#000000',
@@ -32,7 +41,6 @@ export const generateStyles = () => {
             marginTop: 40,
             marginHorizontal: 100,
             padding: 20,
-            // backgroundColor: 'red',
         },
         bullet: {
             height: 12,
