@@ -3,14 +3,15 @@ import { Image, Text, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { generateStyles } from './OnboardingScreen.styles'
 import { IOnboardingScreenProps } from './OnboardingScreen.types'
+import { DefaultButton } from '../../components/Buttons/DefaultButton/DefaultButton'
 
 export const OnboardingScreen = (props: IOnboardingScreenProps) => {
   const {skipText = 'Skip', imageUrl, text = 'Screen 1'} = props;
   const styles = generateStyles();
   return (
-    <SafeAreaView>
+    // <SafeAreaView>
       <View style={styles.container}>
-        <Text style={styles.skipText}>{skipText}</Text>
+        <DefaultButton text={skipText} alignSelf={'flex-end'}/>
         <View style={styles.imageContainer}>
           {!!imageUrl &&
           <Image 
@@ -18,7 +19,7 @@ export const OnboardingScreen = (props: IOnboardingScreenProps) => {
           source={{uri: imageUrl}}/>}
         </View>
         <View>
-          <Text style={styles.text}>{text}</Text>
+          <Text style={styles.text} numberOfLines={5}>{text}</Text>
         </View>
         <View style={styles.bulletContainer}>
           <View style={styles.bullet}/>
@@ -26,6 +27,6 @@ export const OnboardingScreen = (props: IOnboardingScreenProps) => {
           <View style={styles.bullet}/>
         </View>
       </View>
-    </SafeAreaView>
+    // </SafeAreaView>
   )
 }
