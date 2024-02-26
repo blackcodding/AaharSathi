@@ -1,74 +1,109 @@
-import React, { useCallback, useRef, useState } from 'react'
-import { Dimensions, FlatList, View } from 'react-native'
-import { OnboardingScreen } from './OnboardingScreen'
-import { DefaultButton } from '../../components/Buttons/DefaultButton/DefaultButton'
-import { generateStyles } from './OnboardingScreen.styles'
-import { useNavigation } from '@react-navigation/native'
-import { HomeScreen } from '../HomeScreen/HomeScreen'
+import {Dimensions, FlatList, View} from 'react-native';
+import React, {useCallback, useRef, useState} from 'react';
 
-const {width: deviceWidth} = Dimensions.get("window")
+import {DEFAULT_COLOR} from '../../Theme/Fonts';
+import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
+import {HomeScreen} from '../HomeScreen/HomeScreen';
+import {OnboardingScreen} from './OnboardingScreen';
+import {generateStyles} from './OnboardingScreen.styles';
+import {useNavigation} from '@react-navigation/native';
 
-const Data = [{
+const {width: deviceWidth} = Dimensions.get('window');
+
+const Data = [
+  {
     id: '1',
-    imageUrl: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
-    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.'
-}, {
+    imageUrl:
+      'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
+  },
+  {
     id: '2',
-    imageUrl: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
-    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.'
-}, {
+    imageUrl:
+      'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
+  },
+  {
     id: '3',
-    imageUrl: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
-    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.'
-}]
+    imageUrl:
+      'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
+  },
+];
 
 export const OnboardingScreenWrapper = () => {
-    const styles = generateStyles();
-    const flatListRef = useRef();
-    const [index, setIndex] = useState(0);
+  const styles = generateStyles();
+  const flatListRef = useRef();
+  const [index, setIndex] = useState(0);
 
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
-    const onScroll = useCallback((Event:any) => {
-        const newIndex = Event.nativeEvent.contentOffset.x / deviceWidth;
-        const currentIndex = Math.round(newIndex);
-        setIndex(currentIndex);
-    }, [index]);
+  const onScroll = useCallback(
+    (Event: any) => {
+      const newIndex = Event.nativeEvent.contentOffset.x / deviceWidth;
+      const currentIndex = Math.round(newIndex);
+      setIndex(currentIndex);
+    },
+    [index],
+  );
 
-    const onSkipPress = useCallback(() => {
-        navigation.navigate(HomeScreen as never)
-    }, []);
+  const onSkipPress = useCallback(() => {
+    navigation.navigate(HomeScreen as never);
+  }, []);
 
-    
-    const onGetStartedPress = useCallback(() => {
-        navigation.navigate(HomeScreen as never)
-    }, []);
-    
+  const onGetStartedPress = useCallback(() => {
+    navigation.navigate(HomeScreen as never);
+  }, []);
 
-    return (
-        <View style={styles.container}>
-            <DefaultButton text={'Skip'} alignSelf={'flex-end'} onPress={onSkipPress}/>
-            <FlatList 
-            ref={flatListRef}
-            data={Data} 
-            renderItem={({item}) => { 
-                return <OnboardingScreen imageUrl={item?.imageUrl} text={item.text}/>
-            }}
-            showsHorizontalScrollIndicator={false}
-            horizontal={true}
-            pagingEnabled
-            bounces={false}
-            keyExtractor={(item) => item.id}
-            onScroll={onScroll}
-            />
-            <View style={styles.footer}>
-            <View style={styles.bulletContainer}>
-                <View style={[styles.bullet, index === 0 ? styles.activeBullet : null]}/>
-                <View style={[styles.bullet, index === 1 ? styles.activeBullet : null]}/>
-                <View style={[styles.bullet, index === 2 ? styles.activeBullet : null]}/>
-            </View>
-            {index === 2 ? <DefaultButton text={'Get Started'} colors={{textColor: '#150D13', borderColor: '#416D19', backgroundColor: '#5DD669'}} alignSelf={'center'} onPress={onGetStartedPress}/> : <View style={styles.emptyView}/>}
-            </View>
+  return (
+    <View style={styles.container}>
+      <DefaultButton
+        text={'Skip'}
+        alignSelf={'flex-end'}
+        onPress={onSkipPress}
+      />
+      <FlatList
+        ref={flatListRef}
+        data={Data}
+        renderItem={({item}) => {
+          return (
+            <OnboardingScreen imageUrl={item?.imageUrl} text={item.text} />
+          );
+        }}
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        pagingEnabled
+        bounces={false}
+        keyExtractor={item => item.id}
+        onScroll={onScroll}
+      />
+      <View style={styles.footer}>
+        <View style={styles.bulletContainer}>
+          <View
+            style={[styles.bullet, index === 0 ? styles.activeBullet : null]}
+          />
+          <View
+            style={[styles.bullet, index === 1 ? styles.activeBullet : null]}
+          />
+          <View
+            style={[styles.bullet, index === 2 ? styles.activeBullet : null]}
+          />
         </View>
-    )
-}
+        {index === 2 ? (
+          <DefaultButton
+            text={'Get Started'}
+            colors={{
+              textColor: DEFAULT_COLOR.BLACK,
+              borderColor: DEFAULT_COLOR.GREEN_DARK,
+              backgroundColor: DEFAULT_COLOR.GREEN_MEDIUM,
+            }}
+            alignSelf={'center'}
+            onPress={onGetStartedPress}
+          />
+        ) : (
+          <View style={styles.emptyView} />
+        )}
+      </View>
+    </View>
+  );
+};

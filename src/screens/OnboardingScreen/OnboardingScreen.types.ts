@@ -1,4 +1,4 @@
 export interface IOnboardingScreenProps {
-    imageUrl?: string;
-    text: string; 
+  imageUrl?: string;
+  text: string;
 }
