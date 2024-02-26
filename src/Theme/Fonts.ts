@@ -1,0 +1,5 @@
+export const DEFAULT_FONT_SIZE = {
+    BUTTON_SIZE: 16,
+    FONT_SIZE_REGULAR: 16,
+    FONT_SIZE_MEDIUM: 20,
+}
