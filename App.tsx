@@ -21,7 +21,7 @@ function App(): React.JSX.Element {
   const Stack = createNativeStackNavigator();
   const isDarkMode = useColorScheme() === 'dark';
 
-  const onboardingComponent = () => {
+  const OnboardingScreen = () => {
     return <OnboardingScreenWrapper/>
   }
 
@@ -33,8 +33,8 @@ function App(): React.JSX.Element {
         <Stack.Navigator screenOptions={{
           headerShown:false,
         }}>
-          <Stack.Screen name='Onboarding' component={onboardingComponent}/>
-          {/* <Stack.Screen name='Home' component={HomeScreen}/> */}
+          <Stack.Screen name='OnboardingScreen' component={OnboardingScreen}/>
+          <Stack.Screen name='HomeScreen' component={HomeScreen}/>
         </Stack.Navigator>
     </NavigationContainer>
   );

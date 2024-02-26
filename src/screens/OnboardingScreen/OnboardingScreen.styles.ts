@@ -16,7 +16,6 @@ export const generateStyles = () => {
             justifyContent: 'space-around',
             alignItems: 'center',
             marginVertical: 10,
-            marginRight: 10,
         },
         imageContainer: {
             marginTop: 30,
@@ -30,15 +29,21 @@ export const generateStyles = () => {
             width: 320,
             fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
             fontWeight: '500',
-            color: '#000000',
+            color: '#150D13',
             textAlign: 'center',
             marginTop: 20,
             paddingHorizontal: 8,
         },
+        footer: {
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            paddingBottom: 10,
+        },
         bulletContainer: {
             flexDirection: 'row',
             justifyContent: 'space-between',
-            marginTop: 40,
+            marginTop: 10,
+            marginBottom: 30,
             marginHorizontal: 100,
             padding: 20,
         },
@@ -49,6 +54,12 @@ export const generateStyles = () => {
             borderWidth: 2,
             backgroundColor: '#FFFFFF',
         },
+        activeBullet:{
+            backgroundColor: '#150D13'
+        },
+        emptyView: {
+            height: 38,
+        } 
     });
 };
 

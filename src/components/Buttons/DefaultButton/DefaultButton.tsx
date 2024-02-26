@@ -1,14 +1,14 @@
 import React from 'react'
 import { IDefaultButtonProps } from './DefaultButton.types'
 import { generateStyles } from './DefaultButton.styles'
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 
 export const DefaultButton = (props: IDefaultButtonProps) => {
-    const {text = 'Default', colors, alignSelf} = props;
+    const {text = 'Default', colors, alignSelf, onPress} = props;
     const styles = generateStyles({colors, alignSelf});
     return (
-        <View style={styles.container}>
+        <TouchableOpacity activeOpacity={0.7} style={styles.container} onPress={onPress}>
             <Text style={styles.text} numberOfLines={1}>{text}</Text>
-        </View>
+        </TouchableOpacity>
     )
 }

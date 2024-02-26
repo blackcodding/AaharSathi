@@ -8,6 +8,7 @@ export interface IDefaultButtonProps {
     text: string;
     colors?: IColorsProps;
     alignSelf?: 'center' | 'flex-start' | 'flex-end';
+    onPress: () => void;
 }
 
 export interface IGenerateStyleProps {
