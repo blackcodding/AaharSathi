@@ -1,11 +1,22 @@
-import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Text} from 'react-native';
+import React, { useEffect } from 'react';
+import {Text, View} from 'react-native';
+import { BackHandler } from "react-native";
 
 export const HomeScreen = () => {
+  useEffect (()=> {
+    const handleBackButton = () => true;
+      BackHandler.addEventListener("hardwareBackPress", handleBackButton);
+      return () => {
+          BackHandler.removeEventListener(
+              "hardwareBackPress",
+              handleBackButton
+          );
+      };
+  },[]);
+  
   return (
-    <SafeAreaView>
+    <View>
       <Text>{'HomeScreen'}</Text>
-    </SafeAreaView>
+    </View>
   );
 };

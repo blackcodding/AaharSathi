@@ -29,10 +29,11 @@ export const generateStyles = () => {
     text: {
       width: 320,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      fontWeight: '500',
+      // fontWeight: '500',
       color: DEFAULT_COLOR.BLACK,
       textAlign: 'center',
       marginTop: 10,
+      fontFamily: 'Rubik-Italic',
     },
     footer: {
       flexDirection: 'column',
