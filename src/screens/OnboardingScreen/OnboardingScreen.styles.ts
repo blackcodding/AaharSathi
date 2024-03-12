@@ -33,7 +33,7 @@ export const generateStyles = () => {
       color: DEFAULT_COLOR.BLACK,
       textAlign: 'center',
       marginTop: 10,
-      fontFamily: 'Rubik-Italic',
+      fontFamily: 'Rubik-Medium',
     },
     footer: {
       flexDirection: 'column',
