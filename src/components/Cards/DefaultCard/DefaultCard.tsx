@@ -11,6 +11,12 @@ export const DefaultCard = (props: IDefaultCardProps) => {
   const styles = generateStyles();
   return (
     <View style={styles.mainContainer}>
+      <Image
+        style={styles.overlayImage}
+        source={{
+          uri: 'https://ik.imagekit.io/igcufd11q/Overlays/PurpleOverlay.png?updatedAt=1711225780236',
+        }}
+      />
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}
@@ -19,7 +25,9 @@ export const DefaultCard = (props: IDefaultCardProps) => {
           }}
         />
       </View>
-      <Text style={styles.itemName}>{'Apple'}</Text>
+      <Text style={styles.itemName} numberOfLines={1}>
+        {'Apple'}
+      </Text>
       <View style={styles.quantityContainer}>
         <PlusIcon
           width={10}
@@ -27,7 +35,9 @@ export const DefaultCard = (props: IDefaultCardProps) => {
           fillColor={DEFAULT_COLOR.BLACK}
           strokeColor={DEFAULT_COLOR.BLACK}
         />
-        <Text style={styles.quantityText}>{'100 gm'}</Text>
+        <Text style={styles.quantityText} numberOfLines={1}>
+          {'100 gm'}
+        </Text>
       </View>
     </View>
   );

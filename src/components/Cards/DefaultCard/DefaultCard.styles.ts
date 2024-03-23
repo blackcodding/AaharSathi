@@ -14,8 +14,15 @@ export const generateStyles = () => {
       marginRight: 10,
       justifyContent: 'center',
       alignItems: 'center',
-      padding: 6,
       elevation: 2,
+    },
+    overlayImage: {
+      position: 'absolute',
+      bottom: 0,
+      width: '100%',
+      height: '40%',
+      objectFit: 'fill',
+      borderRadius: 12,
     },
     imageContainer: {
       width: 25,
@@ -29,7 +36,7 @@ export const generateStyles = () => {
     itemName: {
       fontFamily: 'Rubik-Bold',
       color: DEFAULT_COLOR.WHITE,
-      fontSize: 14,
+      fontSize: 11,
     },
     quantityContainer: {
       flexDirection: 'row',
