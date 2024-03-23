@@ -7,7 +7,7 @@ export const generateStyles = () => {
       width: '22%',
       height: 75,
       backgroundColor: DEFAULT_COLOR.PURPLE_MEDIUM,
-      borderWidth: 2,
+      borderWidth: 1,
       borderRadius: 12,
       borderColor: DEFAULT_COLOR.BLACK,
       marginTop: 8,

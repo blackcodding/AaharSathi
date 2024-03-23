@@ -1,14 +1,13 @@
-import {Image, View} from 'react-native';
-
 import {PlusIcon} from '../../../assets/icons/PlusIcon';
 import React from 'react';
+import {TouchableOpacity} from 'react-native';
 import {generateStyles} from './AddItemCard.styles';
 
 export const AddItemCard = () => {
   const styles = generateStyles();
   return (
-    <View style={styles.mainContainer}>
+    <TouchableOpacity activeOpacity={0.7} style={styles.mainContainer}>
       <PlusIcon />
-    </View>
+    </TouchableOpacity>
   );
 };
