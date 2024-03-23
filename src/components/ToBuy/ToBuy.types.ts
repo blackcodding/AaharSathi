@@ -1,3 +1,1 @@
-export interface IToBuyProps {
-    
-};
+export interface IToBuyProps {}

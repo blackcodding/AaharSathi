@@ -1,3 +1,1 @@
-export interface IUpcomingListProps {
-    
-};
+export interface IUpcomingListProps {}

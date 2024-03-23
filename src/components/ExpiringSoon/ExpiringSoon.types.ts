@@ -1,3 +1,1 @@
-export interface IExpiringSoonProps {
-    
-};
+export interface IExpiringSoonProps {}

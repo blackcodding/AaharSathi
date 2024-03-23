@@ -1,4 +1,4 @@
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../../Theme/Fonts';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../../Theme/Theme';
 
 import {IGenerateStyleProps} from './DefaultButton.types';
 import {StyleSheet} from 'react-native';

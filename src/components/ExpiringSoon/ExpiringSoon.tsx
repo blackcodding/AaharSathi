@@ -1,19 +1,51 @@
-import React from 'react'
-import { View } from 'react-native'
-import { generateStyles } from './ExpiringSoon.styles';
-import { IExpiringSoonProps } from './ExpiringSoon.types';
-import { DefaultCard } from '../Cards/DefaultCard/DefaultCard';
+import {FlatList, View} from 'react-native';
+import React, {useRef} from 'react';
 
-export const ExpiringSoon = (props:IExpiringSoonProps) => {
-    const {} = props;
-    const styles = generateStyles();
-    return (
-        <View style={styles.mainContainer}>
-            <DefaultCard/>
-            <DefaultCard/>
-            <DefaultCard/>
-            <DefaultCard/>
-            <DefaultCard/>
-        </View>
-    );
+import {DetailCard} from '../Cards/DetailCard/DetailCard';
+import {IExpiringSoonProps} from './ExpiringSoon.types';
+import {generateStyles} from './ExpiringSoon.styles';
+
+const Data = [
+  {
+    id: '1',
+  },
+  {
+    id: '2',
+  },
+  {
+    id: '3',
+  },
+  {
+    id: '4',
+  },
+  {
+    id: '5',
+  },
+  {
+    id: '6',
+  },
+  {
+    id: '7',
+  },
+];
+
+export const ExpiringSoon = (props: IExpiringSoonProps) => {
+  const {} = props;
+  const styles = generateStyles();
+  const flatListRef = useRef();
+  return (
+    <View style={styles.mainContainer}>
+      <FlatList
+        ref={flatListRef}
+        data={Data}
+        renderItem={() => {
+          return <DetailCard />;
+        }}
+        showsHorizontalScrollIndicator={false}
+        horizontal={true}
+        bounces={false}
+        keyExtractor={item => item.id}
+      />
+    </View>
+  );
 };

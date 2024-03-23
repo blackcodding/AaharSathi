@@ -1,7 +1,7 @@
 import {Dimensions, FlatList, View} from 'react-native';
 import React, {useCallback, useRef, useState} from 'react';
 
-import {DEFAULT_COLOR} from '../../Theme/Fonts';
+import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import {HomeScreen} from '../HomeScreen/HomeScreen';
 import {OnboardingScreen} from './OnboardingScreen';

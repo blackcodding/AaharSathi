@@ -1,11 +1,11 @@
-import { StyleSheet } from "react-native"
+import {StyleSheet} from 'react-native';
 
 export const generateStyles = () => {
-    return StyleSheet.create( {
-        mainContainer: {
-            flexWrap: 'wrap',
-            flexDirection: 'row',
-            marginBottom: 16,    
-        },
-    });
+  return StyleSheet.create({
+    mainContainer: {
+      flexWrap: 'wrap',
+      flexDirection: 'row',
+      marginBottom: 16,
+    },
+  });
 };
