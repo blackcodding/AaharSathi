@@ -7,7 +7,7 @@ export const generateStyles = () => {
       width: '22%',
       height: 75,
       backgroundColor: DEFAULT_COLOR.PURPLE_MEDIUM,
-      borderWidth: 1,
+      borderWidth: 1.5,
       borderRadius: 12,
       borderColor: DEFAULT_COLOR.BLACK,
       marginTop: 8,
@@ -34,7 +34,7 @@ export const generateStyles = () => {
       objectFit: 'contain',
     },
     itemName: {
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Rubik-ExtraBold',
       color: DEFAULT_COLOR.WHITE,
       fontSize: 11,
     },
@@ -44,7 +44,7 @@ export const generateStyles = () => {
       alignItems: 'center',
     },
     quantityText: {
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Rubik-Bold',
       color: DEFAULT_COLOR.BLACK,
       fontSize: 10,
       marginLeft: 2,

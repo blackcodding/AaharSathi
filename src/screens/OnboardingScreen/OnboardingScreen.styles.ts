@@ -48,6 +48,7 @@ export const generateStyles = () => {
       marginHorizontal: 120,
       padding: 20,
     },
+
     bullet: {
       height: 12,
       width: 12,
