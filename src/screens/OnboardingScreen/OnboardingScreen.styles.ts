@@ -54,12 +54,11 @@ export const generateStyles = () => {
       marginHorizontal: 120,
       padding: 20,
     },
-
     bullet: {
       height: 12,
       width: 12,
       borderRadius: 50,
-      borderWidth: 2,
+      borderWidth: 1.5,
       backgroundColor: DEFAULT_COLOR.WHITE,
     },
     activeBullet: {

@@ -7,7 +7,7 @@ export const generateStyles = () => {
       width: '22%',
       height: 72,
       backgroundColor: DEFAULT_COLOR.PURPLE_LIGHT,
-      borderWidth: 2,
+      borderWidth: 1.5,
       borderRadius: 12,
       borderColor: DEFAULT_COLOR.BLACK,
       borderStyle: 'dashed',

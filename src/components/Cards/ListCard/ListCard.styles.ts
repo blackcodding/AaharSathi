@@ -67,7 +67,7 @@ export const generateStyles = () => {
       height: 30,
       width: 30,
       alignSelf: 'flex-end',
-      borderWidth: 1,
+      borderWidth: 1.5,
       borderRadius: 50,
       borderColor: DEFAULT_COLOR.BLACK,
       opacity: 0.1,

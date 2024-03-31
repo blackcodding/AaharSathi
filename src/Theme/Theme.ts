@@ -7,7 +7,7 @@ export const DEFAULT_FONT_SIZE = {
 export const DEFAULT_COLOR = {
   WHITE: '#FFFFFF',
   BLACK: '#181818',
-  CRIMSON: '#FFAFAF',
+  CRIMSON: '#DD9D9D',
   GRAY_LIGHT: '#CECECE',
   GRAY_MEDIUM: '#B7B7B7',
   GRAY_DARK: '#6F6F6F',
