@@ -6,22 +6,24 @@ import {View} from 'react-native';
 import {generateStyles} from './ToBuy.styles';
 
 export const ToBuy = (props: IToBuyProps) => {
-  const {} = props;
+  const {data, handleAddItemPress} = props;
   const styles = generateStyles();
+
   return (
     <View style={styles.mainContainer}>
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <DefaultCard />
-      <AddItemCard />
+      {!!data &&
+        data.length > 0 &&
+        data.map(data => {
+          return (
+            <DefaultCard
+              key={data.id}
+              image={data.image}
+              name={data.name}
+              quantity={data.quantity}
+            />
+          );
+        })}
+      <AddItemCard handleAddItemPress={handleAddItemPress} />
     </View>
   );
 };

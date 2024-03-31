@@ -1,1 +1,3 @@
-export interface IDefaultAddItemCardProps {}
+export interface IAddItemCardProps {
+  handleAddItemPress: () => void;
+}

@@ -20,12 +20,68 @@ export const HomeScreen = () => {
   }, []);
 
   const styles = generateStyles();
+
+  const handleProfileClick = () => {
+    //TODO:
+  };
+
+  const onAddItemClick = () => {
+    //TODO:
+  };
+
+  const handleSeeAllExpiryCardClick = () => {
+    //TODO:
+  };
+
+  const handleSeeAllUpcomingListClick = () => {
+    //TODO:
+  };
+
+  const toBuyData = [
+    {
+      id: '1',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+    {
+      id: '2',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+    {
+      id: '3',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+    {
+      id: '4',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+    {
+      id: '5',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+  ];
+
   return (
     <ScrollView style={styles.mainContainer}>
       <Profile
         image={
           'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
         }
+        handleProfileClick={handleProfileClick}
       />
       <ContainerHeading
         title={'Welcome Supriya'}
@@ -36,14 +92,22 @@ export const HomeScreen = () => {
       />
       <View style={styles.Container}>
         <ContainerHeading title={'To Buy'} />
-        <ToBuy />
+        <ToBuy data={toBuyData} handleAddItemPress={onAddItemClick} />
       </View>
       <View style={styles.Container}>
-        <ContainerHeading title={'Expiring Soon'} subtitle={'See All'} />
+        <ContainerHeading
+          title={'Expiring Soon'}
+          subtitle={'See All'}
+          onPress={handleSeeAllExpiryCardClick}
+        />
         <ExpiringSoon />
       </View>
       <View style={styles.Container}>
-        <ContainerHeading title={'Upcoming List'} subtitle={'See All'} />
+        <ContainerHeading
+          title={'Upcoming List'}
+          subtitle={'See All'}
+          onPress={handleSeeAllUpcomingListClick}
+        />
         <UpcomingList />
       </View>
     </ScrollView>

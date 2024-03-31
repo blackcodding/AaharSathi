@@ -1,14 +1,13 @@
-import {Image, Text, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 
 import {DEFAULT_COLOR} from '../../../Theme/Theme';
 import {IListCardProps} from './ListCard.types';
-import {Profile} from '../../Profile/Profile';
 import React from 'react';
 import {Tag} from '../../Tags/Tag';
 import {generateStyles} from './ListCard.styles';
 
 export const ListCard = (props: IListCardProps) => {
-  const {} = props;
+  const {onOptionsClick, onDetailsClick, onAddItemClick} = props;
   const styles = generateStyles();
 
   return (
@@ -22,11 +21,14 @@ export const ListCard = (props: IListCardProps) => {
             backgroundColor={DEFAULT_COLOR.GREEN_MEDIUM}
           />
         </View>
-        <View style={styles.threeDotsContainer}>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={onOptionsClick}
+          style={styles.threeDotsContainer}>
           <View style={styles.bullet} />
           <View style={styles.bullet} />
           <View style={styles.bullet} />
-        </View>
+        </TouchableOpacity>
       </View>
       <Text style={styles.subheading}>{'3 Item remaining'}</Text>
       <View style={styles.iconContainer}>
@@ -38,14 +40,17 @@ export const ListCard = (props: IListCardProps) => {
             }}
           />
         </View>
-        <View style={styles.arrowContainer}>
+        <TouchableOpacity
+          activeOpacity={0.7}
+          onPress={onDetailsClick}
+          style={styles.arrowContainer}>
           <Image
             style={styles.commonImage}
             source={{
               uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/next.png?updatedAt=1711578556017',
             }}
           />
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={styles.detailContainer}>
         <View style={styles.dateContainer}>
@@ -61,14 +66,17 @@ export const ListCard = (props: IListCardProps) => {
         </View>
         <View style={styles.amountContainer}>
           <Text style={styles.amount}>{'$: 500'}</Text>
-          <View style={styles.addItemContainer}>
+          <TouchableOpacity
+            activeOpacity={0.7}
+            onPress={onAddItemClick}
+            style={styles.addItemContainer}>
             <Image
               style={styles.commonImage}
               source={{
                 uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/plus.png?updatedAt=1711579118614',
               }}
             />
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </View>

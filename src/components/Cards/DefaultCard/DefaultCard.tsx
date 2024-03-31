@@ -7,7 +7,7 @@ import React from 'react';
 import {generateStyles} from './DefaultCard.styles';
 
 export const DefaultCard = (props: IDefaultCardProps) => {
-  const {} = props;
+  const {image, name, quantity} = props;
   const styles = generateStyles();
   return (
     <View style={styles.mainContainer}>
@@ -21,22 +21,24 @@ export const DefaultCard = (props: IDefaultCardProps) => {
         <Image
           style={styles.image}
           source={{
-            uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+            uri: image,
           }}
         />
       </View>
       <Text style={styles.itemName} numberOfLines={1}>
-        {'Apple'}
+        {name}
       </Text>
       <View style={styles.quantityContainer}>
-        <PlusIcon
-          width={10}
-          height={10}
-          fillColor={DEFAULT_COLOR.BLACK}
-          strokeColor={DEFAULT_COLOR.BLACK}
-        />
+        {!!quantity && (
+          <PlusIcon
+            width={10}
+            height={10}
+            fillColor={DEFAULT_COLOR.BLACK}
+            strokeColor={DEFAULT_COLOR.BLACK}
+          />
+        )}
         <Text style={styles.quantityText} numberOfLines={1}>
-          {'100 gm'}
+          {quantity}
         </Text>
       </View>
     </View>

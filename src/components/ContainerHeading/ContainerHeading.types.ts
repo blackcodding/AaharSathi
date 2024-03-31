@@ -4,4 +4,5 @@ export interface IContainerHeadingProps {
   titleSize?: number;
   subtitle?: string;
   subTitleSize?: number;
+  onPress?: () => void;
 }
