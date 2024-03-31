@@ -5,7 +5,7 @@ import React from 'react';
 import {generateStyles} from './OnboardingScreen.styles';
 
 export const OnboardingScreen = (props: IOnboardingScreenProps) => {
-  const {imageUrl, text = 'Screen 1'} = props;
+  const {imageUrl, text, subtext} = props;
   const styles = generateStyles();
   return (
     <View style={styles.itemContainer}>
@@ -15,6 +15,9 @@ export const OnboardingScreen = (props: IOnboardingScreenProps) => {
       <View>
         <Text style={styles.text} numberOfLines={5}>
           {text}
+        </Text>
+        <Text style={styles.subtext} numberOfLines={5}>
+          {subtext}
         </Text>
       </View>
     </View>

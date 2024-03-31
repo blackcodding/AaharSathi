@@ -9,15 +9,15 @@ export const generateStyles = (props: IGenerateStyleProps) => {
   return StyleSheet.create({
     container: {
       alignSelf: alignSelf || 'center',
-      borderWidth: 2,
+      borderWidth: 1.5,
       borderRadius: 50,
       borderColor: borderColor || DEFAULT_COLOR.BLACK,
       backgroundColor: backgroundColor || DEFAULT_COLOR.WHITE,
-      elevation: 3,
+      elevation: 2,
       shadowColor: DEFAULT_COLOR.BLACK,
       shadowOffset: {
         width: 0,
-        height: 1,
+        height: 2,
       },
       shadowOpacity: 0.22,
       shadowRadius: 2.22,
@@ -25,9 +25,9 @@ export const generateStyles = (props: IGenerateStyleProps) => {
     text: {
       color: textColor || DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.BUTTON_SIZE,
-      fontWeight: '500',
+      fontFamily: 'Rubik-Regular',
       paddingHorizontal: 12,
-      paddingVertical: 6,
+      paddingVertical: 4,
     },
   });
 };
