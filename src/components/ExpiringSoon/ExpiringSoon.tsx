@@ -5,41 +5,24 @@ import {DetailCard} from '../Cards/DetailCard/DetailCard';
 import {IExpiringSoonProps} from './ExpiringSoon.types';
 import {generateStyles} from './ExpiringSoon.styles';
 
-const Data = [
-  {
-    id: '1',
-  },
-  {
-    id: '2',
-  },
-  {
-    id: '3',
-  },
-  {
-    id: '4',
-  },
-  {
-    id: '5',
-  },
-  {
-    id: '6',
-  },
-  {
-    id: '7',
-  },
-];
-
 export const ExpiringSoon = (props: IExpiringSoonProps) => {
-  const {} = props;
+  const {data} = props;
   const styles = generateStyles();
   const flatListRef = useRef();
   return (
     <View style={styles.mainContainer}>
       <FlatList
         ref={flatListRef}
-        data={Data}
-        renderItem={() => {
-          return <DetailCard />;
+        data={data}
+        renderItem={({item}) => {
+          return (
+            <DetailCard
+              tagDetail={item.tagDetail}
+              image={item.image}
+              name={item.name}
+              quantity={item.quantity}
+            />
+          );
         }}
         showsHorizontalScrollIndicator={false}
         horizontal={true}

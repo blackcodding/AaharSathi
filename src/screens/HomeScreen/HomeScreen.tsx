@@ -75,6 +75,34 @@ export const HomeScreen = () => {
     },
   ];
 
+  //API Call -> expiringSoonData
+  const expiringSoonData = [
+    {
+      id: '1',
+      tagDetail: '30 Mar',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+    {
+      id: '2',
+      tagDetail: '30 Apr',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+    {
+      id: '3',
+      tagDetail: '30 Jun',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+  ];
+
   return (
     <ScrollView style={styles.mainContainer}>
       <Profile
@@ -100,7 +128,7 @@ export const HomeScreen = () => {
           subtitle={'See All'}
           onPress={handleSeeAllExpiryCardClick}
         />
-        <ExpiringSoon />
+        <ExpiringSoon data={expiringSoonData} />
       </View>
       <View style={styles.Container}>
         <ContainerHeading
