@@ -7,16 +7,26 @@ import {Tag} from '../../Tags/Tag';
 import {generateStyles} from './ListCard.styles';
 
 export const ListCard = (props: IListCardProps) => {
-  const {onOptionsClick, onDetailsClick, onAddItemClick} = props;
+  const {
+    listName,
+    totalQuantity,
+    remainingQuantity,
+    profileImage,
+    date,
+    amount,
+    onOptionsClick,
+    onDetailsClick,
+    onAddItemClick,
+  } = props;
   const styles = generateStyles();
 
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerContainer}>
         <View style={styles.headingContainer}>
-          <Text style={styles.heading}>{'Birthday List'}</Text>
+          <Text style={styles.heading}>{listName}</Text>
           <Tag
-            text={'5 Items'}
+            text={totalQuantity}
             color={DEFAULT_COLOR.WHITE}
             backgroundColor={DEFAULT_COLOR.GREEN_MEDIUM}
           />
@@ -30,13 +40,13 @@ export const ListCard = (props: IListCardProps) => {
           <View style={styles.bullet} />
         </TouchableOpacity>
       </View>
-      <Text style={styles.subheading}>{'3 Item remaining'}</Text>
+      <Text style={styles.subheading}>{remainingQuantity}</Text>
       <View style={styles.iconContainer}>
         <View style={styles.imageContainer}>
           <Image
             style={styles.image}
             source={{
-              uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+              uri: profileImage,
             }}
           />
         </View>
@@ -62,10 +72,10 @@ export const ListCard = (props: IListCardProps) => {
               }}
             />
           </View>
-          <Text style={styles.date}>{'1st April 2024'}</Text>
+          <Text style={styles.date}>{date}</Text>
         </View>
         <View style={styles.amountContainer}>
-          <Text style={styles.amount}>{'$: 500'}</Text>
+          <Text style={styles.amount}>{amount}</Text>
           <TouchableOpacity
             activeOpacity={0.7}
             onPress={onAddItemClick}

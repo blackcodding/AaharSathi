@@ -4,6 +4,7 @@ import React, {useEffect} from 'react';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
+import {PopUp} from '../../components/PopUp/PopUp';
 import {Profile} from '../../components/Profile/Profile';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
@@ -103,41 +104,87 @@ export const HomeScreen = () => {
     },
   ];
 
+  const upcomingListData = [
+    {
+      id: '1',
+      listName: 'Birthday List',
+      totalQuantity: '5 Items',
+      remainingQuantity: '3 Item remaining',
+      profileImage:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+      date: '1st April 2024',
+      amount: '$: 500',
+    },
+    {
+      id: '2',
+      listName: 'Birthday List',
+      totalQuantity: '5 Items',
+      remainingQuantity: '3 Item remaining',
+      profileImage:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+      date: '1st April 2024',
+      amount: '$: 500',
+    },
+    {
+      id: '3',
+      listName: 'Birthday List',
+      totalQuantity: '5 Items',
+      remainingQuantity: '3 Item remaining',
+      profileImage:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+      date: '1st April 2024',
+      amount: '$: 500',
+    },
+    {
+      id: '4',
+      listName: 'Birthday List',
+      totalQuantity: '5 Items',
+      remainingQuantity: '3 Item remaining',
+      profileImage:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+      date: '1st April 2024',
+      amount: '$: 500',
+    },
+  ];
+
   return (
-    <ScrollView style={styles.mainContainer}>
-      <Profile
-        image={
-          'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
-        }
-        handleProfileClick={handleProfileClick}
-      />
-      <ContainerHeading
-        title={'Welcome Supriya'}
-        titleColor={DEFAULT_COLOR.RED_MEDIUM}
-        titleSize={22}
-        subtitle={'👋'}
-        subTitleSize={20}
-      />
-      <View style={styles.Container}>
-        <ContainerHeading title={'To Buy'} />
-        <ToBuy data={toBuyData} handleAddItemPress={onAddItemClick} />
-      </View>
-      <View style={styles.Container}>
-        <ContainerHeading
-          title={'Expiring Soon'}
-          subtitle={'See All'}
-          onPress={handleSeeAllExpiryCardClick}
+    <View>
+      <ScrollView style={styles.mainContainer}>
+        <Profile
+          image={
+            'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
+          }
+          handleProfileClick={handleProfileClick}
         />
-        <ExpiringSoon data={expiringSoonData} />
-      </View>
-      <View style={styles.Container}>
         <ContainerHeading
-          title={'Upcoming List'}
-          subtitle={'See All'}
-          onPress={handleSeeAllUpcomingListClick}
+          title={'Welcome Supriya'}
+          titleColor={DEFAULT_COLOR.RED_MEDIUM}
+          titleSize={22}
+          subtitle={'👋'}
+          subTitleSize={20}
         />
-        <UpcomingList />
-      </View>
-    </ScrollView>
+        <View style={styles.Container}>
+          <ContainerHeading title={'To Buy'} />
+          <ToBuy data={toBuyData} handleAddItemPress={onAddItemClick} />
+        </View>
+        <View style={styles.Container}>
+          <ContainerHeading
+            title={'Expiring Soon'}
+            subtitle={'See All'}
+            onPress={handleSeeAllExpiryCardClick}
+          />
+          <ExpiringSoon data={expiringSoonData} />
+        </View>
+        <View style={styles.Container}>
+          <ContainerHeading
+            title={'Upcoming List'}
+            subtitle={'See All'}
+            onPress={handleSeeAllUpcomingListClick}
+          />
+          <UpcomingList data={upcomingListData} />
+        </View>
+      </ScrollView>
+      <PopUp />
+    </View>
   );
 };

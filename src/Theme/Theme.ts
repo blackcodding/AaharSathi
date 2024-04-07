@@ -5,6 +5,7 @@ export const DEFAULT_FONT_SIZE = {
 };
 
 export const DEFAULT_COLOR = {
+  TRANSLUCENT_COLOR: 'rgba(52, 64, 84, 0.8)',
   WHITE: '#FFFFFF',
   BLACK: '#181818',
   CRIMSON: '#DD9D9D',

@@ -5,32 +5,8 @@ import {IUpcomingListProps} from './UpcomingList.types';
 import {ListCard} from '../Cards/ListCard/ListCard';
 import {generateStyles} from './UpcomingList.styles';
 
-const Data = [
-  {
-    id: '1',
-  },
-  {
-    id: '2',
-  },
-  {
-    id: '3',
-  },
-  {
-    id: '4',
-  },
-  {
-    id: '5',
-  },
-  {
-    id: '6',
-  },
-  {
-    id: '7',
-  },
-];
-
 export const UpcomingList = (props: IUpcomingListProps) => {
-  const {} = props;
+  const {data} = props;
   const styles = generateStyles();
   const flatListRef = useRef();
 
@@ -38,9 +14,27 @@ export const UpcomingList = (props: IUpcomingListProps) => {
     <View style={styles.mainContainer}>
       <FlatList
         ref={flatListRef}
-        data={Data}
-        renderItem={() => {
-          return <ListCard />;
+        data={data}
+        renderItem={({item}) => {
+          return (
+            <ListCard
+              listName={item.listName}
+              totalQuantity={item.totalQuantity}
+              remainingQuantity={item.remainingQuantity}
+              profileImage={item.profileImage}
+              date={item.date}
+              amount={item.amount}
+              onOptionsClick={function (): void {
+                throw new Error('Function not implemented.');
+              }}
+              onDetailsClick={function (): void {
+                throw new Error('Function not implemented.');
+              }}
+              onAddItemClick={function (): void {
+                throw new Error('Function not implemented.');
+              }}
+            />
+          );
         }}
         showsHorizontalScrollIndicator={false}
         horizontal={true}
