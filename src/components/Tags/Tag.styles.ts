@@ -1,4 +1,5 @@
-import {DEFAULT_COLOR} from '../../Theme/Theme';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+
 import {ITagStyleProps} from './Tag.types';
 import {StyleSheet} from 'react-native';
 
@@ -30,7 +31,7 @@ export const generateStyles = (props: ITagStyleProps) => {
     quantityText: {
       fontFamily: 'Rubik-Bold',
       color: color,
-      fontSize: 8,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_SMALL,
     },
   });
 };

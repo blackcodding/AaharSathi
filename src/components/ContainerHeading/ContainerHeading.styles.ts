@@ -1,4 +1,5 @@
-import {DEFAULT_COLOR} from '../../Theme/Theme';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: any) => {
@@ -11,12 +12,12 @@ export const generateStyles = (props: any) => {
     },
     title: {
       fontFamily: 'Rubik-Bold',
-      fontSize: titleSize || 16,
+      fontSize: titleSize || DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       color: titleColor || DEFAULT_COLOR.BLACK,
     },
     subtitle: {
       fontFamily: 'Rubik-Medium',
-      fontSize: subTitleSize || 16,
+      fontSize: subTitleSize || DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       color: DEFAULT_COLOR.BLUE_MEDIUM,
     },
   });

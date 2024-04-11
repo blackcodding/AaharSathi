@@ -16,15 +16,27 @@ export const generateStyles = () => {
     popUpContainer: {
       maxHeight: '60%',
       maxWidth: '80%',
-      backgroundColor: 'white',
       paddingVertical: 20,
       paddingHorizontal: 20,
       borderRadius: 10,
+      backgroundColor: DEFAULT_COLOR.WHITE,
     },
-    text: {
-      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+    headingContainer: {
       marginBottom: 10,
     },
-    subText: {},
+    text: {
+      color: DEFAULT_COLOR.BLACK,
+      marginRight: 40,
+      fontFamily: 'Rubik-Medium',
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+    },
+    icon: {
+      position: 'absolute',
+      right: 2,
+    },
+    subText: {
+      color: DEFAULT_COLOR.GRAY_DARK,
+      fontFamily: 'Rubik-Regular',
+    },
   });
 };

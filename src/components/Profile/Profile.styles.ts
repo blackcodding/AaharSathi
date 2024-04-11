@@ -10,7 +10,6 @@ export const generateStyles = (props: any) => {
       borderRadius: 50,
       borderWidth: showBorder ? 1.5 : 0,
       borderColor: borderColor || DEFAULT_COLOR.BLACK,
-      marginBottom: 12,
     },
     image: {
       width: '100%',

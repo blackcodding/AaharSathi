@@ -1,4 +1,5 @@
-import {DEFAULT_COLOR} from '../../../Theme/Theme';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../../Theme/Theme';
+
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = () => {
@@ -36,7 +37,7 @@ export const generateStyles = () => {
     itemName: {
       fontFamily: 'Rubik-ExtraBold',
       color: DEFAULT_COLOR.WHITE,
-      fontSize: 11,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
     },
     quantityContainer: {
       flexDirection: 'row',
@@ -46,7 +47,7 @@ export const generateStyles = () => {
     quantityText: {
       fontFamily: 'Rubik-Bold',
       color: DEFAULT_COLOR.BLACK,
-      fontSize: 10,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_SMALL,
       marginLeft: 2,
     },
   });

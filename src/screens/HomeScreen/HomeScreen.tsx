@@ -1,9 +1,10 @@
 import {BackHandler, ScrollView} from 'react-native';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useEffect} from 'react';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
-import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
+import {Menu} from '../../components/Menu/Menu';
 import {PopUp} from '../../components/PopUp/PopUp';
 import {Profile} from '../../components/Profile/Profile';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
@@ -150,18 +151,20 @@ export const HomeScreen = () => {
   return (
     <View>
       <ScrollView style={styles.mainContainer}>
-        <Profile
-          image={
-            'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
-          }
-          handleProfileClick={handleProfileClick}
-        />
+        <View style={styles.profileContainer}>
+          <Profile
+            image={
+              'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
+            }
+            handleProfileClick={handleProfileClick}
+          />
+        </View>
         <ContainerHeading
           title={'Welcome Supriya'}
           titleColor={DEFAULT_COLOR.RED_MEDIUM}
-          titleSize={22}
+          titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_LARGE}
           subtitle={'👋'}
-          subTitleSize={20}
+          subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
         />
         <View style={styles.Container}>
           <ContainerHeading title={'To Buy'} />
@@ -184,7 +187,8 @@ export const HomeScreen = () => {
           <UpcomingList data={upcomingListData} />
         </View>
       </ScrollView>
-      <PopUp />
+      {/* <PopUp onClosePress={() => {}} /> */}
+      {/* <Menu /> */}
     </View>
   );
 };

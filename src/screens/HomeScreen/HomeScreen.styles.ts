@@ -5,6 +5,9 @@ export const generateStyles = () => {
     mainContainer: {
       padding: 12,
     },
+    profileContainer: {
+      marginBottom: 10,
+    },
     Container: {},
   });
 };

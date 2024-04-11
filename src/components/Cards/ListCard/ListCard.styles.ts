@@ -1,4 +1,5 @@
-import {DEFAULT_COLOR} from '../../../Theme/Theme';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../../Theme/Theme';
+
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = () => {
@@ -24,7 +25,7 @@ export const generateStyles = () => {
       flexDirection: 'row',
     },
     heading: {
-      fontSize: 16,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       fontFamily: 'Rubik-Bold',
       color: DEFAULT_COLOR.BLACK,
       marginRight: 8,
@@ -41,7 +42,7 @@ export const generateStyles = () => {
       marginRight: 2,
     },
     subheading: {
-      fontSize: 12,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
       fontFamily: 'Rubik-Bold',
       color: DEFAULT_COLOR.BLACK,
       marginTop: 2,
@@ -94,7 +95,7 @@ export const generateStyles = () => {
       opacity: 0.6,
     },
     date: {
-      fontSize: 10,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
       fontFamily: 'Rubik-Medium',
       color: DEFAULT_COLOR.BLACK,
       marginLeft: 6,
@@ -105,7 +106,7 @@ export const generateStyles = () => {
       alignItems: 'center',
     },
     amount: {
-      fontSize: 10,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
       fontFamily: 'Rubik-Medium',
       color: DEFAULT_COLOR.BLACK,
     },
