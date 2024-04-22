@@ -13,29 +13,46 @@ export const generateStyles = () => {
     menuContainer: {
       height: '100%',
       maxWidth: '80%',
-      //   paddingVertical: 20,
-      //   paddingHorizontal: 20,
       backgroundColor: DEFAULT_COLOR.WHITE,
     },
-    headingContainer: {
+    Menu: {
+      padding: 10,
+    },
+    favoriteListContainer: {
+      marginVertical: 10,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+    },
+    listName: {
+      marginBottom: 10,
+    },
+    feedbackAndHelpContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    profileMainContainer: {
+      width: '100%',
+      height: '20%',
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      padding: 10,
+    },
+    profileContainer: {
       flexDirection: 'column',
-      paddingVertical: 20,
-      paddingHorizontal: 20,
-      backgroundColor: DEFAULT_COLOR.VIOLET_MEDIUM,
     },
     personalDetailsContainer: {
-      marginTop: 10,
+      flexDirection: 'column',
+      justifyContent: 'center',
+      marginTop: 8,
     },
     name: {
       color: DEFAULT_COLOR.BLACK,
       fontFamily: 'Rubik-Bold',
-      fontSize: 14,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
     },
     phoneNumber: {
       color: DEFAULT_COLOR.BLACK,
-      fontFamily: 'Rubik-Medium',
-      fontSize: 14,
+      fontFamily: 'Rubik-Bold',
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
     },
-    bodyContainer: {},
   });
 };

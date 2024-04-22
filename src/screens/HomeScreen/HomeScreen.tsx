@@ -1,6 +1,6 @@
 import {BackHandler, ScrollView} from 'react-native';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
@@ -13,6 +13,8 @@ import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 
 export const HomeScreen = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+
   useEffect(() => {
     const handleBackButton = () => true;
     BackHandler.addEventListener('hardwareBackPress', handleBackButton);
@@ -24,7 +26,11 @@ export const HomeScreen = () => {
   const styles = generateStyles();
 
   const handleProfileClick = () => {
-    //TODO:
+    setOpenMenu(true);
+  };
+
+  const handleCloseMenuClick = () => {
+    setOpenMenu(false);
   };
 
   const onAddItemClick = () => {
@@ -77,7 +83,6 @@ export const HomeScreen = () => {
     },
   ];
 
-  //API Call -> expiringSoonData
   const expiringSoonData = [
     {
       id: '1',
@@ -188,7 +193,7 @@ export const HomeScreen = () => {
         </View>
       </ScrollView>
       {/* <PopUp onClosePress={() => {}} /> */}
-      {/* <Menu /> */}
+      {!!openMenu && <Menu onCloseMenuPress={handleCloseMenuClick} />}
     </View>
   );
 };

@@ -18,7 +18,7 @@ export const generateStyles = () => {
       maxWidth: '80%',
       paddingVertical: 20,
       paddingHorizontal: 20,
-      borderRadius: 10,
+      borderRadius: 12,
       backgroundColor: DEFAULT_COLOR.WHITE,
     },
     headingContainer: {
