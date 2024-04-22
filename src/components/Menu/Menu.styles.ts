@@ -13,7 +13,7 @@ export const generateStyles = () => {
     menuContainer: {
       height: '100%',
       maxWidth: '80%',
-      backgroundColor: DEFAULT_COLOR.WHITE,
+      backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     Menu: {
       padding: 10,
@@ -46,12 +46,12 @@ export const generateStyles = () => {
     },
     name: {
       color: DEFAULT_COLOR.BLACK,
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Rubik-Regular',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
     },
     phoneNumber: {
       color: DEFAULT_COLOR.BLACK,
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Rubik-Regular',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
     },
   });

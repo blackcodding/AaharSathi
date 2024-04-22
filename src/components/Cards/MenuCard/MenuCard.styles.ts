@@ -15,7 +15,7 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
       marginHorizontal: shouldFlex ? 2 : 0,
       marginVertical: 4,
       borderRadius: 12,
-      borderWidth: 1.5,
+      borderWidth: 1.25,
       borderColor: DEFAULT_COLOR.BLACK,
     },
     logoImage: {
@@ -26,7 +26,7 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
     name: {
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Rubik-Regular',
     },
   });
 };
