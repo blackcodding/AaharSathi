@@ -1,17 +1,20 @@
+import React, {useCallback} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
 import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
-import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {IMenuProps} from './Menu.types';
 import {MenuCard} from '../Cards/MenuCard/MenuCard';
 import {PencilIcon} from '../../assets/icons/PencilIcon';
 import {Profile} from '../Profile/Profile';
-import React from 'react';
 import {generateStyles} from './Menu.styles';
 
 export const Menu = (props: IMenuProps) => {
   const {onCloseMenuPress} = props;
   const styles = generateStyles();
+
+  const handleDashboardClick = useCallback(() => {
+    onCloseMenuPress();
+  }, []);
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -35,7 +38,10 @@ export const Menu = (props: IMenuProps) => {
         </View>
         <View style={styles.Menu}>
           <ContainerHeading title={'Menu'} />
-          <MenuCard name={'Dashboard'} />
+          <MenuCard
+            name={'Dashboard'}
+            handleMenuCardClick={handleDashboardClick}
+          />
           <MenuCard name={'My List'} />
           <MenuCard name={'Create List'} />
           <MenuCard name={'Inventory'} />

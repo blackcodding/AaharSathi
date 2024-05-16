@@ -5,12 +5,7 @@
  * @format
  */
 
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  useColorScheme,
-} from 'react-native';
+import {StatusBar, useColorScheme} from 'react-native';
 
 import {DEFAULT_COLOR} from './src/Theme/Theme';
 import {HomeScreen} from './src/screens/HomeScreen/HomeScreen';
