@@ -1,7 +1,7 @@
 import {Dimensions, FlatList, View} from 'react-native';
 import React, {useCallback, useRef, useState} from 'react';
 
-import {DEFAULT_COLOR} from '../../Theme/Fonts';
+import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import {HomeScreen} from '../HomeScreen/HomeScreen';
 import {OnboardingScreen} from './OnboardingScreen';
@@ -15,19 +15,25 @@ const Data = [
     id: '1',
     imageUrl:
       'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
-    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
+    text: 'Effortless Management',
+    subtext:
+      'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
   },
   {
     id: '2',
     imageUrl:
       'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
-    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
+    text: 'Effortless Management',
+    subtext:
+      'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
   },
   {
     id: '3',
     imageUrl:
       'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
-    text: 'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
+    text: 'Effortless Management',
+    subtext:
+      'Effortlessly manage your groceries, expiry dates and stock with Aahar Sathi. Ensuring freshness and efficiency.',
   },
 ];
 
@@ -67,7 +73,11 @@ export const OnboardingScreenWrapper = () => {
         data={Data}
         renderItem={({item}) => {
           return (
-            <OnboardingScreen imageUrl={item?.imageUrl} text={item.text} />
+            <OnboardingScreen
+              imageUrl={item?.imageUrl}
+              text={item.text}
+              subtext={item.subtext}
+            />
           );
         }}
         showsHorizontalScrollIndicator={false}
@@ -92,11 +102,11 @@ export const OnboardingScreenWrapper = () => {
         {index === 2 ? (
           <DefaultButton
             text={'Get Started'}
-            colors={{
-              textColor: DEFAULT_COLOR.BLACK,
-              borderColor: DEFAULT_COLOR.GREEN_DARK,
-              backgroundColor: DEFAULT_COLOR.GREEN_MEDIUM,
-            }}
+            // colors={{
+            //   textColor: DEFAULT_COLOR.BLACK,
+            //   borderColor: DEFAULT_COLOR.GREEN_DARK,
+            //   backgroundColor: DEFAULT_COLOR.GREEN_MEDIUM,
+            // }}
             alignSelf={'center'}
             onPress={onGetStartedPress}
           />

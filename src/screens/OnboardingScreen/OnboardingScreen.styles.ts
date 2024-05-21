@@ -1,4 +1,4 @@
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Fonts';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 
 import {Dimensions} from 'react-native';
 import {StyleSheet} from 'react-native';
@@ -29,10 +29,17 @@ export const generateStyles = () => {
     text: {
       width: 320,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      fontWeight: '500',
       color: DEFAULT_COLOR.BLACK,
       textAlign: 'center',
-      marginTop: 10,
+      fontFamily: 'Rubik-Medium',
+    },
+    subtext: {
+      width: 320,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
+      color: DEFAULT_COLOR.BLACK,
+      textAlign: 'center',
+      marginTop: 4,
+      fontFamily: 'Rubik-Regular',
     },
     footer: {
       flexDirection: 'column',
@@ -51,7 +58,7 @@ export const generateStyles = () => {
       height: 12,
       width: 12,
       borderRadius: 50,
-      borderWidth: 2,
+      borderWidth: 1.5,
       backgroundColor: DEFAULT_COLOR.WHITE,
     },
     activeBullet: {
