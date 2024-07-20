@@ -11,12 +11,6 @@ export const DefaultCard = (props: IDefaultCardProps) => {
   const styles = generateStyles();
   return (
     <View style={styles.mainContainer}>
-      <Image
-        style={styles.overlayImage}
-        source={{
-          uri: 'https://ik.imagekit.io/igcufd11q/Overlays/PurpleOverlay.png?updatedAt=1711225780236',
-        }}
-      />
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}

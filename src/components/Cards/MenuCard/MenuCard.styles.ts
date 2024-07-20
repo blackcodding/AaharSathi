@@ -16,6 +16,7 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
       marginVertical: 4,
       borderRadius: 12,
       borderWidth: 1.25,
+      backgroundColor: DEFAULT_COLOR.WHITE,
       borderColor: DEFAULT_COLOR.BLACK,
     },
     logoImage: {
@@ -26,7 +27,7 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
     name: {
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      fontFamily: 'Rubik-Regular',
+      fontFamily: 'Rubik-Medium',
     },
   });
 };

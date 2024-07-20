@@ -12,7 +12,13 @@ export const DetailCard = (props: IDetailCardProps) => {
   const styles = generateStyles();
   return (
     <View style={styles.mainContainer}>
-      <Tag text={tagDetail} isAbsolute={true} top={2} right={2} />
+      <Tag
+        text={tagDetail}
+        isAbsolute={true}
+        top={2}
+        right={2}
+        backgroundColor={DEFAULT_COLOR.RED_MEDIUM}
+      />
       <View style={styles.imageContainer}>
         <Image
           style={styles.image}

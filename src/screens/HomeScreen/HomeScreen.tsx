@@ -49,35 +49,35 @@ export const HomeScreen = () => {
     {
       id: '1',
       image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
     },
     {
       id: '2',
       image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
     },
     {
       id: '3',
       image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
     },
     {
       id: '4',
       image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
     },
     {
       id: '5',
       image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
     },
@@ -88,7 +88,7 @@ export const HomeScreen = () => {
       id: '1',
       tagDetail: '30 Mar',
       image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
     },
@@ -96,7 +96,7 @@ export const HomeScreen = () => {
       id: '2',
       tagDetail: '30 Apr',
       image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
     },
@@ -104,7 +104,7 @@ export const HomeScreen = () => {
       id: '3',
       tagDetail: '30 Jun',
       image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1711223155762',
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
     },
@@ -166,9 +166,8 @@ export const HomeScreen = () => {
         </View>
         <ContainerHeading
           title={'Welcome Supriya'}
-          titleColor={DEFAULT_COLOR.RED_MEDIUM}
-          titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_LARGE}
-          subtitle={'👋'}
+          titleColor={DEFAULT_COLOR.BLACK}
+          titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
           subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
         />
         <View style={styles.Container}>

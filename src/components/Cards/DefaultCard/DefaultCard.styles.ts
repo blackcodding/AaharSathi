@@ -7,7 +7,7 @@ export const generateStyles = () => {
     mainContainer: {
       width: '22%',
       height: 75,
-      backgroundColor: DEFAULT_COLOR.PURPLE_MEDIUM,
+      backgroundColor: DEFAULT_COLOR.WHITE,
       borderWidth: 1.5,
       borderRadius: 12,
       borderColor: DEFAULT_COLOR.BLACK,
@@ -16,14 +16,6 @@ export const generateStyles = () => {
       justifyContent: 'center',
       alignItems: 'center',
       elevation: 2,
-    },
-    overlayImage: {
-      position: 'absolute',
-      bottom: 0,
-      width: '100%',
-      height: '40%',
-      objectFit: 'fill',
-      borderRadius: 12,
     },
     imageContainer: {
       width: 25,
@@ -35,8 +27,8 @@ export const generateStyles = () => {
       objectFit: 'contain',
     },
     itemName: {
-      fontFamily: 'Rubik-ExtraBold',
-      color: DEFAULT_COLOR.WHITE,
+      fontFamily: 'Rubik-Medium',
+      color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
     },
     quantityContainer: {

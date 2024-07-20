@@ -43,7 +43,7 @@ export const generateStyles = () => {
     },
     subheading: {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Rubik-Medium',
       color: DEFAULT_COLOR.BLACK,
       marginTop: 2,
     },

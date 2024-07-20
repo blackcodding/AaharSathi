@@ -46,12 +46,12 @@ export const generateStyles = () => {
     },
     name: {
       color: DEFAULT_COLOR.BLACK,
-      fontFamily: 'Rubik-Regular',
+      fontFamily: 'Rubik-Medium',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
     },
     phoneNumber: {
       color: DEFAULT_COLOR.BLACK,
-      fontFamily: 'Rubik-Regular',
+      fontFamily: 'Rubik-Medium',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
     },
   });

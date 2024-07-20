@@ -6,8 +6,8 @@ export const generateStyles = () => {
     mainContainer: {
       width: '22%',
       height: 72,
-      backgroundColor: DEFAULT_COLOR.PURPLE_LIGHT,
-      borderWidth: 1.5,
+      backgroundColor: DEFAULT_COLOR.WHITE,
+      borderWidth: 2,
       borderRadius: 12,
       borderColor: DEFAULT_COLOR.BLACK,
       borderStyle: 'dashed',

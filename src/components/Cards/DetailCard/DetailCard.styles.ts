@@ -7,7 +7,7 @@ export const generateStyles = () => {
     mainContainer: {
       width: 105,
       height: 90,
-      backgroundColor: DEFAULT_COLOR.CRIMSON,
+      backgroundColor: DEFAULT_COLOR.WHITE,
       borderWidth: 1.5,
       borderRadius: 12,
       borderColor: DEFAULT_COLOR.BLACK,
@@ -28,8 +28,8 @@ export const generateStyles = () => {
       objectFit: 'contain',
     },
     itemName: {
-      fontFamily: 'Rubik-ExtraBold',
-      color: DEFAULT_COLOR.WHITE,
+      fontFamily: 'Rubik-Medium',
+      color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
     },
     quantityContainer: {

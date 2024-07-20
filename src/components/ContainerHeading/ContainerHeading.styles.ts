@@ -18,7 +18,7 @@ export const generateStyles = (props: any) => {
     subtitle: {
       fontFamily: 'Rubik-Medium',
       fontSize: subTitleSize || DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      color: DEFAULT_COLOR.BLUE_MEDIUM,
+      color: DEFAULT_COLOR.BLUE_DARK,
     },
   });
 };

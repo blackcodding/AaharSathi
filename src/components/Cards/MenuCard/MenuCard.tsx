@@ -7,7 +7,7 @@ import {generateStyleSheet} from './MenuCard.styles';
 
 export const MenuCard = (props: IMenuCardProps) => {
   const {
-    image = 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/plus.png?updatedAt=1711579118614',
+    image = 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/plus.png?updatedAt=1721485833995',
     name,
     shouldFlex,
     handleMenuCardClick,
