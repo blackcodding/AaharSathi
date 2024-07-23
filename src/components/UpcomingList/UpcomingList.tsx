@@ -38,6 +38,7 @@ export const UpcomingList = (props: IUpcomingListProps) => {
           );
         }}
         showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
         horizontal={!showVertical}
         bounces={false}
         keyExtractor={item => item.id}

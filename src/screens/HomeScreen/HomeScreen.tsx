@@ -112,6 +112,30 @@ export const HomeScreen = () => {
       name: 'Apple',
       quantity: '100 gms',
     },
+    {
+      id: '4',
+      tagDetail: '30 Jun',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+    {
+      id: '5',
+      tagDetail: '30 Jun',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
+    {
+      id: '6',
+      tagDetail: '30 Jun',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
+      name: 'Apple',
+      quantity: '100 gms',
+    },
   ];
 
   const upcomingListData = [
