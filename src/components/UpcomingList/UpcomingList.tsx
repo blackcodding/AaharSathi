@@ -6,7 +6,7 @@ import {ListCard} from '../Cards/ListCard/ListCard';
 import {generateStyles} from './UpcomingList.styles';
 
 export const UpcomingList = (props: IUpcomingListProps) => {
-  const {data} = props;
+  const {data, showVertical = false, listStyles} = props;
   const styles = generateStyles();
   const flatListRef = useRef();
 
@@ -24,6 +24,7 @@ export const UpcomingList = (props: IUpcomingListProps) => {
               profileImage={item.profileImage}
               date={item.date}
               amount={item.amount}
+              listStyles={listStyles}
               onOptionsClick={function (): void {
                 throw new Error('Function not implemented.');
               }}
@@ -37,7 +38,7 @@ export const UpcomingList = (props: IUpcomingListProps) => {
           );
         }}
         showsHorizontalScrollIndicator={false}
-        horizontal={true}
+        horizontal={!showVertical}
         bounces={false}
         keyExtractor={item => item.id}
       />

@@ -5,6 +5,7 @@ export interface IListCardProps {
   profileImage: string;
   date: string;
   amount: string;
+  listStyles?: any;
   onOptionsClick: () => void;
   onDetailsClick: () => void;
   onAddItemClick: () => void;

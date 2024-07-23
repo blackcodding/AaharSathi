@@ -1,29 +1,33 @@
 import {BackHandler, ScrollView} from 'react-native';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
+import InventoryScreen from '../InventoryScreen/InventoryScreen';
 import {Menu} from '../../components/Menu/Menu';
+import MyListScreen from '../MyListScreen/MyListScreen';
 import {PopUp} from '../../components/PopUp/PopUp';
 import {Profile} from '../../components/Profile/Profile';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
+import {useNavigation} from '@react-navigation/native';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  useEffect(() => {
-    const handleBackButton = () => true;
-    BackHandler.addEventListener('hardwareBackPress', handleBackButton);
-    return () => {
-      BackHandler.removeEventListener('hardwareBackPress', handleBackButton);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const handleBackButton = () => true;
+  //   BackHandler.addEventListener('hardwareBackPress', handleBackButton);
+  //   return () => {
+  //     BackHandler.removeEventListener('hardwareBackPress', handleBackButton);
+  //   };
+  // }, []);
 
   const styles = generateStyles();
+  const navigation = useNavigation();
 
   const handleProfileClick = () => {
     setOpenMenu(true);
@@ -37,13 +41,13 @@ export const HomeScreen = () => {
     //TODO:
   };
 
-  const handleSeeAllExpiryCardClick = () => {
-    //TODO:
-  };
+  const handleSeeAllExpiryCardClick = useCallback(() => {
+    navigation.navigate(InventoryScreen as never);
+  }, []);
 
-  const handleSeeAllUpcomingListClick = () => {
-    //TODO:
-  };
+  const handleSeeAllUpcomingListClick = useCallback(() => {
+    navigation.navigate(MyListScreen as never);
+  }, []);
 
   const toBuyData = [
     {

@@ -14,6 +14,7 @@ export const ListCard = (props: IListCardProps) => {
     profileImage,
     date,
     amount,
+    listStyles,
     onOptionsClick,
     onDetailsClick,
     onAddItemClick,
@@ -21,7 +22,7 @@ export const ListCard = (props: IListCardProps) => {
   const styles = generateStyles();
 
   return (
-    <View style={styles.mainContainer}>
+    <View style={[styles.mainContainer, listStyles]}>
       <View style={styles.headerContainer}>
         <View style={styles.headingContainer}>
           <Text style={styles.heading}>{listName}</Text>
