@@ -179,7 +179,7 @@ export const HomeScreen = () => {
     <View>
       <ScrollView style={styles.mainContainer}>
         <View style={styles.profileContainer}>
-          <Profile showBorder={true} handleProfileClick={handleProfileClick} />
+          <Profile handleProfileClick={handleProfileClick} />
         </View>
         <ContainerHeading
           title={'Welcome Supriya'}

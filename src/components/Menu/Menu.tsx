@@ -65,7 +65,7 @@ export const Menu = (props: IMenuProps) => {
       <TouchableOpacity activeOpacity={1} style={styles.menuContainer}>
         <View style={styles.profileMainContainer}>
           <View style={styles.profileContainer}>
-            <Profile showBorder={true} />
+            <Profile />
             <View style={styles.personalDetailsContainer}>
               <Text style={styles.name}>{'Supriya Barai'}</Text>
               <Text style={styles.phoneNumber}>{'0123456789'}</Text>

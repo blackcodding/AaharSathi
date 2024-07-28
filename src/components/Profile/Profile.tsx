@@ -10,7 +10,7 @@ export const Profile = (props: IProfileProps) => {
     image,
     icon = <UserIcon />,
     borderColor,
-    showBorder,
+    showBorder = true,
     handleProfileClick,
   } = props;
   const styles = generateStyles({borderColor, showBorder});
