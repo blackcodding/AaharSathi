@@ -118,7 +118,7 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
         <Profile />
       </View>
       <ContainerHeading
-        title={'Inventory'}
+        title={'Expiring Soon'}
         titleColor={DEFAULT_COLOR.BLACK}
         titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
         subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}

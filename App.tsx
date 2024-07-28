@@ -9,6 +9,7 @@ import {StatusBar, useColorScheme} from 'react-native';
 
 import CreateListScreen from './src/screens/CreateListScreen/CreateListScreen';
 import {DEFAULT_COLOR} from './src/Theme/Theme';
+import DashboardScreen from './src/screens/DashboardScreen/DashboardScreen';
 import ExpiringSoonScreen from './src/screens/ExpiringSoonScreen/ExpiringSoonScreen';
 import {HomeScreen} from './src/screens/HomeScreen/HomeScreen';
 import MyListScreen from './src/screens/MyListScreen/MyListScreen';
@@ -37,6 +38,7 @@ function App(): React.JSX.Element {
           headerShown: false,
         }}>
         {/* <Stack.Screen name={'OnboardingScreen'} component={OnboardingScreen} /> */}
+        <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
         <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
         <Stack.Screen name={'MyListScreen'} component={MyListScreen} />
         <Stack.Screen name={'CreateListScreen'} component={CreateListScreen} />
