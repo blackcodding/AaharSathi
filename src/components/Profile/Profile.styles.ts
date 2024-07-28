@@ -7,6 +7,8 @@ export const generateStyles = (props: any) => {
     imageContainer: {
       height: 50,
       width: 50,
+      justifyContent: 'center',
+      alignItems: 'center',
       borderRadius: 50,
       borderWidth: showBorder ? 2 : 0,
       borderColor: borderColor || DEFAULT_COLOR.WHITE,

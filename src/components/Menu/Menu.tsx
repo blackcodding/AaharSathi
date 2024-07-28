@@ -65,12 +65,7 @@ export const Menu = (props: IMenuProps) => {
       <TouchableOpacity activeOpacity={1} style={styles.menuContainer}>
         <View style={styles.profileMainContainer}>
           <View style={styles.profileContainer}>
-            <Profile
-              image={
-                'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
-              }
-              showBorder={true}
-            />
+            <Profile showBorder={true} />
             <View style={styles.personalDetailsContainer}>
               <Text style={styles.name}>{'Supriya Barai'}</Text>
               <Text style={styles.phoneNumber}>{'0123456789'}</Text>

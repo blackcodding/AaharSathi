@@ -179,13 +179,7 @@ export const HomeScreen = () => {
     <View>
       <ScrollView style={styles.mainContainer}>
         <View style={styles.profileContainer}>
-          <Profile
-            image={
-              'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
-            }
-            showBorder={true}
-            handleProfileClick={handleProfileClick}
-          />
+          <Profile showBorder={true} handleProfileClick={handleProfileClick} />
         </View>
         <ContainerHeading
           title={'Welcome Supriya'}

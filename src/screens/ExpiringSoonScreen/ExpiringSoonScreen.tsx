@@ -115,11 +115,7 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.profileContainer}>
-        <Profile
-          image={
-            'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
-          }
-        />
+        <Profile />
       </View>
       <ContainerHeading
         title={'Inventory'}
