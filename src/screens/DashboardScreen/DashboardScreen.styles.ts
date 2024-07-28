@@ -1,4 +1,5 @@
-import {DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+
 import {IDashboardScreenStyleProps} from './DashboardScreen.types';
 import {StyleSheet} from 'react-native';
 
@@ -8,6 +9,11 @@ export const generateStyles = (props: IDashboardScreenStyleProps) => {
   return StyleSheet.create({
     mainContainer: {
       flex: 1,
+    },
+    plusIconContainer: {
+      backgroundColor: DEFAULT_COLOR.OFF_WHITE,
+      borderRadius: 100,
+      marginBottom: 8,
     },
     label: {
       fontFamily: 'Rubik-Medium',

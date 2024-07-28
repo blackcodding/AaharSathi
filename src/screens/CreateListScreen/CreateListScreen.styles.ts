@@ -11,6 +11,5 @@ export const generateStyles = (props: ICreateListScreenStyleProps) => {
       padding: 12,
       backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
-    profileContainer: {},
   });
 };

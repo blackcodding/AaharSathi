@@ -25,15 +25,9 @@ export const UpcomingList = (props: IUpcomingListProps) => {
               date={item.date}
               amount={item.amount}
               listStyles={listStyles}
-              onOptionsClick={function (): void {
-                throw new Error('Function not implemented.');
-              }}
-              onDetailsClick={function (): void {
-                throw new Error('Function not implemented.');
-              }}
-              onAddItemClick={function (): void {
-                throw new Error('Function not implemented.');
-              }}
+              onOptionsClick={() => {}}
+              onDetailsClick={() => {}}
+              onAddItemClick={() => {}}
             />
           );
         }}

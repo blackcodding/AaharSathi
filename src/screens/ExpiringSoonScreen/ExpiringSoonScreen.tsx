@@ -114,9 +114,6 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
 
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.profileContainer}>
-        <Profile />
-      </View>
       <ContainerHeading
         title={'Expiring Soon'}
         titleColor={DEFAULT_COLOR.BLACK}

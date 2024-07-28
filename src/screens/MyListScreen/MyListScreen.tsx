@@ -100,9 +100,6 @@ const MyListScreen = (props: IMyListScreenProps) => {
     <ScrollView
       showsVerticalScrollIndicator={false}
       style={styles.mainContainer}>
-      <View style={styles.profileContainer}>
-        <Profile />
-      </View>
       <ContainerHeading
         title={'My List'}
         titleColor={DEFAULT_COLOR.BLACK}

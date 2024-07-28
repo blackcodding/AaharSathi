@@ -14,9 +14,6 @@ const RecipeScreen = (props: IRecipeScreenProps) => {
 
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.profileContainer}>
-        <Profile />
-      </View>
       <ContainerHeading
         title={'Recipe'}
         titleColor={DEFAULT_COLOR.BLACK}

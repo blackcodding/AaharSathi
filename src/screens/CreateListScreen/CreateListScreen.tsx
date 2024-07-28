@@ -14,9 +14,6 @@ const CreateListScreen = (props: ICreateListScreenProps) => {
 
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.profileContainer}>
-        <Profile />
-      </View>
       <ContainerHeading
         title={'Create List'}
         titleColor={DEFAULT_COLOR.BLACK}

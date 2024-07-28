@@ -27,6 +27,13 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
       <Tab.Navigator
         screenOptions={{
           headerShown: false,
+          tabBarStyle: {
+            height: 48,
+          },
+          tabBarItemStyle: {
+            paddingTop: 2,
+          },
+          tabBarActiveBackgroundColor: DEFAULT_COLOR.OFF_WHITE,
         }}>
         <Tab.Screen
           name={'HomeScreen'}
@@ -38,7 +45,7 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
                   {
                     color: focused
                       ? DEFAULT_COLOR.BLUE_DARK
-                      : DEFAULT_COLOR.GRAY_LIGHT,
+                      : DEFAULT_COLOR.GRAY_MEDIUM,
                   },
                 ]}>
                 {'Home'}
@@ -46,8 +53,13 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
             ),
             tabBarIcon: ({focused}) => (
               <DashboardIcon
+                width={focused ? 24 : 20}
+                height={focused ? 24 : 20}
+                fillColor={
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.WHITE
+                }
                 strokeColor={
-                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                  focused ? DEFAULT_COLOR.WHITE : DEFAULT_COLOR.GRAY_MEDIUM
                 }
               />
             ),
@@ -64,7 +76,7 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
                   {
                     color: focused
                       ? DEFAULT_COLOR.BLUE_DARK
-                      : DEFAULT_COLOR.GRAY_LIGHT,
+                      : DEFAULT_COLOR.GRAY_MEDIUM,
                   },
                 ]}>
                 {'My List'}
@@ -72,8 +84,10 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
             ),
             tabBarIcon: ({focused}) => (
               <MyListIcon
+                width={focused ? 24 : 20}
+                height={focused ? 24 : 20}
                 strokeColor={
-                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_MEDIUM
                 }
               />
             ),
@@ -83,28 +97,21 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         <Tab.Screen
           name={'CreateListScreen'}
           options={{
-            tabBarLabel: ({focused}) => (
-              <Text
-                style={[
-                  styles.label,
-                  {
-                    color: focused
-                      ? DEFAULT_COLOR.BLUE_DARK
-                      : DEFAULT_COLOR.GRAY_LIGHT,
-                  },
-                ]}>
-                {'Create List'}
-              </Text>
-            ),
+            tabBarLabel: '',
             tabBarIcon: ({focused}) => (
-              <CreateListIcon
-                width={32}
-                height={32}
-                fillColor={
-                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
-                }
-                strokeColor={DEFAULT_COLOR.WHITE}
-              />
+              <View style={styles.plusIconContainer}>
+                <CreateListIcon
+                  width={60}
+                  height={60}
+                  fillColor={
+                    focused
+                      ? DEFAULT_COLOR.BLUE_DARK
+                      : DEFAULT_COLOR.GRAY_MEDIUM
+                  }
+                  strokeWidth={1.25}
+                  strokeColor={DEFAULT_COLOR.WHITE}
+                />
+              </View>
             ),
           }}
           component={CreateListScreen}
@@ -119,7 +126,7 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
                   {
                     color: focused
                       ? DEFAULT_COLOR.BLUE_DARK
-                      : DEFAULT_COLOR.GRAY_LIGHT,
+                      : DEFAULT_COLOR.GRAY_MEDIUM,
                   },
                 ]}>
                 {'Exp. Soon'}
@@ -127,8 +134,10 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
             ),
             tabBarIcon: ({focused}) => (
               <ExpiringSoonIcon
+                width={focused ? 24 : 20}
+                height={focused ? 24 : 20}
                 strokeColor={
-                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_MEDIUM
                 }
               />
             ),
@@ -145,7 +154,7 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
                   {
                     color: focused
                       ? DEFAULT_COLOR.BLUE_DARK
-                      : DEFAULT_COLOR.GRAY_LIGHT,
+                      : DEFAULT_COLOR.GRAY_MEDIUM,
                   },
                 ]}>
                 {'Recipe'}
@@ -153,8 +162,10 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
             ),
             tabBarIcon: ({focused}) => (
               <RecipeIcon
+                width={focused ? 24 : 20}
+                height={focused ? 24 : 20}
                 strokeColor={
-                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_MEDIUM
                 }
               />
             ),
