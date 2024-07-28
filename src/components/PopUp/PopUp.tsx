@@ -1,8 +1,9 @@
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, View} from 'react-native';
 
 import {CrossIcon} from '../../assets/icons/CrossIcon';
 import {IPopUpProps} from './PopUp.types';
 import React from 'react';
+import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './PopUp.styles';
 
 export const PopUp = (props: IPopUpProps) => {
@@ -13,12 +14,12 @@ export const PopUp = (props: IPopUpProps) => {
       <View style={styles.popUpContainer}>
         <View style={styles.headingContainer}>
           <Text style={styles.text}>{text}</Text>
-          <TouchableOpacity
-            activeOpacity={0.7}
+          <TouchableRipple
+            borderless={true}
             onPress={onClosePress}
             style={styles.icon}>
             <CrossIcon />
-          </TouchableOpacity>
+          </TouchableRipple>
         </View>
         {!!subtext && <Text style={styles.subText}>{subtext}</Text>}
       </View>

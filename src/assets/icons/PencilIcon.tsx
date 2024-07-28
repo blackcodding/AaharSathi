@@ -7,10 +7,10 @@ import {IIconProps} from './icon.types';
 
 export const PencilIcon = (props: IIconProps) => {
   const {
-    width = 30,
-    height = 30,
+    width = 36,
+    height = 36,
     fillColor = DEFAULT_COLOR.BLACK,
-    strokeWidth = 0.8,
+    strokeWidth = 1.5,
     strokeColor = DEFAULT_COLOR.WHITE,
   } = props;
   return (

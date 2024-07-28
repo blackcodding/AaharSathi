@@ -44,6 +44,13 @@ export const generateStyles = () => {
       justifyContent: 'center',
       marginTop: 8,
     },
+    iconStyles: {
+      width: 40,
+      height: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 100,
+    },
     name: {
       color: DEFAULT_COLOR.BLACK,
       fontFamily: 'Rubik-Medium',

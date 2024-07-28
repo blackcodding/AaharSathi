@@ -29,6 +29,8 @@ export const HomeScreen = () => {
     setOpenMenu(false);
   };
 
+  const handleEditProfileClick = () => {};
+
   const onAddItemClick = () => {
     //TODO:
   };
@@ -213,7 +215,12 @@ export const HomeScreen = () => {
         </View>
       </ScrollView>
       {/* <PopUp onClosePress={() => {}} /> */}
-      {!!openMenu && <Menu onCloseMenuPress={handleCloseMenuClick} />}
+      {!!openMenu && (
+        <Menu
+          onCloseMenuPress={handleCloseMenuClick}
+          onEditProfilePress={handleEditProfileClick}
+        />
+      )}
     </View>
   );
 };

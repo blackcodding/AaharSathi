@@ -15,9 +15,14 @@ export const generateStyles = (props: any) => {
       fontSize: titleSize || DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       color: titleColor || DEFAULT_COLOR.BLACK,
     },
+    subtitleContainer: {
+      borderRadius: 12,
+    },
     subtitle: {
+      paddingHorizontal: 8,
+      paddingVertical: 4,
       fontFamily: 'Rubik-Medium',
-      fontSize: subTitleSize || DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+      fontSize: subTitleSize || DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
       color: DEFAULT_COLOR.BLUE_DARK,
     },
   });

@@ -19,15 +19,18 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
       backgroundColor: DEFAULT_COLOR.WHITE,
       borderColor: DEFAULT_COLOR.BLACK,
     },
+    container: {
+      flexDirection: 'row',
+    },
     logoImage: {
       height: 20,
       width: 20,
-      marginRight: 12,
     },
     name: {
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       fontFamily: 'Rubik-Medium',
+      marginLeft: 12,
     },
   });
 };

@@ -1,7 +1,7 @@
 import {IAddItemCardProps} from './AddItemCard.types';
 import {PlusIcon} from '../../../assets/icons/PlusIcon';
 import React from 'react';
-import {TouchableOpacity} from 'react-native';
+import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './AddItemCard.styles';
 
 export const AddItemCard = (props: IAddItemCardProps) => {
@@ -9,11 +9,11 @@ export const AddItemCard = (props: IAddItemCardProps) => {
 
   const styles = generateStyles();
   return (
-    <TouchableOpacity
-      activeOpacity={0.7}
+    <TouchableRipple
+      borderless={true}
       onPress={handleAddItemPress}
       style={styles.mainContainer}>
       <PlusIcon />
-    </TouchableOpacity>
+    </TouchableRipple>
   );
 };

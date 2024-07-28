@@ -33,6 +33,7 @@ export const generateStyles = () => {
     icon: {
       position: 'absolute',
       right: 2,
+      borderRadius: 100,
     },
     subText: {
       color: DEFAULT_COLOR.GRAY_DARK,

@@ -1,9 +1,10 @@
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 
 import {DEFAULT_COLOR} from '../../../Theme/Theme';
 import {IListCardProps} from './ListCard.types';
 import React from 'react';
 import {Tag} from '../../Tags/Tag';
+import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './ListCard.styles';
 
 export const ListCard = (props: IListCardProps) => {
@@ -32,14 +33,16 @@ export const ListCard = (props: IListCardProps) => {
             backgroundColor={DEFAULT_COLOR.GREEN_MEDIUM}
           />
         </View>
-        <TouchableOpacity
-          activeOpacity={0.7}
+        <TouchableRipple
+          borderless={true}
           onPress={onOptionsClick}
           style={styles.threeDotsContainer}>
-          <View style={styles.bullet} />
-          <View style={styles.bullet} />
-          <View style={styles.bullet} />
-        </TouchableOpacity>
+          <>
+            <View style={styles.bullet} />
+            <View style={styles.bullet} />
+            <View style={styles.bullet} />
+          </>
+        </TouchableRipple>
       </View>
       <Text style={styles.subheading}>{remainingQuantity}</Text>
       <View style={styles.iconContainer}>
@@ -51,8 +54,8 @@ export const ListCard = (props: IListCardProps) => {
             }}
           />
         </View>
-        <TouchableOpacity
-          activeOpacity={0.7}
+        <TouchableRipple
+          borderless={true}
           onPress={onDetailsClick}
           style={styles.arrowContainer}>
           <Image
@@ -61,7 +64,7 @@ export const ListCard = (props: IListCardProps) => {
               uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/next.png?updatedAt=1711578556017',
             }}
           />
-        </TouchableOpacity>
+        </TouchableRipple>
       </View>
       <View style={styles.detailContainer}>
         <View style={styles.dateContainer}>
@@ -77,8 +80,8 @@ export const ListCard = (props: IListCardProps) => {
         </View>
         <View style={styles.amountContainer}>
           <Text style={styles.amount}>{amount}</Text>
-          <TouchableOpacity
-            activeOpacity={0.7}
+          <TouchableRipple
+            borderless={true}
             onPress={onAddItemClick}
             style={styles.addItemContainer}>
             <Image
@@ -87,7 +90,7 @@ export const ListCard = (props: IListCardProps) => {
                 uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/plus.png?updatedAt=1711579118614',
               }}
             />
-          </TouchableOpacity>
+          </TouchableRipple>
         </View>
       </View>
     </View>

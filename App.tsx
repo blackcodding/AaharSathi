@@ -36,7 +36,7 @@ function App(): React.JSX.Element {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name={'OnboardingScreen'} component={OnboardingScreen} />
+        {/* <Stack.Screen name={'OnboardingScreen'} component={OnboardingScreen} /> */}
         <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
         <Stack.Screen name={'MyListScreen'} component={MyListScreen} />
         <Stack.Screen name={'CreateListScreen'} component={CreateListScreen} />
