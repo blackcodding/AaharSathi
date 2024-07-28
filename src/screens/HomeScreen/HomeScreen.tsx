@@ -1,14 +1,14 @@
-import {BackHandler, ScrollView} from 'react-native';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
-import InventoryScreen from '../InventoryScreen/InventoryScreen';
+import InventoryScreen from '../ExpiringSoonScreen/ExpiringSoonScreen';
 import {Menu} from '../../components/Menu/Menu';
 import MyListScreen from '../MyListScreen/MyListScreen';
 import {PopUp} from '../../components/PopUp/PopUp';
 import {Profile} from '../../components/Profile/Profile';
+import {ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
@@ -17,14 +17,6 @@ import {useNavigation} from '@react-navigation/native';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
-
-  // useEffect(() => {
-  //   const handleBackButton = () => true;
-  //   BackHandler.addEventListener('hardwareBackPress', handleBackButton);
-  //   return () => {
-  //     BackHandler.removeEventListener('hardwareBackPress', handleBackButton);
-  //   };
-  // }, []);
 
   const styles = generateStyles();
   const navigation = useNavigation();
@@ -189,6 +181,7 @@ export const HomeScreen = () => {
             image={
               'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848'
             }
+            showBorder={true}
             handleProfileClick={handleProfileClick}
           />
         </View>

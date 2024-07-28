@@ -2,13 +2,13 @@ import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
-import {IInventoryScreenProps} from './InventoryScreen.types';
+import {IExpiringSoonScreenProps} from './ExpiringSoonScreen.types';
 import {Profile} from '../../components/Profile/Profile';
 import React from 'react';
 import {View} from 'react-native';
-import {generateStyles} from './InventoryScreen.styles';
+import {generateStyles} from './ExpiringSoonScreen.styles';
 
-const InventoryScreen = (props: IInventoryScreenProps) => {
+const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
   const {} = props;
 
   const allExpiringSoonData = [
@@ -136,4 +136,4 @@ const InventoryScreen = (props: IInventoryScreenProps) => {
   );
 };
 
-export default InventoryScreen;
+export default ExpiringSoonScreen;

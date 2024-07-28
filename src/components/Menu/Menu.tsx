@@ -3,8 +3,8 @@ import {Text, TouchableOpacity, View} from 'react-native';
 
 import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
 import CreateListScreen from '../../screens/CreateListScreen/CreateListScreen';
+import ExpiringSoonScreen from '../../screens/ExpiringSoonScreen/ExpiringSoonScreen';
 import {IMenuProps} from './Menu.types';
-import InventoryScreen from '../../screens/InventoryScreen/InventoryScreen';
 import {MenuCard} from '../Cards/MenuCard/MenuCard';
 import MyListScreen from '../../screens/MyListScreen/MyListScreen';
 import {PencilIcon} from '../../assets/icons/PencilIcon';
@@ -38,8 +38,8 @@ export const Menu = (props: IMenuProps) => {
     closeMenuOnDelay();
   }, []);
 
-  const onInventoryClick = useCallback(() => {
-    navigation.navigate(InventoryScreen as never);
+  const onExpiringSoonClick = useCallback(() => {
+    navigation.navigate(ExpiringSoonScreen as never);
     closeMenuOnDelay();
   }, []);
 
@@ -80,7 +80,10 @@ export const Menu = (props: IMenuProps) => {
             name={'Create List'}
             handleMenuCardClick={onCreateListClick}
           />
-          <MenuCard name={'Inventory'} handleMenuCardClick={onInventoryClick} />
+          <MenuCard
+            name={'Expiring Soon'}
+            handleMenuCardClick={onExpiringSoonClick}
+          />
           <MenuCard name={'Recipe'} handleMenuCardClick={onRecipeClick} />
           <View style={styles.favoriteListContainer}>
             <ContainerHeading title={'Favorite List and Recipes'} />

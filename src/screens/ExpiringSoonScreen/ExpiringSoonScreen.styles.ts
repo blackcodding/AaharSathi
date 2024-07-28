@@ -1,8 +1,8 @@
 import {DEFAULT_COLOR} from '../../Theme/Theme';
-import {IInventoryScreenStyleProps} from './InventoryScreen.types';
+import {IExpiringSoonScreenStyleProps} from './ExpiringSoonScreen.types';
 import {StyleSheet} from 'react-native';
 
-export const generateStyles = (props: IInventoryScreenStyleProps) => {
+export const generateStyles = (props: IExpiringSoonScreenStyleProps) => {
   const {} = props || {};
 
   return StyleSheet.create({

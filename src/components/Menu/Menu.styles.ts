@@ -16,7 +16,7 @@ export const generateStyles = () => {
       backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     Menu: {
-      padding: 10,
+      paddingHorizontal: 10,
     },
     favoriteListContainer: {
       marginVertical: 10,
