@@ -28,7 +28,7 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         screenOptions={{
           headerShown: false,
           tabBarStyle: {
-            height: 48,
+            height: 52,
           },
           tabBarItemStyle: {
             paddingTop: 2,
