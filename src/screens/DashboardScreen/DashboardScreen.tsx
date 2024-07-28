@@ -1,3 +1,5 @@
+import {Text, View} from 'react-native';
+
 import {CreateListIcon} from '../../assets/icons/TabBarIcons/CreateListIcon';
 import CreateListScreen from '../CreateListScreen/CreateListScreen';
 import {DEFAULT_COLOR} from '../../Theme/Theme';
@@ -11,7 +13,6 @@ import MyListScreen from '../MyListScreen/MyListScreen';
 import React from 'react';
 import {RecipeIcon} from '../../assets/icons/TabBarIcons/Recipe';
 import RecipeScreen from '../RecipeScreen/RecipeScreen';
-import {View} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {generateStyles} from './DashboardScreen.styles';
 
@@ -30,7 +31,19 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         <Tab.Screen
           name={'HomeScreen'}
           options={{
-            tabBarLabel: 'Dashboard',
+            tabBarLabel: ({focused}) => (
+              <Text
+                style={[
+                  styles.label,
+                  {
+                    color: focused
+                      ? DEFAULT_COLOR.BLUE_DARK
+                      : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}>
+                {'Home'}
+              </Text>
+            ),
             tabBarIcon: ({focused}) => (
               <DashboardIcon
                 strokeColor={
@@ -44,7 +57,19 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         <Tab.Screen
           name={'MyListScreen'}
           options={{
-            tabBarLabel: 'My List',
+            tabBarLabel: ({focused}) => (
+              <Text
+                style={[
+                  styles.label,
+                  {
+                    color: focused
+                      ? DEFAULT_COLOR.BLUE_DARK
+                      : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}>
+                {'My List'}
+              </Text>
+            ),
             tabBarIcon: ({focused}) => (
               <MyListIcon
                 strokeColor={
@@ -58,7 +83,19 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         <Tab.Screen
           name={'CreateListScreen'}
           options={{
-            tabBarLabel: 'Create List',
+            tabBarLabel: ({focused}) => (
+              <Text
+                style={[
+                  styles.label,
+                  {
+                    color: focused
+                      ? DEFAULT_COLOR.BLUE_DARK
+                      : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}>
+                {'Create List'}
+              </Text>
+            ),
             tabBarIcon: ({focused}) => (
               <CreateListIcon
                 width={32}
@@ -75,7 +112,19 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         <Tab.Screen
           name={'ExpiringSoonScreen'}
           options={{
-            tabBarLabel: 'Expiring Soon ',
+            tabBarLabel: ({focused}) => (
+              <Text
+                style={[
+                  styles.label,
+                  {
+                    color: focused
+                      ? DEFAULT_COLOR.BLUE_DARK
+                      : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}>
+                {'Exp. Soon'}
+              </Text>
+            ),
             tabBarIcon: ({focused}) => (
               <ExpiringSoonIcon
                 strokeColor={
@@ -89,7 +138,19 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         <Tab.Screen
           name={'RecipeScreen'}
           options={{
-            tabBarLabel: 'Recipe',
+            tabBarLabel: ({focused}) => (
+              <Text
+                style={[
+                  styles.label,
+                  {
+                    color: focused
+                      ? DEFAULT_COLOR.BLUE_DARK
+                      : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}>
+                {'Recipe'}
+              </Text>
+            ),
             tabBarIcon: ({focused}) => (
               <RecipeIcon
                 strokeColor={
