@@ -5,6 +5,7 @@ import {IListCardProps} from './ListCard.types';
 import React from 'react';
 import {Tag} from '../../Tags/Tag';
 import {TouchableRipple} from 'react-native-paper';
+import {UserIcon} from '../../../assets/icons/userIcon';
 import {generateStyles} from './ListCard.styles';
 
 export const ListCard = (props: IListCardProps) => {
@@ -13,6 +14,7 @@ export const ListCard = (props: IListCardProps) => {
     totalQuantity,
     remainingQuantity,
     profileImage,
+    icon = <UserIcon />,
     date,
     amount,
     listStyles,
@@ -47,12 +49,16 @@ export const ListCard = (props: IListCardProps) => {
       <Text style={styles.subheading}>{remainingQuantity}</Text>
       <View style={styles.iconContainer}>
         <View style={styles.imageContainer}>
-          <Image
-            style={styles.image}
-            source={{
-              uri: profileImage,
-            }}
-          />
+          {!!profileImage ? (
+            <Image
+              style={styles.image}
+              source={{
+                uri: profileImage,
+              }}
+            />
+          ) : (
+            icon
+          )}
         </View>
         <TouchableRipple
           borderless={true}
