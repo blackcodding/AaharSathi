@@ -6,20 +6,20 @@ import React from 'react';
 
 export const PlusIcon = (props: IIconProps) => {
   const {
-    width = 24,
-    height = 24,
+    width = 28,
+    height = 28,
     fillColor = DEFAULT_COLOR.BLACK,
     strokeColor = DEFAULT_COLOR.BLACK,
   } = props;
 
   return (
-    <Svg viewBox={'0 0 24 24'} width={width} height={height} fill={fillColor}>
+    <Svg width={width} height={height} viewBox={'0 0 20 20'} fill={fillColor}>
       <Path
+        d={'M10.0003 4.16669V15.8334M4.16699 10H15.8337'}
         stroke={strokeColor}
-        fillRule={'evenodd'}
-        d={
-          'M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z'
-        }
+        strokeWidth={'1.66667'}
+        strokeLinecap={'round'}
+        strokeLinejoin={'round'}
       />
     </Svg>
   );
