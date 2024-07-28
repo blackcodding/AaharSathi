@@ -31,7 +31,13 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
           name={'HomeScreen'}
           options={{
             tabBarLabel: 'Dashboard',
-            tabBarIcon: () => <DashboardIcon />,
+            tabBarIcon: ({focused}) => (
+              <DashboardIcon
+                strokeColor={
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                }
+              />
+            ),
           }}
           component={HomeScreen}
         />
@@ -39,7 +45,13 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
           name={'MyListScreen'}
           options={{
             tabBarLabel: 'My List',
-            tabBarIcon: () => <MyListIcon />,
+            tabBarIcon: ({focused}) => (
+              <MyListIcon
+                strokeColor={
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                }
+              />
+            ),
           }}
           component={MyListScreen}
         />
@@ -47,11 +59,13 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
           name={'CreateListScreen'}
           options={{
             tabBarLabel: 'Create List',
-            tabBarIcon: () => (
+            tabBarIcon: ({focused}) => (
               <CreateListIcon
                 width={32}
                 height={32}
-                fillColor={DEFAULT_COLOR.BLUE_DARK}
+                fillColor={
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                }
                 strokeColor={DEFAULT_COLOR.WHITE}
               />
             ),
@@ -62,7 +76,13 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
           name={'ExpiringSoonScreen'}
           options={{
             tabBarLabel: 'Expiring Soon ',
-            tabBarIcon: () => <ExpiringSoonIcon />,
+            tabBarIcon: ({focused}) => (
+              <ExpiringSoonIcon
+                strokeColor={
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                }
+              />
+            ),
           }}
           component={ExpiringSoonScreen}
         />
@@ -70,7 +90,13 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
           name={'RecipeScreen'}
           options={{
             tabBarLabel: 'Recipe',
-            tabBarIcon: () => <RecipeIcon />,
+            tabBarIcon: ({focused}) => (
+              <RecipeIcon
+                strokeColor={
+                  focused ? DEFAULT_COLOR.BLUE_DARK : DEFAULT_COLOR.GRAY_LIGHT
+                }
+              />
+            ),
           }}
           component={RecipeScreen}
         />
