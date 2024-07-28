@@ -7,4 +7,6 @@ export interface IExpiringSoonData {
 }
 export interface IExpiringSoonProps {
   data: IExpiringSoonData[];
+  showHorizontal?: boolean;
+  noOfColumns?: number;
 }

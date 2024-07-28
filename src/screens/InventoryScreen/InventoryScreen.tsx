@@ -127,7 +127,11 @@ const InventoryScreen = (props: IInventoryScreenProps) => {
         titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
         subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
       />
-      <ExpiringSoon data={allExpiringSoonData} />
+      <ExpiringSoon
+        data={allExpiringSoonData}
+        showHorizontal={false}
+        noOfColumns={3}
+      />
     </View>
   );
 };
