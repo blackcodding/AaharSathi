@@ -18,14 +18,8 @@ import {useNavigation} from '@react-navigation/native';
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const bottomSheetRef = useRef<BottomSheet>(null);
-
   const styles = generateStyles();
   const navigation = useNavigation();
-
-  useEffect(() => {
-    bottomSheetRef.current.expand();
-  }, []);
 
   const handleProfileClick = () => {
     setOpenMenu(true);
@@ -221,11 +215,8 @@ export const HomeScreen = () => {
           onEditProfilePress={handleEditProfileClick}
         />
       )}
-      <BottomSheet ref={bottomSheetRef}>
-        <View
-          style={{
-            height: '50%',
-          }}></View>
+      <BottomSheet snapPoints={['35%', '45%']}>
+        <View></View>
       </BottomSheet>
     </View>
   );
