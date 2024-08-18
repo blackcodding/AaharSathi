@@ -9,6 +9,8 @@ export const ToBuy = (props: IToBuyProps) => {
   const {data, handleAddItemPress} = props;
   const styles = generateStyles();
 
+  const handelDefaultCardPress = (data: any) => {};
+
   return (
     <View style={styles.mainContainer}>
       {!!data &&
@@ -20,6 +22,9 @@ export const ToBuy = (props: IToBuyProps) => {
               image={data.image}
               name={data.name}
               quantity={data.quantity}
+              onPress={() => {
+                handelDefaultCardPress(data);
+              }}
             />
           );
         })}

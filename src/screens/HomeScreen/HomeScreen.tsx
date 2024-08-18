@@ -1,12 +1,12 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 
+import BottomSheet from '@gorhom/bottom-sheet';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
 import InventoryScreen from '../ExpiringSoonScreen/ExpiringSoonScreen';
 import {Menu} from '../../components/Menu/Menu';
 import MyListScreen from '../MyListScreen/MyListScreen';
-import {PopUp} from '../../components/PopUp/PopUp';
 import {Profile} from '../../components/Profile/Profile';
 import {ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
@@ -18,8 +18,14 @@ import {useNavigation} from '@react-navigation/native';
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
+  const bottomSheetRef = useRef<BottomSheet>(null);
+
   const styles = generateStyles();
   const navigation = useNavigation();
+
+  useEffect(() => {
+    bottomSheetRef.current.expand();
+  }, []);
 
   const handleProfileClick = () => {
     setOpenMenu(true);
@@ -215,6 +221,12 @@ export const HomeScreen = () => {
           onEditProfilePress={handleEditProfileClick}
         />
       )}
+      <BottomSheet ref={bottomSheetRef}>
+        <View
+          style={{
+            height: '50%',
+          }}></View>
+      </BottomSheet>
     </View>
   );
 };
