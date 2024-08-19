@@ -19,6 +19,7 @@ import {useNavigation} from '@react-navigation/native';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [openToBuyBTS, setOpenToBuyBTS] = useState(false);
 
   const styles = generateStyles();
   const navigation = useNavigation();
@@ -189,11 +190,15 @@ export const HomeScreen = () => {
           titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
           subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
         />
-        <View style={styles.Container}>
+        <View>
           <ContainerHeading title={'To Buy'} />
-          <ToBuy data={toBuyData} handleAddItemPress={onAddItemClick} />
+          <ToBuy
+            data={toBuyData}
+            handleAddItemPress={onAddItemClick}
+            setOpenToBuyBTS={setOpenToBuyBTS}
+          />
         </View>
-        <View style={styles.Container}>
+        <View>
           <ContainerHeading
             title={'Expiring Soon'}
             subtitle={'See All'}
@@ -201,7 +206,7 @@ export const HomeScreen = () => {
           />
           <ExpiringSoon data={expiringSoonData} />
         </View>
-        <View style={styles.Container}>
+        <View>
           <ContainerHeading
             title={'Upcoming List'}
             subtitle={'See All'}
@@ -210,19 +215,23 @@ export const HomeScreen = () => {
           <UpcomingList data={upcomingListData} />
         </View>
       </ScrollView>
-      {/* <PopUp onClosePress={() => {}} /> */}
       {!!openMenu && (
         <Menu
           onCloseMenuPress={handleCloseMenuClick}
           onEditProfilePress={handleEditProfileClick}
         />
       )}
-      <CustomBottomSheet
-        snapPoints={['35%', '45%']}
-        heading={'Edit Item'}
-        icon={<DeleteIcon />}
-        children={<ItemDetailModel />}
-      />
+      {openToBuyBTS && (
+        <CustomBottomSheet
+          snapPoints={['35%', '45%']}
+          heading={'Edit Item'}
+          icon={<DeleteIcon />}
+          children={<ItemDetailModel />}
+          onClose={() => {
+            setOpenToBuyBTS(false);
+          }}
+        />
+      )}
     </View>
   );
 };

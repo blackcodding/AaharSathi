@@ -3,6 +3,7 @@ export interface IBottomSheetProps {
   heading: string;
   icon?: any;
   children: any;
+  onClose: () => void;
 }
 
 export interface IBottomSheetStyleProps {}

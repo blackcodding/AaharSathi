@@ -1,4 +1,7 @@
-import BottomSheet, {BottomSheetView} from '@gorhom/bottom-sheet';
+import BottomSheet, {
+  BottomSheetBackdrop,
+  BottomSheetView,
+} from '@gorhom/bottom-sheet';
 import {Text, View} from 'react-native';
 
 import {DEFAULT_COLOR} from '../../Theme/Theme';
@@ -8,13 +11,22 @@ import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './CustomBottomSheet.styles';
 
 const CustomBottomSheet = (props: IBottomSheetProps) => {
-  const {snapPoints = ['30%', '40%'], heading, icon, children} = props;
+  const {snapPoints = ['30%', '40%'], heading, icon, children, onClose} = props;
 
   const styles = generateStyles({});
 
   return (
     <BottomSheet
       snapPoints={snapPoints}
+      backdropComponent={props => (
+        <BottomSheetBackdrop
+          {...props}
+          pressBehavior={'close'}
+          disappearsOnIndex={-1}
+          onPress={onClose}
+        />
+      )}
+      enablePanDownToClose={true}
       backgroundStyle={{
         backgroundColor: DEFAULT_COLOR.OFF_WHITE,
         borderWidth: 2,

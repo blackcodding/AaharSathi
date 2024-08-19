@@ -6,10 +6,12 @@ import {View} from 'react-native';
 import {generateStyles} from './ToBuy.styles';
 
 export const ToBuy = (props: IToBuyProps) => {
-  const {data, handleAddItemPress} = props;
+  const {data, handleAddItemPress, setOpenToBuyBTS} = props;
   const styles = generateStyles();
 
-  const handelDefaultCardPress = (data: any) => {};
+  const handelDefaultCardPress = (data: any) => {
+    setOpenToBuyBTS(true);
+  };
 
   return (
     <View style={styles.mainContainer}>
