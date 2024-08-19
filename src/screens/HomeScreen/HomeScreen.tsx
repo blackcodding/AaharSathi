@@ -1,10 +1,12 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useCallback, useState} from 'react';
 
-import BottomSheet from '@gorhom/bottom-sheet';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
+import CustomBottomSheet from '../../components/CustomBottomSheet/CustomBottomSheet';
+import {DeleteIcon} from '../../assets/icons/DeleteIcon';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
 import InventoryScreen from '../ExpiringSoonScreen/ExpiringSoonScreen';
+import ItemDetailModel from '../../components/ItemDetailModel/ItemDetailModel';
 import {Menu} from '../../components/Menu/Menu';
 import MyListScreen from '../MyListScreen/MyListScreen';
 import {Profile} from '../../components/Profile/Profile';
@@ -215,9 +217,12 @@ export const HomeScreen = () => {
           onEditProfilePress={handleEditProfileClick}
         />
       )}
-      <BottomSheet snapPoints={['35%', '45%']}>
-        <View></View>
-      </BottomSheet>
+      <CustomBottomSheet
+        snapPoints={['35%', '45%']}
+        heading={'Edit Item'}
+        icon={<DeleteIcon />}
+        children={<ItemDetailModel />}
+      />
     </View>
   );
 };

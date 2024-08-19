@@ -11,6 +11,5 @@ export const generateStyles = () => {
     profileContainer: {
       marginBottom: 10,
     },
-    Container: {},
   });
 };

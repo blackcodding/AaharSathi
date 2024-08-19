@@ -8,9 +8,9 @@ export const DeleteIcon = (props: IIconProps) => {
   const {
     width = 24,
     height = 24,
-    fillColor = DEFAULT_COLOR.RED_DARK,
+    fillColor = DEFAULT_COLOR.OFF_WHITE,
     strokeWidth = 2,
-    strokeColor = DEFAULT_COLOR.BLACK,
+    strokeColor = DEFAULT_COLOR.GRAY_DARK,
   } = props;
 
   return (
