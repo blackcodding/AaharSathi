@@ -9,9 +9,9 @@ export const generateStyles = (props: IBannerCardStyleProps) => {
     mainContainer: {
       flexDirection: 'row',
       alignItems: 'center',
-      paddingHorizontal: 8,
-      paddingVertical: 4,
-      marginBottom: 50,
+      paddingHorizontal: 4,
+      paddingVertical: 2,
+      marginBottom: 24,
       borderRadius: 8,
       borderWidth: 1,
       borderColor: DEFAULT_COLOR.GRAY_LIGHT,
@@ -31,9 +31,13 @@ export const generateStyles = (props: IBannerCardStyleProps) => {
       marginRight: 12,
       borderRadius: 100,
     },
+    gif: {
+      width: '100%',
+      height: '100%',
+    },
     heading: {
-      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      fontFamily: 'Roboto-Medium',
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
+      fontFamily: 'Roboto-Regular',
       color: DEFAULT_COLOR.BLACK,
     },
   });

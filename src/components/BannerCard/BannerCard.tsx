@@ -1,6 +1,6 @@
 import {IBannerCardProps} from './BannerCard.types';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import {generateStyles} from './BannerCard.styles';
 
 const BannerCard = (props: IBannerCardProps) => {
@@ -10,7 +10,12 @@ const BannerCard = (props: IBannerCardProps) => {
 
   return (
     <View style={styles.mainContainer}>
-      <View style={styles.gifContainer}></View>
+      <View style={styles.gifContainer}>
+        <Image
+          source={require('../../assets/Gif/Alert.gif')}
+          style={styles.gif}
+        />
+      </View>
       <Text style={styles.heading}>{heading}</Text>
     </View>
   );
