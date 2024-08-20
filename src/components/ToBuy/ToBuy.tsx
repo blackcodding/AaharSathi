@@ -9,10 +9,6 @@ export const ToBuy = (props: IToBuyProps) => {
   const {data, handleAddItemPress, setOpenToBuyBTS} = props;
   const styles = generateStyles();
 
-  const handelDefaultCardPress = (data: any) => {
-    setOpenToBuyBTS(true);
-  };
-
   return (
     <View style={styles.mainContainer}>
       {!!data &&
@@ -25,7 +21,7 @@ export const ToBuy = (props: IToBuyProps) => {
               name={data.name}
               quantity={data.quantity}
               onPress={() => {
-                handelDefaultCardPress(data);
+                setOpenToBuyBTS(true);
               }}
             />
           );

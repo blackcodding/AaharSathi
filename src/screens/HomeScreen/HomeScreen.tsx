@@ -215,7 +215,7 @@ export const HomeScreen = () => {
           <UpcomingList data={upcomingListData} />
         </View>
       </ScrollView>
-      {!!openMenu && (
+      {openMenu && (
         <Menu
           onCloseMenuPress={handleCloseMenuClick}
           onEditProfilePress={handleEditProfileClick}
