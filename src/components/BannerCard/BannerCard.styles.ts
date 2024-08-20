@@ -28,7 +28,7 @@ export const generateStyles = (props: IBannerCardStyleProps) => {
     gifContainer: {
       width: 28,
       height: 28,
-      marginRight: 12,
+      marginRight: 4,
       borderRadius: 100,
     },
     gif: {
