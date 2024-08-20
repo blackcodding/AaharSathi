@@ -12,7 +12,10 @@ export const DetailCard = (props: IDetailCardProps) => {
   const {tagDetail, image, name, quantity, onPress} = props;
   const styles = generateStyles();
   return (
-    <TouchableRipple style={styles.mainContainer} onPress={onPress}>
+    <TouchableRipple
+      borderless={true}
+      style={styles.mainContainer}
+      onPress={onPress}>
       <>
         <Tag
           text={tagDetail}
