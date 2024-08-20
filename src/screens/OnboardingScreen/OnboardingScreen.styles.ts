@@ -58,7 +58,7 @@ export const generateStyles = () => {
       height: 12,
       width: 12,
       borderRadius: 50,
-      borderWidth: 1.5,
+      borderWidth: 1,
       backgroundColor: DEFAULT_COLOR.WHITE,
     },
     activeBullet: {

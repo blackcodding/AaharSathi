@@ -3,6 +3,7 @@ export interface IListCardProps {
   totalQuantity: string;
   remainingQuantity: string;
   profileImage: string;
+  icon?: any;
   date: string;
   amount: string;
   listStyles?: any;

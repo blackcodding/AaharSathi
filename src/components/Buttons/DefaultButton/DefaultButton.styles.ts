@@ -9,18 +9,18 @@ export const generateStyles = (props: IGenerateStyleProps) => {
   return StyleSheet.create({
     container: {
       alignSelf: alignSelf || 'center',
-      borderWidth: 1.5,
+      borderWidth: 1,
       borderRadius: 50,
-      borderColor: borderColor || DEFAULT_COLOR.BLACK,
+      borderColor: borderColor || DEFAULT_COLOR.GRAY_LIGHT,
       backgroundColor: backgroundColor || DEFAULT_COLOR.WHITE,
       elevation: 2,
-      shadowColor: DEFAULT_COLOR.BLACK,
+      shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
       shadowOffset: {
-        width: 0,
+        width: 2,
         height: 2,
       },
-      shadowOpacity: 0.22,
-      shadowRadius: 2.22,
+      shadowOpacity: 0.2,
+      shadowRadius: 2,
     },
     text: {
       color: textColor || DEFAULT_COLOR.BLACK,

@@ -29,7 +29,7 @@ const CustomBottomSheet = (props: IBottomSheetProps) => {
       enablePanDownToClose={true}
       backgroundStyle={{
         backgroundColor: DEFAULT_COLOR.OFF_WHITE,
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: DEFAULT_COLOR.GRAY_LIGHT,
       }}>
       <BottomSheetView style={styles.bottomSheetView}>

@@ -101,11 +101,6 @@ export const OnboardingScreenWrapper = () => {
         {index === 2 ? (
           <DefaultButton
             text={'Get Started'}
-            // colors={{
-            //   textColor: DEFAULT_COLOR.BLACK,
-            //   borderColor: DEFAULT_COLOR.GREEN_DARK,
-            //   backgroundColor: DEFAULT_COLOR.GREEN_MEDIUM,
-            // }}
             alignSelf={'center'}
             onPress={onGetStartedPress}
           />

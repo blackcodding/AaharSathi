@@ -13,9 +13,17 @@ export const generateStyles = (props: IBannerCardStyleProps) => {
       paddingVertical: 4,
       marginBottom: 50,
       borderRadius: 8,
-      borderWidth: 1.5,
+      borderWidth: 1,
       borderColor: DEFAULT_COLOR.GRAY_LIGHT,
       backgroundColor: DEFAULT_COLOR.WHITE,
+      elevation: 2,
+      shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
+      shadowOffset: {
+        width: 2,
+        height: 2,
+      },
+      shadowOpacity: 0.2,
+      shadowRadius: 2,
     },
     gifContainer: {
       width: 28,

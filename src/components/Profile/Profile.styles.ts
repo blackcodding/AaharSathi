@@ -10,7 +10,7 @@ export const generateStyles = (props: any) => {
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 50,
-      borderWidth: showBorder ? 2 : 0,
+      borderWidth: showBorder ? 1 : 0,
       borderColor: borderColor || DEFAULT_COLOR.WHITE,
     },
     image: {
