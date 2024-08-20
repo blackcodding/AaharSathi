@@ -44,10 +44,10 @@ export const generateStyles = () => {
       justifyContent: 'space-between',
     },
     bullet: {
-      width: 6,
-      height: 6,
+      width: 4,
+      height: 4,
       borderRadius: 50,
-      backgroundColor: DEFAULT_COLOR.BLACK,
+      backgroundColor: DEFAULT_COLOR.GRAY_MEDIUM,
       marginRight: 2,
     },
     subheading: {

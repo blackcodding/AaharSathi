@@ -9,4 +9,5 @@ export interface IExpiringSoonProps {
   data: IExpiringSoonData[];
   showHorizontal?: boolean;
   noOfColumns?: number;
+  setOpenExpiringSoonBTS: (value: boolean) => void;
 }

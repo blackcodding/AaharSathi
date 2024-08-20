@@ -6,7 +6,12 @@ import {IExpiringSoonProps} from './ExpiringSoon.types';
 import {generateStyles} from './ExpiringSoon.styles';
 
 export const ExpiringSoon = (props: IExpiringSoonProps) => {
-  const {data, showHorizontal = true, noOfColumns = 0} = props;
+  const {
+    data,
+    showHorizontal = true,
+    noOfColumns = 0,
+    setOpenExpiringSoonBTS,
+  } = props;
   const styles = generateStyles();
   const flatListRef = useRef();
   return (
@@ -21,6 +26,7 @@ export const ExpiringSoon = (props: IExpiringSoonProps) => {
               image={item.image}
               name={item.name}
               quantity={item.quantity}
+              onPress={() => setOpenExpiringSoonBTS(true)}
             />
           );
         }}

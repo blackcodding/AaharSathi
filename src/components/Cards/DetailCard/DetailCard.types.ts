@@ -3,4 +3,5 @@ export interface IDetailCardProps {
   image?: string;
   name: string;
   quantity: string;
+  onPress: () => void;
 }

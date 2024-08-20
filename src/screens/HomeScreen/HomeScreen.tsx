@@ -1,6 +1,7 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useCallback, useState} from 'react';
 
+import BannerCard from '../../components/BannerCard/BannerCard';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import CustomBottomSheet from '../../components/CustomBottomSheet/CustomBottomSheet';
 import {DeleteIcon} from '../../assets/icons/DeleteIcon';
@@ -16,11 +17,11 @@ import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
-import BannerCard from '../../components/BannerCard/BannerCard';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openToBuyBTS, setOpenToBuyBTS] = useState(false);
+  const [openExpiringSoonBTS, setOpenExpiringSoonBTS] = useState(false);
 
   const styles = generateStyles();
   const navigation = useNavigation();
@@ -205,7 +206,10 @@ export const HomeScreen = () => {
             subtitle={'See All'}
             onPress={handleSeeAllExpiryCardClick}
           />
-          <ExpiringSoon data={expiringSoonData} />
+          <ExpiringSoon
+            data={expiringSoonData}
+            setOpenExpiringSoonBTS={setOpenExpiringSoonBTS}
+          />
         </View>
         <View>
           <ContainerHeading
@@ -232,6 +236,17 @@ export const HomeScreen = () => {
           children={<ItemDetailModel />}
           onClose={() => {
             setOpenToBuyBTS(false);
+          }}
+        />
+      )}
+      {openExpiringSoonBTS && (
+        <CustomBottomSheet
+          snapPoints={['35%', '45%']}
+          heading={'Edit Item'}
+          icon={<DeleteIcon />}
+          children={<ItemDetailModel />}
+          onClose={() => {
+            setOpenExpiringSoonBTS(false);
           }}
         />
       )}

@@ -9,7 +9,7 @@ export const PencilIcon = (props: IIconProps) => {
   const {
     width = 36,
     height = 36,
-    fillColor = DEFAULT_COLOR.BLACK,
+    fillColor = DEFAULT_COLOR.GRAY_DARK,
     strokeWidth = 1.5,
     strokeColor = DEFAULT_COLOR.WHITE,
   } = props;
