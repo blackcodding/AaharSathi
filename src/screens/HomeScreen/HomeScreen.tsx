@@ -16,6 +16,7 @@ import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
+import BannerCard from '../../components/BannerCard/BannerCard';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -214,6 +215,8 @@ export const HomeScreen = () => {
           />
           <UpcomingList data={upcomingListData} />
         </View>
+
+        <BannerCard heading={'This is the heading of Banner Card'} />
       </ScrollView>
       {openMenu && (
         <Menu
