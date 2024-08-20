@@ -27,7 +27,7 @@ export const generateStyles = () => {
     text: {
       color: DEFAULT_COLOR.BLACK,
       marginRight: 40,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Regular',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
     },
     icon: {
@@ -37,7 +37,7 @@ export const generateStyles = () => {
     },
     subText: {
       color: DEFAULT_COLOR.GRAY_DARK,
-      fontFamily: 'Rubik-Regular',
+      fontFamily: 'Roboto-Regular',
     },
   });
 };

@@ -29,7 +29,7 @@ export const generateStyles = (props: ITagStyleProps) => {
       paddingVertical: 2,
     },
     quantityText: {
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Roboto-Bold',
       color: color,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_SMALL,
     },

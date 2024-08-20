@@ -22,7 +22,7 @@ export const generateStyles = (props: IBottomSheetStyleProps) => {
       alignItems: 'center',
     },
     heading: {
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Roboto-Bold',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       color: DEFAULT_COLOR.BLACK,
     },

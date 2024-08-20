@@ -53,12 +53,12 @@ export const generateStyles = () => {
     },
     name: {
       color: DEFAULT_COLOR.BLACK,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Medium',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
     },
     phoneNumber: {
       color: DEFAULT_COLOR.BLACK,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Regular',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
     },
   });

@@ -29,7 +29,7 @@ export const generateStyles = () => {
       objectFit: 'contain',
     },
     itemName: {
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Medium',
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
     },
@@ -39,7 +39,7 @@ export const generateStyles = () => {
       alignItems: 'center',
     },
     quantityText: {
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Roboto-Medium',
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_SMALL,
       marginLeft: 2,

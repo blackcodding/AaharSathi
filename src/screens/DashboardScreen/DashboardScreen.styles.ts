@@ -16,7 +16,8 @@ export const generateStyles = (props: IDashboardScreenStyleProps) => {
       marginBottom: 8,
     },
     label: {
-      fontFamily: 'Rubik-Medium',
+      marginBottom: 4,
+      fontFamily: 'Roboto-Bold',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
     },
   });

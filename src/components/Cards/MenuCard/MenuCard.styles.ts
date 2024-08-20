@@ -29,7 +29,7 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
     name: {
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Regular',
       marginLeft: 12,
     },
   });

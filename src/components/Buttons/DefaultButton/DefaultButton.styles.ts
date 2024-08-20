@@ -25,7 +25,7 @@ export const generateStyles = (props: IGenerateStyleProps) => {
     text: {
       color: textColor || DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.BUTTON_SIZE,
-      fontFamily: 'Rubik-Regular',
+      fontFamily: 'Roboto-Regular',
       paddingHorizontal: 12,
       paddingVertical: 4,
     },

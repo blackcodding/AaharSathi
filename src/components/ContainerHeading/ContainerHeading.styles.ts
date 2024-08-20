@@ -11,7 +11,7 @@ export const generateStyles = (props: any) => {
       justifyContent: 'space-between',
     },
     title: {
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Roboto-Bold',
       fontSize: titleSize || DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       color: titleColor || DEFAULT_COLOR.BLACK,
     },
@@ -21,7 +21,7 @@ export const generateStyles = (props: any) => {
     subtitle: {
       paddingHorizontal: 8,
       paddingVertical: 4,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Medium',
       fontSize: subTitleSize || DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
       color: DEFAULT_COLOR.BLUE_DARK,
     },

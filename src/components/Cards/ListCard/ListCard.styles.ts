@@ -26,7 +26,7 @@ export const generateStyles = () => {
     },
     heading: {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      fontFamily: 'Rubik-Bold',
+      fontFamily: 'Roboto-Medium',
       color: DEFAULT_COLOR.BLACK,
       marginRight: 8,
     },
@@ -43,7 +43,7 @@ export const generateStyles = () => {
     },
     subheading: {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Regular',
       color: DEFAULT_COLOR.BLACK,
       marginTop: 2,
     },
@@ -96,7 +96,7 @@ export const generateStyles = () => {
     },
     date: {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Regular',
       color: DEFAULT_COLOR.BLACK,
       marginLeft: 6,
     },
@@ -107,7 +107,7 @@ export const generateStyles = () => {
     },
     amount: {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Regular',
       color: DEFAULT_COLOR.BLACK,
     },
     addItemContainer: {

@@ -13,7 +13,7 @@ export const generateStyles = (props: IItemDetailModelStyleProps) => {
       paddingTop: 16,
     },
     textStyle: {
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Regular',
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
     },

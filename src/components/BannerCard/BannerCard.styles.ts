@@ -25,7 +25,7 @@ export const generateStyles = (props: IBannerCardStyleProps) => {
     },
     heading: {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Medium',
       color: DEFAULT_COLOR.BLACK,
     },
   });

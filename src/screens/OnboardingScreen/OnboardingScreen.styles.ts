@@ -31,7 +31,7 @@ export const generateStyles = () => {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       color: DEFAULT_COLOR.BLACK,
       textAlign: 'center',
-      fontFamily: 'Rubik-Medium',
+      fontFamily: 'Roboto-Medium',
     },
     subtext: {
       width: 320,
@@ -39,7 +39,7 @@ export const generateStyles = () => {
       color: DEFAULT_COLOR.BLACK,
       textAlign: 'center',
       marginTop: 4,
-      fontFamily: 'Rubik-Regular',
+      fontFamily: 'Roboto-Regular',
     },
     footer: {
       flexDirection: 'column',
