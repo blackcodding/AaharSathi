@@ -25,16 +25,6 @@ export const generateStyles = (props: IBannerCardStyleProps) => {
       shadowOpacity: 0.2,
       shadowRadius: 2,
     },
-    gifContainer: {
-      width: 28,
-      height: 28,
-      marginRight: 4,
-      borderRadius: 100,
-    },
-    gif: {
-      width: '100%',
-      height: '100%',
-    },
     heading: {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
       fontFamily: 'Roboto-Regular',

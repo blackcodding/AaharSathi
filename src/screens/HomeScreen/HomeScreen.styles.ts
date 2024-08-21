@@ -9,6 +9,9 @@ export const generateStyles = () => {
       backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     profileContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
       marginBottom: 10,
     },
   });

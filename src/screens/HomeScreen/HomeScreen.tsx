@@ -11,12 +11,13 @@ import ItemDetailModel from '../../components/ItemDetailModel/ItemDetailModel';
 import {Menu} from '../../components/Menu/Menu';
 import MyListScreen from '../MyListScreen/MyListScreen';
 import {Profile} from '../../components/Profile/Profile';
-import {ScrollView} from 'react-native';
+import {Image, ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
+import {commonStyles} from '../../components/commonStyles';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -185,6 +186,16 @@ export const HomeScreen = () => {
       <ScrollView style={styles.mainContainer}>
         <View style={styles.profileContainer}>
           <Profile handleProfileClick={handleProfileClick} />
+          <View style={commonStyles.gifContainer}>
+            <Image
+              source={
+                true
+                  ? require('../../assets/Gif/RingingBell.gif')
+                  : require('../../assets/Images/Bell.png')
+              }
+              style={commonStyles.gif}
+            />
+          </View>
         </View>
         <ContainerHeading
           title={'Welcome Supriya'}
