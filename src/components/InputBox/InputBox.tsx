@@ -1,19 +1,33 @@
+import {TextInput, View} from 'react-native';
+
 import {IInputBoxProps} from './InputBox.types';
 import React from 'react';
-import {TextInput} from 'react-native-paper';
-import {View} from 'react-native';
 import {generateStyles} from './InputBox.styles';
 
 const InputBox = (props: IInputBoxProps) => {
-  const {} = props;
+  const {
+    placeholder = 'Placeholder',
+    multiline = false,
+    autoFocus = false,
+    keyboardType = 'default',
+    editable = true,
+    inputBoxStyles,
+  } = props;
 
-  const styles = generateStyles({});
+  const isError = false;
+
+  const styles = generateStyles({isError, editable});
 
   return (
-    <View style={styles.mainContainer}>
-      <View style={styles.inputContainer}>
-        <TextInput style={styles.textInput} />
-      </View>
+    <View style={[styles.inputContainer, inputBoxStyles]}>
+      <TextInput
+        placeholder={placeholder}
+        multiline={multiline}
+        autoFocus={autoFocus}
+        keyboardType={keyboardType}
+        editable={editable}
+        style={styles.input}
+      />
     </View>
   );
 };

@@ -26,7 +26,6 @@ const CustomBottomSheet = (props: IBottomSheetProps) => {
           onPress={onClose}
         />
       )}
-      enablePanDownToClose={true}
       backgroundStyle={{
         backgroundColor: DEFAULT_COLOR.OFF_WHITE,
         borderWidth: 1,

@@ -1,4 +1,5 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+import {Image, ScrollView} from 'react-native';
 import React, {useCallback, useState} from 'react';
 
 import BannerCard from '../../components/BannerCard/BannerCard';
@@ -11,13 +12,12 @@ import ItemDetailModel from '../../components/ItemDetailModel/ItemDetailModel';
 import {Menu} from '../../components/Menu/Menu';
 import MyListScreen from '../MyListScreen/MyListScreen';
 import {Profile} from '../../components/Profile/Profile';
-import {Image, ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
+import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
-import {commonStyles} from '../../components/commonStyles';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -241,7 +241,7 @@ export const HomeScreen = () => {
       )}
       {openToBuyBTS && (
         <CustomBottomSheet
-          snapPoints={['35%', '45%']}
+          snapPoints={['40%', '50%']}
           heading={'Edit Item'}
           icon={<DeleteIcon />}
           children={<ItemDetailModel />}
@@ -252,8 +252,8 @@ export const HomeScreen = () => {
       )}
       {openExpiringSoonBTS && (
         <CustomBottomSheet
-          snapPoints={['35%', '45%']}
-          heading={'Edit Item'}
+          snapPoints={['40%', '50%']}
+          heading={'Expiring in 3 days'}
           icon={<DeleteIcon />}
           children={<ItemDetailModel />}
           onClose={() => {
