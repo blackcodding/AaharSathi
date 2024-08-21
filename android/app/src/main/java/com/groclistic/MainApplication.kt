@@ -1,4 +1,4 @@
-package com.aaharsathi
+package com.groclistic
 
 import android.app.Application
 import com.facebook.react.PackageList
