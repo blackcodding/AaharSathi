@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface AaharSathiTests : XCTestCase
+@interface GrocListicTests : XCTestCase
 
 @end
 
-@implementation AaharSathiTests
+@implementation GrocListicTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {
