@@ -1,6 +1,7 @@
 import {Dimensions, FlatList, View} from 'react-native';
 import React, {useCallback, useRef, useState} from 'react';
 
+import DashboardScreen from '../DashboardScreen/DashboardScreen';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import {HomeScreen} from '../HomeScreen/HomeScreen';
 import {OnboardingScreen} from './OnboardingScreen';
@@ -53,11 +54,11 @@ export const OnboardingScreenWrapper = () => {
   );
 
   const onSkipPress = useCallback(() => {
-    navigation.navigate(HomeScreen as never);
+    navigation.navigate(DashboardScreen as never);
   }, []);
 
   const onGetStartedPress = useCallback(() => {
-    navigation.navigate(HomeScreen as never);
+    navigation.navigate(DashboardScreen as never);
   }, []);
 
   return (

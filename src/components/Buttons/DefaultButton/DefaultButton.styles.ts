@@ -9,7 +9,7 @@ export const generateStyles = (props: IGenerateStyleProps) => {
   return StyleSheet.create({
     container: {
       alignSelf: alignSelf || 'center',
-      borderWidth: 1,
+      borderWidth: 1.25,
       borderRadius: 50,
       borderColor: borderColor || DEFAULT_COLOR.GRAY_LIGHT,
       backgroundColor: backgroundColor || DEFAULT_COLOR.WHITE,
@@ -25,7 +25,7 @@ export const generateStyles = (props: IGenerateStyleProps) => {
     text: {
       color: textColor || DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.BUTTON_SIZE,
-      fontFamily: 'Roboto-Regular',
+      fontFamily: 'Roboto-Medium',
       paddingHorizontal: 12,
       paddingVertical: 4,
     },

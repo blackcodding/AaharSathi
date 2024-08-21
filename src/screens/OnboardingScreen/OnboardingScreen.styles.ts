@@ -11,7 +11,7 @@ export const generateStyles = () => {
       flex: 1,
       flexDirection: 'column',
       padding: 18,
-      backgroundColor: DEFAULT_COLOR.WHITE,
+      backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     itemContainer: {
       width: width - 18 * 2,
@@ -51,21 +51,22 @@ export const generateStyles = () => {
       justifyContent: 'space-between',
       marginTop: 10,
       marginBottom: 30,
-      marginHorizontal: 120,
+      marginHorizontal: 124,
       padding: 20,
     },
     bullet: {
-      height: 12,
-      width: 12,
+      height: 10,
+      width: 10,
       borderRadius: 50,
-      borderWidth: 1,
+      borderWidth: 1.25,
+      borderColor: DEFAULT_COLOR.GRAY_MEDIUM,
       backgroundColor: DEFAULT_COLOR.WHITE,
     },
     activeBullet: {
-      backgroundColor: DEFAULT_COLOR.BLACK,
+      backgroundColor: DEFAULT_COLOR.GRAY_MEDIUM,
     },
     emptyView: {
-      height: 38,
+      height: 32,
     },
   });
 };
