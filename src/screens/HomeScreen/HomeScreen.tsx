@@ -7,6 +7,7 @@ import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeadi
 import CustomBottomSheet from '../../components/CustomBottomSheet/CustomBottomSheet';
 import {DeleteIcon} from '../../assets/icons/DeleteIcon';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
+import InputBox from '../../components/InputBox/InputBox';
 import InventoryScreen from '../ExpiringSoonScreen/ExpiringSoonScreen';
 import ItemDetailModel from '../../components/ItemDetailModel/ItemDetailModel';
 import {Menu} from '../../components/Menu/Menu';
@@ -186,6 +187,7 @@ export const HomeScreen = () => {
       <ScrollView style={styles.mainContainer}>
         <View style={styles.profileContainer}>
           <Profile handleProfileClick={handleProfileClick} />
+          <InputBox placeholder="Search" />
           <View style={commonStyles.gifContainer}>
             <Image
               source={

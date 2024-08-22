@@ -15,11 +15,11 @@ export const generateStyles = () => {
     },
     itemContainer: {
       width: width - 18 * 2,
-      justifyContent: 'space-around',
+      justifyContent: 'center',
       alignItems: 'center',
     },
     imageContainer: {
-      marginTop: 30,
+      marginTop: 12,
     },
     image: {
       width: 300,
@@ -28,6 +28,7 @@ export const generateStyles = () => {
     },
     text: {
       width: 320,
+      marginTop: 16,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       color: DEFAULT_COLOR.BLACK,
       textAlign: 'center',
@@ -35,23 +36,23 @@ export const generateStyles = () => {
     },
     subtext: {
       width: 320,
+      marginTop: 16,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
       color: DEFAULT_COLOR.BLACK,
       textAlign: 'center',
-      marginTop: 4,
       fontFamily: 'Roboto-Regular',
     },
     footer: {
       flexDirection: 'column',
       justifyContent: 'space-between',
-      paddingBottom: 10,
+      paddingBottom: 28,
     },
     bulletContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       marginTop: 10,
       marginBottom: 30,
-      marginHorizontal: 124,
+      marginHorizontal: 112,
       padding: 20,
     },
     bullet: {
