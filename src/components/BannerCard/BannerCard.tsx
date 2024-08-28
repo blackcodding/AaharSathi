@@ -1,8 +1,9 @@
+import {Image, Text, View} from 'react-native';
+
 import {IBannerCardProps} from './BannerCard.types';
 import React from 'react';
-import {Image, Text, View} from 'react-native';
-import {generateStyles} from './BannerCard.styles';
 import {commonStyles} from '../commonStyles';
+import {generateStyles} from './BannerCard.styles';
 
 const BannerCard = (props: IBannerCardProps) => {
   const {heading = ''} = props;

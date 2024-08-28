@@ -7,9 +7,6 @@ export const generateStyles = (props: IBottomSheetStyleProps) => {
   const {} = props || {};
 
   return StyleSheet.create({
-    bottomSheetView: {
-      flex: 1,
-    },
     bottomSheetContainer: {
       flex: 1,
       backgroundColor: DEFAULT_COLOR.OFF_WHITE,

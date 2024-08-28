@@ -243,7 +243,7 @@ export const HomeScreen = () => {
       )}
       {openToBuyBTS && (
         <CustomBottomSheet
-          snapPoints={['40%', '50%']}
+          snapPoints={['40%']}
           heading={'Edit Item'}
           icon={<DeleteIcon />}
           children={<ItemDetailModel />}
@@ -254,7 +254,7 @@ export const HomeScreen = () => {
       )}
       {openExpiringSoonBTS && (
         <CustomBottomSheet
-          snapPoints={['40%', '50%']}
+          snapPoints={['40%']}
           heading={'Expiring in 3 days'}
           icon={<DeleteIcon />}
           children={<ItemDetailModel />}
