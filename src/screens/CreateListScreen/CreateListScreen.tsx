@@ -1,8 +1,8 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
+import Header from '../../components/Header/Header';
 import {ICreateListScreenProps} from './CreateListScreen.types';
-import {Profile} from '../../components/Profile/Profile';
 import React from 'react';
 import {View} from 'react-native';
 import {generateStyles} from './CreateListScreen.styles';
@@ -14,6 +14,7 @@ const CreateListScreen = (props: ICreateListScreenProps) => {
 
   return (
     <View style={styles.mainContainer}>
+      <Header />
       <ContainerHeading
         title={'Create List'}
         titleColor={DEFAULT_COLOR.BLACK}

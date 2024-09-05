@@ -2,8 +2,8 @@ import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
+import Header from '../../components/Header/Header';
 import {IExpiringSoonScreenProps} from './ExpiringSoonScreen.types';
-import {Profile} from '../../components/Profile/Profile';
 import React from 'react';
 import {View} from 'react-native';
 import {generateStyles} from './ExpiringSoonScreen.styles';
@@ -114,6 +114,7 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
 
   return (
     <View style={styles.mainContainer}>
+      <Header />
       <ContainerHeading
         title={'Expiring Soon'}
         titleColor={DEFAULT_COLOR.BLACK}

@@ -1,5 +1,4 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import {Image, ScrollView} from 'react-native';
 import React, {useCallback, useState} from 'react';
 
 import BannerCard from '../../components/BannerCard/BannerCard';
@@ -7,16 +6,15 @@ import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeadi
 import CustomBottomSheet from '../../components/CustomBottomSheet/CustomBottomSheet';
 import {DeleteIcon} from '../../assets/icons/DeleteIcon';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
-import InputBox from '../../components/InputBox/InputBox';
+import Header from '../../components/Header/Header';
 import InventoryScreen from '../ExpiringSoonScreen/ExpiringSoonScreen';
 import ItemDetailModel from '../../components/ItemDetailModel/ItemDetailModel';
 import {Menu} from '../../components/Menu/Menu';
 import MyListScreen from '../MyListScreen/MyListScreen';
-import {Profile} from '../../components/Profile/Profile';
+import {ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
-import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
 
@@ -27,10 +25,6 @@ export const HomeScreen = () => {
 
   const styles = generateStyles();
   const navigation = useNavigation();
-
-  const handleProfileClick = () => {
-    setOpenMenu(true);
-  };
 
   const handleCloseMenuClick = () => {
     setOpenMenu(false);
@@ -184,21 +178,10 @@ export const HomeScreen = () => {
 
   return (
     <View>
-      <ScrollView style={styles.mainContainer}>
-        <View style={styles.profileContainer}>
-          <Profile handleProfileClick={handleProfileClick} />
-          <InputBox placeholder="Search" />
-          <View style={commonStyles.gifContainer}>
-            <Image
-              source={
-                true
-                  ? require('../../assets/Gif/RingingBell.gif')
-                  : require('../../assets/Images/Bell.png')
-              }
-              style={commonStyles.gif}
-            />
-          </View>
-        </View>
+      <ScrollView
+        style={styles.mainContainer}
+        showsVerticalScrollIndicator={false}>
+        <Header />
         <ContainerHeading
           title={'Welcome Supriya'}
           titleColor={DEFAULT_COLOR.BLACK}

@@ -1,10 +1,10 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import {ScrollView, View} from 'react-native';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
+import Header from '../../components/Header/Header';
 import {IMyListScreenProps} from './MyListScreen.types';
-import {Profile} from '../../components/Profile/Profile';
 import React from 'react';
+import {ScrollView} from 'react-native';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {generateStyles} from './MyListScreen.styles';
 
@@ -100,6 +100,7 @@ const MyListScreen = (props: IMyListScreenProps) => {
     <ScrollView
       showsVerticalScrollIndicator={false}
       style={styles.mainContainer}>
+      <Header />
       <ContainerHeading
         title={'My List'}
         titleColor={DEFAULT_COLOR.BLACK}

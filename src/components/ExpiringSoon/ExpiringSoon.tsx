@@ -26,7 +26,9 @@ export const ExpiringSoon = (props: IExpiringSoonProps) => {
               image={item.image}
               name={item.name}
               quantity={item.quantity}
-              onPress={() => setOpenExpiringSoonBTS(true)}
+              onPress={() =>
+                setOpenExpiringSoonBTS && setOpenExpiringSoonBTS(true)
+              }
             />
           );
         }}
