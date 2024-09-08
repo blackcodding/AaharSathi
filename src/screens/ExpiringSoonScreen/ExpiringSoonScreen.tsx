@@ -19,6 +19,7 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: '',
     },
     {
       id: '2',
@@ -27,6 +28,7 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Grocery',
     },
     {
       id: '3',
@@ -35,6 +37,7 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Household',
     },
     {
       id: '4',
@@ -43,6 +46,7 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Party',
     },
     {
       id: '5',
@@ -51,57 +55,10 @@ const ExpiringSoonScreen = (props: IExpiringSoonScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Travel',
     },
     {
       id: '6',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-    },
-    {
-      id: '7',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-    },
-    {
-      id: '8',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-    },
-    {
-      id: '9',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-    },
-    {
-      id: '10',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-    },
-    {
-      id: '11',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-    },
-    {
-      id: '12',
       tagDetail: '30 Jun',
       image:
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',

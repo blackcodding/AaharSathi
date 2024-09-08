@@ -47,34 +47,52 @@ export const HomeScreen = () => {
   const toBuyData = [
     {
       id: '1',
+      tagDetail: '30 Mar',
       image:
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: '',
     },
     {
       id: '2',
+      tagDetail: '30 Apr',
       image:
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Grocery',
     },
     {
       id: '3',
+      tagDetail: '30 Jun',
       image:
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Household',
     },
     {
       id: '4',
+      tagDetail: '30 Jun',
       image:
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Party',
     },
     {
       id: '5',
+      tagDetail: '30 Jun',
+      image:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
+      name: 'Apple',
+      quantity: '100 gms',
+      category: 'Travel',
+    },
+    {
+      id: '6',
+      tagDetail: '30 Jun',
       image:
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
@@ -148,6 +166,7 @@ export const HomeScreen = () => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
       date: '1st April 2024',
       amount: '$: 500',
+      category: '',
     },
     {
       id: '2',
@@ -158,6 +177,7 @@ export const HomeScreen = () => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
       date: '1st April 2024',
       amount: '$: 500',
+      category: 'Grocery',
     },
     {
       id: '3',
@@ -168,9 +188,32 @@ export const HomeScreen = () => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
       date: '1st April 2024',
       amount: '$: 500',
+      category: 'Household',
     },
     {
       id: '4',
+      listName: 'Birthday List',
+      totalQuantity: '5 Items',
+      remainingQuantity: '3 Item remaining',
+      profileImage:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+      date: '1st April 2024',
+      amount: '$: 500',
+      category: 'Party',
+    },
+    {
+      id: '5',
+      listName: 'Birthday List',
+      totalQuantity: '5 Items',
+      remainingQuantity: '3 Item remaining',
+      profileImage:
+        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
+      date: '1st April 2024',
+      amount: '$: 500',
+      category: 'Travel',
+    },
+    {
+      id: '6',
       listName: 'Birthday List',
       totalQuantity: '5 Items',
       remainingQuantity: '3 Item remaining',

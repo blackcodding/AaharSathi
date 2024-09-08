@@ -22,6 +22,7 @@ const MyListScreen = (props: IMyListScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
       date: '1st April 2024',
       amount: '$: 500',
+      category: '',
     },
     {
       id: '2',
@@ -32,6 +33,7 @@ const MyListScreen = (props: IMyListScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
       date: '1st April 2024',
       amount: '$: 500',
+      category: 'Grocery',
     },
     {
       id: '3',
@@ -42,6 +44,7 @@ const MyListScreen = (props: IMyListScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
       date: '1st April 2024',
       amount: '$: 500',
+      category: 'Household',
     },
     {
       id: '4',
@@ -52,6 +55,7 @@ const MyListScreen = (props: IMyListScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
       date: '1st April 2024',
       amount: '$: 500',
+      category: 'Party',
     },
     {
       id: '5',
@@ -62,29 +66,10 @@ const MyListScreen = (props: IMyListScreenProps) => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
       date: '1st April 2024',
       amount: '$: 500',
+      category: 'Travel',
     },
     {
       id: '6',
-      listName: 'Birthday List',
-      totalQuantity: '5 Items',
-      remainingQuantity: '3 Item remaining',
-      profileImage:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
-      date: '1st April 2024',
-      amount: '$: 500',
-    },
-    {
-      id: '7',
-      listName: 'Birthday List',
-      totalQuantity: '5 Items',
-      remainingQuantity: '3 Item remaining',
-      profileImage:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Onboarding%20Screen.png?updatedAt=1707764562848',
-      date: '1st April 2024',
-      amount: '$: 500',
-    },
-    {
-      id: '8',
       listName: 'Birthday List',
       totalQuantity: '5 Items',
       remainingQuantity: '3 Item remaining',
