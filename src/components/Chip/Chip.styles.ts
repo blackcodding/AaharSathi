@@ -3,7 +3,7 @@ import {IChipStyleProps} from './Chip.types';
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: IChipStyleProps) => {
-  const {} = props || {};
+  const {chipName, selectedChip} = props || {};
 
   return StyleSheet.create({
     mainContainer: {
@@ -12,8 +12,14 @@ export const generateStyles = (props: IChipStyleProps) => {
       borderRadius: 50,
       borderWidth: 1,
       marginRight: 4,
-      borderColor: DEFAULT_COLOR.GRAY_LIGHT,
-      backgroundColor: DEFAULT_COLOR.WHITE,
+      borderColor:
+        chipName === selectedChip
+          ? DEFAULT_COLOR.BLACK
+          : DEFAULT_COLOR.GRAY_LIGHT,
+      backgroundColor:
+        chipName === selectedChip
+          ? DEFAULT_COLOR.OFF_WHITE
+          : DEFAULT_COLOR.WHITE,
       elevation: 2,
       shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
       shadowOffset: {
@@ -24,6 +30,7 @@ export const generateStyles = (props: IChipStyleProps) => {
       shadowRadius: 2,
     },
     textDecoration: {
+      color: DEFAULT_COLOR.BLACK,
       paddingHorizontal: 12,
       paddingVertical: 4,
     },

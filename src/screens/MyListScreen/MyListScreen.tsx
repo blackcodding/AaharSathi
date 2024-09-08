@@ -109,12 +109,6 @@ const MyListScreen = (props: IMyListScreenProps) => {
       showsVerticalScrollIndicator={false}
       style={styles.mainContainer}>
       <Header />
-      <ContainerHeading
-        title={'My List'}
-        titleColor={DEFAULT_COLOR.BLACK}
-        titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
-        subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
-      />
       <ChipContainer data={allUpcomingListData} />
     </ScrollView>
   );

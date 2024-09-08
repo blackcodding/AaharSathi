@@ -5,6 +5,8 @@ import {IChipContainerProps} from './ChipContainer.types';
 import React, {useMemo, useState} from 'react';
 import {generateStyles} from './ChipContainer.styles';
 import {UpcomingList} from '../UpcomingList/UpcomingList';
+import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 
 const ChipContainer = (props: IChipContainerProps) => {
   const {data} = props;
@@ -67,6 +69,7 @@ const ChipContainer = (props: IChipContainerProps) => {
           return (
             <Chip
               chipName={item.name}
+              selectedChip={selectedCategory}
               onPress={() => {
                 setSelectedCategory(item.name);
               }}
@@ -74,6 +77,16 @@ const ChipContainer = (props: IChipContainerProps) => {
           );
         }}
         horizontal={true}
+        contentContainerStyle={{
+          marginTop: 4,
+          marginBottom: 12,
+        }}
+      />
+      <ContainerHeading
+        title={`${selectedCategory} List`}
+        titleColor={DEFAULT_COLOR.BLACK}
+        titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM}
+        subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
       />
       <UpcomingList
         data={filteredData}

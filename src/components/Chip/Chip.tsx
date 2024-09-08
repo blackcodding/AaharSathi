@@ -5,9 +5,9 @@ import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './Chip.styles';
 
 const Chip = (props: IChipProps) => {
-  const {chipName, onPress} = props;
+  const {chipName, selectedChip, onPress} = props;
 
-  const styles = generateStyles({});
+  const styles = generateStyles({chipName, selectedChip});
 
   return (
     <TouchableRipple
