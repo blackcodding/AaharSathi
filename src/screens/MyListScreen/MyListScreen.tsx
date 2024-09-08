@@ -1,5 +1,6 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 
+import ChipContainer from '../../components/ChipContainer/ChipContainer';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import Header from '../../components/Header/Header';
 import {IMyListScreenProps} from './MyListScreen.types';
@@ -107,6 +108,7 @@ const MyListScreen = (props: IMyListScreenProps) => {
         titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
         subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
       />
+      <ChipContainer />
       <UpcomingList
         data={allUpcomingListData}
         showVertical={true}

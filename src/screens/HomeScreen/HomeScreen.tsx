@@ -90,6 +90,7 @@ export const HomeScreen = () => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: '',
     },
     {
       id: '2',
@@ -98,6 +99,7 @@ export const HomeScreen = () => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Grocery',
     },
     {
       id: '3',
@@ -106,6 +108,7 @@ export const HomeScreen = () => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Household',
     },
     {
       id: '4',
@@ -114,6 +117,7 @@ export const HomeScreen = () => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Party',
     },
     {
       id: '5',
@@ -122,6 +126,7 @@ export const HomeScreen = () => {
         'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
       name: 'Apple',
       quantity: '100 gms',
+      category: 'Travel',
     },
     {
       id: '6',

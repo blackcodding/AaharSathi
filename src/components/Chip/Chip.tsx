@@ -5,16 +5,16 @@ import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './Chip.styles';
 
 const Chip = (props: IChipProps) => {
-  const {} = props;
+  const {chipName, onPress} = props;
 
   const styles = generateStyles({});
 
   return (
     <TouchableRipple
       borderless={true}
-      onPress={() => {}}
+      onPress={onPress}
       style={styles.mainContainer}>
-      <Text style={styles.textDecoration}>{'Chip'}</Text>
+      <Text style={styles.textDecoration}>{chipName}</Text>
     </TouchableRipple>
   );
 };

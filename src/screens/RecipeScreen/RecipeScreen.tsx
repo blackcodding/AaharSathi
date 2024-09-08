@@ -1,6 +1,6 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 
-import Chip from '../../components/Chip/Chip';
+import ChipContainer from '../../components/ChipContainer/ChipContainer';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import Header from '../../components/Header/Header';
 import {IRecipeScreenProps} from './RecipeScreen.types';
@@ -22,7 +22,7 @@ const RecipeScreen = (props: IRecipeScreenProps) => {
         titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
         subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
       />
-      <Chip />
+      <ChipContainer />
     </View>
   );
 };

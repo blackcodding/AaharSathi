@@ -7,11 +7,11 @@ export const generateStyles = (props: IChipStyleProps) => {
 
   return StyleSheet.create({
     mainContainer: {
-      flexDirection: 'row',
       alignItems: 'center',
       alignSelf: 'flex-start',
       borderRadius: 50,
       borderWidth: 1,
+      marginRight: 4,
       borderColor: DEFAULT_COLOR.GRAY_LIGHT,
       backgroundColor: DEFAULT_COLOR.WHITE,
       elevation: 2,
