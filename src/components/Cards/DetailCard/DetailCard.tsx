@@ -22,7 +22,9 @@ export const DetailCard = (props: IDetailCardProps) => {
           isAbsolute={true}
           top={2}
           right={2}
-          backgroundColor={DEFAULT_COLOR.RED_MEDIUM}
+          color={DEFAULT_COLOR.RED_DARK}
+          backgroundColor={DEFAULT_COLOR.CRIMSON}
+          borderColor={DEFAULT_COLOR.RED_LIGHT}
         />
         <View style={styles.imageContainer}>
           <Image

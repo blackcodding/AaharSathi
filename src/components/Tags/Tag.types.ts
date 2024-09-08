@@ -3,6 +3,7 @@ export interface ITagProps {
   isAbsolute?: boolean;
   color?: string;
   backgroundColor?: string;
+  borderColor?: string;
   top?: number;
   right?: number;
   bottom?: number;
@@ -13,6 +14,7 @@ export interface ITagStyleProps {
   isAbsolute?: boolean;
   color?: string;
   backgroundColor?: string;
+  borderColor?: string;
   top?: number;
   right?: number;
   bottom?: number;

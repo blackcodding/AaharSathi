@@ -31,8 +31,9 @@ export const ListCard = (props: IListCardProps) => {
           <Text style={styles.heading}>{listName}</Text>
           <Tag
             text={totalQuantity}
-            color={DEFAULT_COLOR.WHITE}
-            backgroundColor={DEFAULT_COLOR.GRAY_MEDIUM}
+            color={DEFAULT_COLOR.BLACK}
+            backgroundColor={DEFAULT_COLOR.OFF_WHITE}
+            borderColor={DEFAULT_COLOR.BLACK}
           />
         </View>
         <TouchableRipple
