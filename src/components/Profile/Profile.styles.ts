@@ -5,8 +5,8 @@ export const generateStyles = (props: any) => {
   const {borderColor, showBorder} = props || {};
   return StyleSheet.create({
     imageContainer: {
-      height: 50,
-      width: 50,
+      height: 44,
+      width: 44,
       justifyContent: 'center',
       alignItems: 'center',
       borderRadius: 50,

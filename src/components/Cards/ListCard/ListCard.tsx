@@ -7,6 +7,9 @@ import {Tag} from '../../Tags/Tag';
 import {TouchableRipple} from 'react-native-paper';
 import {UserIcon} from '../../../assets/icons/userIcon';
 import {generateStyles} from './ListCard.styles';
+import {CalenderIcon} from '../../../assets/icons/CalenderIcon';
+import {ChevronIcon} from '../../../assets/icons/ChevronIcon';
+import {PlusIcon} from '../../../assets/icons/PlusIcon';
 
 export const ListCard = (props: IListCardProps) => {
   const {
@@ -65,24 +68,12 @@ export const ListCard = (props: IListCardProps) => {
           borderless={true}
           onPress={onDetailsClick}
           style={styles.arrowContainer}>
-          <Image
-            style={styles.commonImage}
-            source={{
-              uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/next.png?updatedAt=1711578556017',
-            }}
-          />
+          <ChevronIcon />
         </TouchableRipple>
       </View>
       <View style={styles.detailContainer}>
         <View style={styles.dateContainer}>
-          <View style={styles.calenderContainer}>
-            <Image
-              style={styles.commonImage}
-              source={{
-                uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/calendar.png?updatedAt=1711578507237',
-              }}
-            />
-          </View>
+          <CalenderIcon width={20} height={16} />
           <Text style={styles.date}>{date}</Text>
         </View>
         <View style={styles.amountContainer}>
@@ -91,11 +82,10 @@ export const ListCard = (props: IListCardProps) => {
             borderless={true}
             onPress={onAddItemClick}
             style={styles.addItemContainer}>
-            <Image
-              style={styles.commonImage}
-              source={{
-                uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/plus.png?updatedAt=1711579118614',
-              }}
+            <PlusIcon
+              width={16}
+              height={16}
+              strokeColor={DEFAULT_COLOR.GRAY_MEDIUM}
             />
           </TouchableRipple>
         </View>

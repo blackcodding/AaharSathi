@@ -36,7 +36,12 @@ const CustomBottomSheet = (props: IBottomSheetProps) => {
         }}>
         <View style={styles.headerContainer}>
           <Text style={styles.heading}>{heading}</Text>
-          <TouchableRipple>{!!icon && icon}</TouchableRipple>
+          <TouchableRipple
+            borderless={true}
+            onPress={() => {}}
+            style={styles.icon}>
+            {!!icon && icon}
+          </TouchableRipple>
         </View>
         <View style={styles.horizontalLine} />
         <NativeViewGestureHandler>

@@ -30,7 +30,7 @@ const Header = (props: IHeaderProps) => {
     <>
       <View style={styles.profileContainer}>
         <Profile handleProfileClick={handleProfileClick} />
-        <InputBox placeholder="Search" />
+        <InputBox placeholder={'Search'} showIcon={true} />
         <View style={commonStyles.gifContainer}>
           <Image
             source={

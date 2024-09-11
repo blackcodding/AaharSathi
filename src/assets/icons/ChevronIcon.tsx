@@ -4,19 +4,19 @@ import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {IIconProps} from './icon.types';
 import React from 'react';
 
-export const CrossIcon = (props: IIconProps) => {
+export const ChevronIcon = (props: IIconProps) => {
   const {
-    width = 24,
-    height = 24,
-    fillColor = DEFAULT_COLOR.RED_DARK,
-    strokeColor = DEFAULT_COLOR.BLACK,
-    strokeWidth = 2,
+    width = 20,
+    height = 20,
+    fillColor = DEFAULT_COLOR.WHITE,
+    strokeColor = DEFAULT_COLOR.GRAY_DARK,
+    strokeWidth = 1.6,
   } = props;
 
   return (
-    <Svg viewBox={'0 0 24 24'} width={width} height={height} fill={fillColor}>
+    <Svg viewBox={'0 0 20 20'} width={width} height={height} fill={fillColor}>
       <Path
-        d="M18 6L6 18M6 6L18 18"
+        d="M7.5 15L12.5 10L7.5 5"
         stroke={strokeColor}
         strokeWidth={strokeWidth}
         strokeLinecap={'round'}

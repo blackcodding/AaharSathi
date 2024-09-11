@@ -42,6 +42,8 @@ export const generateStyles = () => {
     threeDotsContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
+      marginTop: 4,
+      marginRight: 4,
     },
     bullet: {
       width: 4,
@@ -76,16 +78,12 @@ export const generateStyles = () => {
     arrowContainer: {
       height: 30,
       width: 30,
-      alignSelf: 'flex-end',
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 100,
       borderWidth: 1,
-      borderRadius: 50,
       borderColor: DEFAULT_COLOR.GRAY_LIGHT,
-      opacity: 0.1,
-    },
-    commonImage: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
+      backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     detailContainer: {
       flexDirection: 'row',
@@ -98,16 +96,11 @@ export const generateStyles = () => {
       justifyContent: 'center',
       alignItems: 'center',
     },
-    calenderContainer: {
-      height: 15,
-      width: 15,
-      opacity: 0.6,
-    },
     date: {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
       fontFamily: 'Roboto-Regular',
       color: DEFAULT_COLOR.BLACK,
-      marginLeft: 6,
+      marginLeft: 2,
     },
     amountContainer: {
       flexDirection: 'row',
@@ -120,11 +113,12 @@ export const generateStyles = () => {
       color: DEFAULT_COLOR.BLACK,
     },
     addItemContainer: {
-      height: 20,
       width: 20,
-      borderRadius: 50,
-      marginLeft: 6,
-      opacity: 0.6,
+      height: 20,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginLeft: 4,
+      borderRadius: 100,
     },
   });
 };

@@ -6,10 +6,12 @@ export interface IInputBoxProps {
   autoFocus?: boolean;
   keyboardType?: KeyboardTypeOptions | undefined;
   editable?: boolean;
+  showIcon?: boolean;
   inputBoxStyles?: any;
 }
 
 export interface IInputBoxStyleProps {
   isError: boolean;
   editable: boolean;
+  showIcon: boolean;
 }

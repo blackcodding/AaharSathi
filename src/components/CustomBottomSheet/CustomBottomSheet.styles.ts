@@ -23,6 +23,13 @@ export const generateStyles = (props: IBottomSheetStyleProps) => {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       color: DEFAULT_COLOR.BLACK,
     },
+    icon: {
+      width: 32,
+      height: 32,
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderRadius: 100,
+    },
     horizontalLine: {
       borderTopWidth: 1.5,
       marginTop: 16,

@@ -4,17 +4,25 @@ import {IInputBoxStyleProps} from './InputBox.types';
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: IInputBoxStyleProps) => {
-  const {isError, editable} = props || {};
+  const {isError, editable, showIcon = false} = props || {};
 
   return StyleSheet.create({
     inputContainer: {
-      flex: 1,
+      flex: 0.96,
       marginHorizontal: 4,
+      justifyContent: 'center',
       alignSelf: 'center',
+    },
+    searchIcon: {
+      position: 'absolute',
+      left: 8,
+      zIndex: 1,
     },
     input: {
       height: 34,
       paddingHorizontal: 12,
+      paddingLeft: showIcon ? 36 : 12,
+      paddingRight: 36,
       paddingVertical: 0,
       textAlignVertical: 'center',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
@@ -27,6 +35,16 @@ export const generateStyles = (props: IInputBoxStyleProps) => {
       backgroundColor: editable
         ? DEFAULT_COLOR.WHITE
         : DEFAULT_COLOR.GRAY_LIGHT,
+    },
+    crossIcon: {
+      width: 28,
+      height: 28,
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'absolute',
+      right: 8,
+      zIndex: 1,
+      borderRadius: 100,
     },
   });
 };
