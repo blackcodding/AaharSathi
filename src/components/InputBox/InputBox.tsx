@@ -1,12 +1,12 @@
+import React, {useEffect, useState} from 'react';
 import {TextInput, View} from 'react-native';
 
-import {IInputBoxProps} from './InputBox.types';
-import React from 'react';
-import {generateStyles} from './InputBox.styles';
-import {SearchIcon} from '../../assets/icons/SearchIcon';
-import {TouchableRipple} from 'react-native-paper';
 import {CrossIcon} from '../../assets/icons/CrossIcon';
 import {DEFAULT_COLOR} from '../../Theme/Theme';
+import {IInputBoxProps} from './InputBox.types';
+import {SearchIcon} from '../../assets/icons/SearchIcon';
+import {TouchableRipple} from 'react-native-paper';
+import {generateStyles} from './InputBox.styles';
 
 const InputBox = (props: IInputBoxProps) => {
   const {
@@ -15,17 +15,34 @@ const InputBox = (props: IInputBoxProps) => {
     autoFocus = false,
     keyboardType = 'default',
     editable = true,
-    showIcon = false,
+    showSearchIcon = false,
+    showCrossIcon = false,
     inputBoxStyles,
   } = props;
 
   const isError = false;
 
-  const styles = generateStyles({isError, editable, showIcon});
+  const [value, setValue] = useState('');
+
+  const [shouldShowCrossIcon, setShouldShowCrossIcon] = useState(showCrossIcon);
+
+  useEffect(() => {
+    if (value === '') {
+      setShouldShowCrossIcon(false);
+    } else {
+      setShouldShowCrossIcon(true);
+    }
+  }, [value]);
+
+  const styles = generateStyles({
+    isError,
+    editable,
+    showSearchIcon,
+  });
 
   return (
     <View style={[styles.inputContainer, inputBoxStyles]}>
-      {showIcon && (
+      {showSearchIcon && (
         <View style={styles.searchIcon}>
           <SearchIcon />
         </View>
@@ -36,12 +53,18 @@ const InputBox = (props: IInputBoxProps) => {
         autoFocus={autoFocus}
         keyboardType={keyboardType}
         editable={editable}
+        value={value}
+        onChangeText={text => {
+          setValue(text);
+        }}
         style={styles.input}
       />
-      {showIcon && (
+      {showCrossIcon && shouldShowCrossIcon && (
         <TouchableRipple
           borderless={true}
-          onPress={() => {}}
+          onPress={() => {
+            setValue('');
+          }}
           style={styles.crossIcon}>
           <CrossIcon
             width={20}

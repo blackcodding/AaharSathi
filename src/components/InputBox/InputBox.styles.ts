@@ -4,7 +4,7 @@ import {IInputBoxStyleProps} from './InputBox.types';
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: IInputBoxStyleProps) => {
-  const {isError, editable, showIcon = false} = props || {};
+  const {isError, editable, showSearchIcon} = props || {};
 
   return StyleSheet.create({
     inputContainer: {
@@ -21,7 +21,7 @@ export const generateStyles = (props: IInputBoxStyleProps) => {
     input: {
       height: 34,
       paddingHorizontal: 12,
-      paddingLeft: showIcon ? 36 : 12,
+      paddingLeft: showSearchIcon ? 36 : 12,
       paddingRight: 36,
       paddingVertical: 0,
       textAlignVertical: 'center',

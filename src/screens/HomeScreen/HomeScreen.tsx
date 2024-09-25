@@ -218,7 +218,8 @@ export const HomeScreen = () => {
     <View>
       <ScrollView
         style={styles.mainContainer}
-        showsVerticalScrollIndicator={false}>
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps={'handled'}>
         <Header />
         <ContainerHeading
           title={'Welcome Supriya'}
