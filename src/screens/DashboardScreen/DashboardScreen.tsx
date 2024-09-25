@@ -15,12 +15,15 @@ import {RecipeIcon} from '../../assets/icons/TabBarIcons/Recipe';
 import RecipeScreen from '../RecipeScreen/RecipeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {generateStyles} from './DashboardScreen.styles';
+import {useKeyboardVisible} from '../../hooks/useKeyboardVisible';
 
 const DashboardScreen = (props: IDashboardScreenProps) => {
   const {} = props;
 
   const styles = generateStyles({});
+
   const Tab = createBottomTabNavigator();
+  const isKeyboardVisible = useKeyboardVisible();
 
   return (
     <View style={styles.mainContainer}>
@@ -35,6 +38,7 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
           },
           tabBarActiveBackgroundColor: DEFAULT_COLOR.OFF_WHITE,
           unmountOnBlur: true,
+          tabBarHideOnKeyboard: true,
         }}>
         <Tab.Screen
           name={'HomeScreen'}
@@ -102,8 +106,8 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
             tabBarIcon: ({focused}) => (
               <View style={styles.plusIconContainer}>
                 <CreateListIcon
-                  width={60}
-                  height={60}
+                  width={isKeyboardVisible ? 0 : 60}
+                  height={isKeyboardVisible ? 0 : 60}
                   fillColor={
                     focused
                       ? DEFAULT_COLOR.BLUE_DARK
