@@ -2,13 +2,16 @@ import {StyleSheet} from 'react-native';
 
 export const commonStyles = StyleSheet.create({
   gifContainer: {
-    width: 28,
-    height: 28,
+    width: 32,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
     marginRight: 4,
     borderRadius: 100,
   },
   gif: {
-    width: '100%',
-    height: '100%',
+    width: '90%',
+    height: '90%',
+    objectFit: 'contain',
   },
 });

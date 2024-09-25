@@ -12,7 +12,7 @@ export const generateStyles = () => {
     },
     menuContainer: {
       height: '100%',
-      maxWidth: '80%',
+      maxWidth: '85%',
       backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     Menu: {

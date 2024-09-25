@@ -8,6 +8,7 @@ import {Portal} from '@gorhom/portal';
 import {Profile} from '../Profile/Profile';
 import {commonStyles} from '../commonStyles';
 import {generateStyles} from './Header.styles';
+import {TouchableRipple} from 'react-native-paper';
 
 const Header = (props: IHeaderProps) => {
   const {} = props;
@@ -35,7 +36,10 @@ const Header = (props: IHeaderProps) => {
           showSearchIcon={true}
           showCrossIcon={true}
         />
-        <View style={commonStyles.gifContainer}>
+        <TouchableRipple
+          onPress={() => {}}
+          borderless={true}
+          style={commonStyles.gifContainer}>
           <Image
             source={
               true
@@ -44,7 +48,7 @@ const Header = (props: IHeaderProps) => {
             }
             style={commonStyles.gif}
           />
-        </View>
+        </TouchableRipple>
       </View>
       {openMenu && (
         <Portal>
