@@ -1,12 +1,12 @@
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {FlatList, View} from 'react-native';
+import React, {useMemo, useState} from 'react';
 
 import Chip from '../Chip/Chip';
-import {IChipContainerProps} from './ChipContainer.types';
-import React, {useMemo, useState} from 'react';
-import {generateStyles} from './ChipContainer.styles';
-import {UpcomingList} from '../UpcomingList/UpcomingList';
 import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+import {IChipContainerProps} from './ChipContainer.types';
+import {UpcomingList} from '../UpcomingList/UpcomingList';
+import {generateStyles} from './ChipContainer.styles';
 
 const ChipContainer = (props: IChipContainerProps) => {
   const {data} = props;

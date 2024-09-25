@@ -34,6 +34,7 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
             paddingTop: 2,
           },
           tabBarActiveBackgroundColor: DEFAULT_COLOR.OFF_WHITE,
+          unmountOnBlur: true,
         }}>
         <Tab.Screen
           name={'HomeScreen'}
