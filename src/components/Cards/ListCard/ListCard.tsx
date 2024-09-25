@@ -1,15 +1,15 @@
 import {Image, Text, View} from 'react-native';
 
+import {CalenderIcon} from '../../../assets/icons/CalenderIcon';
+import {ChevronIcon} from '../../../assets/icons/ChevronIcon';
 import {DEFAULT_COLOR} from '../../../Theme/Theme';
 import {IListCardProps} from './ListCard.types';
+import {PlusIcon} from '../../../assets/icons/PlusIcon';
 import React from 'react';
 import {Tag} from '../../Tags/Tag';
 import {TouchableRipple} from 'react-native-paper';
 import {UserIcon} from '../../../assets/icons/userIcon';
 import {generateStyles} from './ListCard.styles';
-import {CalenderIcon} from '../../../assets/icons/CalenderIcon';
-import {ChevronIcon} from '../../../assets/icons/ChevronIcon';
-import {PlusIcon} from '../../../assets/icons/PlusIcon';
 
 export const ListCard = (props: IListCardProps) => {
   const {
@@ -25,6 +25,28 @@ export const ListCard = (props: IListCardProps) => {
     onDetailsClick,
     onAddItemClick,
   } = props;
+
+  const formattedDate = (oldDate: string) => {
+    const [year, month, date] = oldDate?.split('-');
+
+    const monthMapper: any = {
+      '01': 'Jan',
+      '02': 'Feb',
+      '03': 'Mar',
+      '04': 'Apr',
+      '05': 'May',
+      '06': 'Jun',
+      '07': 'Jul',
+      '08': 'Aug',
+      '09': 'Sep',
+      '10': 'Oct',
+      '11': 'Nov',
+      '12': 'Dec',
+    };
+
+    return `${date} ${monthMapper[month]} ${year}`;
+  };
+
   const styles = generateStyles();
 
   return (
@@ -74,7 +96,7 @@ export const ListCard = (props: IListCardProps) => {
       <View style={styles.detailContainer}>
         <View style={styles.dateContainer}>
           <CalenderIcon width={20} height={16} />
-          <Text style={styles.date}>{date}</Text>
+          <Text style={styles.date}>{formattedDate(date)}</Text>
         </View>
         <View style={styles.amountContainer}>
           <Text style={styles.amount}>{amount}</Text>
