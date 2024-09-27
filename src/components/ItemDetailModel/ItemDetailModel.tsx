@@ -15,7 +15,7 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
   const styles = generateStyles({});
 
   return (
-    <View>
+    <View style={styles.mainContainer}>
       <View style={styles.itemContainer}>
         <Text style={styles.textStyle}>{'Name'}</Text>
         <InputBox

@@ -7,6 +7,9 @@ export const generateStyles = (props: IItemDetailModelStyleProps) => {
   const {} = props || {};
 
   return StyleSheet.create({
+    mainContainer: {
+      flex: 1,
+    },
     itemContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
