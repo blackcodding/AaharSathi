@@ -6,7 +6,7 @@ import {View} from 'react-native';
 import {generateStyles} from './ToBuy.styles';
 
 export const ToBuy = (props: IToBuyProps) => {
-  const {data, handleAddItemPress, setOpenToBuyBTS} = props;
+  const {data, handleItemPress, handleAddItemPress} = props;
   const styles = generateStyles();
 
   return (
@@ -21,7 +21,7 @@ export const ToBuy = (props: IToBuyProps) => {
               name={data.name}
               quantity={data.quantity}
               onPress={() => {
-                setOpenToBuyBTS(true);
+                handleItemPress();
               }}
             />
           );

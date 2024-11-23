@@ -11,13 +11,13 @@ export const Profile = (props: IProfileProps) => {
     icon = <UserIcon />,
     borderColor,
     showBorder = true,
-    handleProfileClick,
+    handleProfilePress,
   } = props;
   const styles = generateStyles({borderColor, showBorder});
   return (
     <TouchableRipple
       borderless={true}
-      onPress={handleProfileClick}
+      onPress={handleProfilePress}
       style={styles.imageContainer}>
       {image ? <Image style={styles.image} source={{uri: image}} /> : icon}
     </TouchableRipple>

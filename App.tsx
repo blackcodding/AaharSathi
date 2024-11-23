@@ -9,7 +9,7 @@ import {StatusBar, useColorScheme} from 'react-native';
 
 import CreateListScreen from './src/screens/CreateListScreen/CreateListScreen';
 import {DEFAULT_COLOR} from './src/Theme/Theme';
-import DashboardScreen from './src/screens/DashboardScreen/DashboardScreen';
+// import DashboardScreen from './src/screens/DashboardScreen/DashboardScreen';
 import ExpiringSoonScreen from './src/screens/ExpiringSoonScreen/ExpiringSoonScreen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {HomeScreen} from './src/screens/HomeScreen/HomeScreen';
@@ -20,6 +20,11 @@ import {PortalProvider} from '@gorhom/portal';
 import React from 'react';
 import RecipeScreen from './src/screens/RecipeScreen/RecipeScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+//TODO: Add Suspense
+const DashboardScreen = React.lazy(
+  () => import('./src/screens/DashboardScreen/DashboardScreen'),
+);
 
 function App(): React.JSX.Element {
   const Stack = createNativeStackNavigator();

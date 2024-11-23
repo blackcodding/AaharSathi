@@ -17,30 +17,41 @@ import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
+import {CrossIcon} from '../../assets/icons/CrossIcon';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openToBuyBTS, setOpenToBuyBTS] = useState(false);
   const [openExpiringSoonBTS, setOpenExpiringSoonBTS] = useState(false);
+  const [openAddItemBTS, setOpenAddItemBTS] = useState(false);
+  const [openAddListItemBTS, setOpenAddListItemBTS] = useState(false);
 
   const styles = generateStyles();
   const navigation = useNavigation();
 
-  const handleCloseMenuClick = () => {
+  const handleCloseMenuPress = () => {
     setOpenMenu(false);
   };
 
-  const handleEditProfileClick = () => {};
+  const handleEditProfilePress = () => {};
 
-  const onAddItemClick = () => {
-    //TODO:
+  const onItemPress = () => {
+    setOpenToBuyBTS(true);
   };
 
-  const handleSeeAllExpiryCardClick = useCallback(() => {
+  const onAddItemPress = () => {
+    setOpenAddItemBTS(true);
+  };
+
+  const onAddListItemPress = () => {
+    setOpenAddListItemBTS(true);
+  };
+
+  const handleSeeAllExpiryCardPress = useCallback(() => {
     navigation.navigate(InventoryScreen as never);
   }, []);
 
-  const handleSeeAllUpcomingListClick = useCallback(() => {
+  const handleSeeAllUpcomingListPress = useCallback(() => {
     navigation.navigate(MyListScreen as never);
   }, []);
 
@@ -231,15 +242,15 @@ export const HomeScreen = () => {
           <ContainerHeading title={'To Buy'} />
           <ToBuy
             data={toBuyData}
-            handleAddItemPress={onAddItemClick}
-            setOpenToBuyBTS={setOpenToBuyBTS}
+            handleItemPress={onItemPress}
+            handleAddItemPress={onAddItemPress}
           />
         </View>
         <View>
           <ContainerHeading
             title={'Expiring Soon'}
             subtitle={'See All'}
-            onPress={handleSeeAllExpiryCardClick}
+            onPress={handleSeeAllExpiryCardPress}
           />
           <ExpiringSoon
             data={expiringSoonData}
@@ -250,17 +261,20 @@ export const HomeScreen = () => {
           <ContainerHeading
             title={'Upcoming List'}
             subtitle={'See All'}
-            onPress={handleSeeAllUpcomingListClick}
+            onPress={handleSeeAllUpcomingListPress}
           />
-          <UpcomingList data={upcomingListData} />
+          <UpcomingList
+            data={upcomingListData}
+            onAddItemPress={onAddListItemPress}
+          />
         </View>
 
         <BannerCard heading={'This is the heading of Banner Card'} />
       </ScrollView>
       {openMenu && (
         <Menu
-          onCloseMenuPress={handleCloseMenuClick}
-          onEditProfilePress={handleEditProfileClick}
+          onCloseMenuPress={handleCloseMenuPress}
+          onEditProfilePress={handleEditProfilePress}
         />
       )}
       {openToBuyBTS && (
@@ -274,6 +288,20 @@ export const HomeScreen = () => {
           }}
         />
       )}
+      {openAddItemBTS && (
+        <CustomBottomSheet
+          snapPoints={['40%']}
+          heading={'Add Item'}
+          icon={<CrossIcon />}
+          onIconPress={() => {
+            setOpenAddItemBTS(false);
+          }}
+          children={<ItemDetailModel />}
+          onClose={() => {
+            setOpenAddItemBTS(false);
+          }}
+        />
+      )}
       {openExpiringSoonBTS && (
         <CustomBottomSheet
           snapPoints={['40%']}
@@ -282,6 +310,20 @@ export const HomeScreen = () => {
           children={<ItemDetailModel />}
           onClose={() => {
             setOpenExpiringSoonBTS(false);
+          }}
+        />
+      )}
+      {openAddListItemBTS && (
+        <CustomBottomSheet
+          snapPoints={['40%']}
+          heading={'Add List Item'}
+          icon={<CrossIcon />}
+          onIconPress={() => {
+            setOpenAddListItemBTS(false);
+          }}
+          children={<ItemDetailModel />}
+          onClose={() => {
+            setOpenAddListItemBTS(false);
           }}
         />
       )}

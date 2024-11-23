@@ -4,6 +4,7 @@ export interface IBottomSheetProps {
   icon?: any;
   children: any;
   onClose: () => void;
+  onIconPress?: () => void;
 }
 
 export interface IBottomSheetStyleProps {}

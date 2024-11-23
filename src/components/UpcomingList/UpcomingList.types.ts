@@ -11,4 +11,5 @@ export interface IUpcomingListProps {
   data: IUpcomingListData[];
   showVertical?: boolean;
   listStyles?: any;
+  onAddItemPress: () => void;
 }

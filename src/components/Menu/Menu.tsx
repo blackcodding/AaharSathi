@@ -33,26 +33,26 @@ export const Menu = (props: IMenuProps) => {
     }, 100);
   }, []);
 
-  const handleDashboardClick = useCallback(() => {
+  const handleDashboardPress = useCallback(() => {
     onCloseMenuPress();
   }, []);
 
-  const onMyListClick = useCallback(() => {
+  const onMyListPress = useCallback(() => {
     navigation.navigate(MyListScreen as never);
     closeMenuOnDelay();
   }, []);
 
-  const onCreateListClick = useCallback(() => {
+  const onCreateListPress = useCallback(() => {
     navigation.navigate(CreateListScreen as never);
     closeMenuOnDelay();
   }, []);
 
-  const onExpiringSoonClick = useCallback(() => {
+  const onExpiringSoonPress = useCallback(() => {
     navigation.navigate(ExpiringSoonScreen as never);
     closeMenuOnDelay();
   }, []);
 
-  const onRecipeClick = useCallback(() => {
+  const onRecipePress = useCallback(() => {
     navigation.navigate(RecipeScreen as never);
     closeMenuOnDelay();
   }, []);
@@ -83,27 +83,27 @@ export const Menu = (props: IMenuProps) => {
           <MenuCard
             icon={<DashboardIcon />}
             name={'Dashboard'}
-            handleMenuCardClick={handleDashboardClick}
+            handleMenuCardPress={handleDashboardPress}
           />
           <MenuCard
             icon={<MyListIcon />}
             name={'My List'}
-            handleMenuCardClick={onMyListClick}
+            handleMenuCardPress={onMyListPress}
           />
           <MenuCard
             icon={<CreateListIcon />}
             name={'Create List'}
-            handleMenuCardClick={onCreateListClick}
+            handleMenuCardPress={onCreateListPress}
           />
           <MenuCard
             icon={<ExpiringSoonIcon />}
             name={'Expiring Soon'}
-            handleMenuCardClick={onExpiringSoonClick}
+            handleMenuCardPress={onExpiringSoonPress}
           />
           <MenuCard
             icon={<RecipeIcon />}
             name={'Recipe'}
-            handleMenuCardClick={onRecipeClick}
+            handleMenuCardPress={onRecipePress}
           />
           <View style={styles.favoriteListContainer}>
             <ContainerHeading title={'Favorite List and Recipes'} />

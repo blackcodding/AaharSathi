@@ -7,6 +7,6 @@ export interface IToBuyData {
 
 export interface IToBuyProps {
   data: IToBuyData[];
+  handleItemPress: () => void;
   handleAddItemPress: () => void;
-  setOpenToBuyBTS: (value: boolean) => void;
 }

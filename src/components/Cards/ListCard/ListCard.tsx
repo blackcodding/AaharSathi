@@ -21,9 +21,9 @@ export const ListCard = (props: IListCardProps) => {
     date,
     amount,
     listStyles,
-    onOptionsClick,
-    onDetailsClick,
-    onAddItemClick,
+    onOptionsPress,
+    onDetailsPress,
+    onAddItemPress,
   } = props;
 
   const formattedDate = (oldDate: string) => {
@@ -63,7 +63,7 @@ export const ListCard = (props: IListCardProps) => {
         </View>
         <TouchableRipple
           borderless={true}
-          onPress={onOptionsClick}
+          onPress={onOptionsPress}
           style={styles.threeDotsContainer}>
           <>
             <View style={styles.bullet} />
@@ -88,7 +88,7 @@ export const ListCard = (props: IListCardProps) => {
         </View>
         <TouchableRipple
           borderless={true}
-          onPress={onDetailsClick}
+          onPress={onDetailsPress}
           style={styles.arrowContainer}>
           <ChevronIcon />
         </TouchableRipple>
@@ -102,7 +102,7 @@ export const ListCard = (props: IListCardProps) => {
           <Text style={styles.amount}>{amount}</Text>
           <TouchableRipple
             borderless={true}
-            onPress={onAddItemClick}
+            onPress={onAddItemPress}
             style={styles.addItemContainer}>
             <PlusIcon
               width={16}

@@ -15,22 +15,22 @@ const Header = (props: IHeaderProps) => {
 
   const [openMenu, setOpenMenu] = useState(false);
 
-  const handleProfileClick = () => {
+  const handleProfilePress = () => {
     setOpenMenu(true);
   };
 
-  const handleCloseMenuClick = () => {
+  const handleCloseMenuPress = () => {
     setOpenMenu(false);
   };
 
-  const handleEditProfileClick = () => {};
+  const handleEditProfilePress = () => {};
 
   const styles = generateStyles({});
 
   return (
     <>
       <View style={styles.profileContainer}>
-        <Profile handleProfileClick={handleProfileClick} />
+        <Profile handleProfilePress={handleProfilePress} />
         <InputBox
           placeholder={'Search'}
           showSearchIcon={true}
@@ -53,8 +53,8 @@ const Header = (props: IHeaderProps) => {
       {openMenu && (
         <Portal>
           <Menu
-            onCloseMenuPress={handleCloseMenuClick}
-            onEditProfilePress={handleEditProfileClick}
+            onCloseMenuPress={handleCloseMenuPress}
+            onEditProfilePress={handleEditProfilePress}
           />
         </Portal>
       )}

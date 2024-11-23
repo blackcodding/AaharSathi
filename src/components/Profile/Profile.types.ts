@@ -3,5 +3,5 @@ export interface IProfileProps {
   icon?: string;
   borderColor?: string;
   showBorder?: boolean;
-  handleProfileClick?: () => void;
+  handleProfilePress?: () => void;
 }

@@ -13,7 +13,14 @@ import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './CustomBottomSheet.styles';
 
 const CustomBottomSheet = (props: IBottomSheetProps) => {
-  const {snapPoints = ['30%', '40%'], heading, icon, children, onClose} = props;
+  const {
+    snapPoints = ['30%', '40%'],
+    heading,
+    icon,
+    children,
+    onClose,
+    onIconPress,
+  } = props;
 
   const styles = generateStyles({});
 
@@ -38,7 +45,7 @@ const CustomBottomSheet = (props: IBottomSheetProps) => {
           <Text style={styles.heading}>{heading}</Text>
           <TouchableRipple
             borderless={true}
-            onPress={() => {}}
+            onPress={onIconPress}
             style={styles.icon}>
             {!!icon && icon}
           </TouchableRipple>

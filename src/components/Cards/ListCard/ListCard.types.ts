@@ -7,7 +7,7 @@ export interface IListCardProps {
   date: string;
   amount: string;
   listStyles?: any;
-  onOptionsClick: () => void;
-  onDetailsClick: () => void;
-  onAddItemClick: () => void;
+  onOptionsPress: () => void;
+  onDetailsPress: () => void;
+  onAddItemPress: () => void;
 }

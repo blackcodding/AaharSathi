@@ -3,7 +3,7 @@ export interface IMenuCardProps {
   icon?: any;
   name: string;
   shouldFlex?: boolean;
-  handleMenuCardClick?: () => void;
+  handleMenuCardPress?: () => void;
 }
 
 export interface IMenuCardStyleProps {

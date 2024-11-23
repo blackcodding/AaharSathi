@@ -6,12 +6,12 @@ import {TouchableRipple} from 'react-native-paper';
 import {generateStyleSheet} from './MenuCard.styles';
 
 export const MenuCard = (props: IMenuCardProps) => {
-  const {image, icon, name, shouldFlex, handleMenuCardClick} = props;
+  const {image, icon, name, shouldFlex, handleMenuCardPress} = props;
   const styles = generateStyleSheet({shouldFlex});
   return (
     <TouchableRipple
       borderless={true}
-      onPress={handleMenuCardClick}
+      onPress={handleMenuCardPress}
       style={styles.mainContainer}>
       <View style={styles.container}>
         {!!image && <Image style={styles.logoImage} src={image} />}
