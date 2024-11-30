@@ -25,6 +25,7 @@ export const HomeScreen = () => {
   const [openExpiringSoonBTS, setOpenExpiringSoonBTS] = useState(false);
   const [openAddItemBTS, setOpenAddItemBTS] = useState(false);
   const [openAddListItemBTS, setOpenAddListItemBTS] = useState(false);
+  const [openThreeDotsBTS, setOpenThreeDotsBTS] = useState(false);
 
   const styles = generateStyles();
   const navigation = useNavigation();
@@ -45,6 +46,10 @@ export const HomeScreen = () => {
 
   const onAddListItemPress = () => {
     setOpenAddListItemBTS(true);
+  };
+
+  const onOptionsPress = () => {
+    setOpenThreeDotsBTS(true);
   };
 
   const handleSeeAllExpiryCardPress = useCallback(() => {
@@ -266,6 +271,7 @@ export const HomeScreen = () => {
           <UpcomingList
             data={upcomingListData}
             onAddItemPress={onAddListItemPress}
+            onOptionsPress={onOptionsPress}
           />
         </View>
 
@@ -329,6 +335,21 @@ export const HomeScreen = () => {
           children={<ItemDetailModel />}
           onClose={() => {
             setOpenAddListItemBTS(false);
+          }}
+        />
+      )}
+
+      {openThreeDotsBTS && (
+        <CustomBottomSheet
+          snapPoints={['40%']}
+          heading={'Edit List Item'}
+          icon={<CrossIcon />}
+          onIconPress={() => {
+            setOpenThreeDotsBTS(false);
+          }}
+          children={<ItemDetailModel />}
+          onClose={() => {
+            setOpenThreeDotsBTS(false);
           }}
         />
       )}

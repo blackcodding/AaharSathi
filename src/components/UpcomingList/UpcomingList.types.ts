@@ -12,4 +12,5 @@ export interface IUpcomingListProps {
   showVertical?: boolean;
   listStyles?: any;
   onAddItemPress: () => void;
+  onOptionsPress: () => void;
 }

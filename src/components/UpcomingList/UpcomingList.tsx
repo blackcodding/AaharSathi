@@ -6,7 +6,13 @@ import {ListCard} from '../Cards/ListCard/ListCard';
 import {generateStyles} from './UpcomingList.styles';
 
 export const UpcomingList = (props: IUpcomingListProps) => {
-  const {data, showVertical = false, listStyles, onAddItemPress} = props;
+  const {
+    data,
+    showVertical = false,
+    listStyles,
+    onAddItemPress,
+    onOptionsPress,
+  } = props;
   const styles = generateStyles();
   const flatListRef = useRef();
 
@@ -25,7 +31,9 @@ export const UpcomingList = (props: IUpcomingListProps) => {
               date={item.date}
               amount={item.amount}
               listStyles={listStyles}
-              onOptionsPress={() => {}}
+              onOptionsPress={() => {
+                onOptionsPress();
+              }}
               onDetailsPress={() => {}}
               onAddItemPress={() => {
                 onAddItemPress();
