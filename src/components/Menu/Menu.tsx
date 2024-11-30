@@ -129,10 +129,10 @@ export const Menu = (props: IMenuProps) => {
             buttonLabel={'Update'}
             onButtonPress={() => {}}
           />
-
           <MenuCard
             icon={<LogoutIcon />}
             name={'Log Out'}
+            nameColor={DEFAULT_COLOR.RED_DARK}
             handleMenuCardPress={onLogoutPress}
           />
         </View>

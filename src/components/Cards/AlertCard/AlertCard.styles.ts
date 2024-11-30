@@ -28,7 +28,7 @@ export const generateStyles = (props: IAlertCardStyleProps) => {
     },
     infoContainer: {
       flex: 1,
-      marginLeft: 16,
+      marginHorizontal: 12,
     },
     title: {
       fontFamily: 'Roboto-Medium',

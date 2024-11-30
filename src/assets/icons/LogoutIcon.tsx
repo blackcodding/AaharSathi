@@ -11,7 +11,7 @@ export const LogoutIcon = (props: IIconProps) => {
     height = 24,
     fillColor = DEFAULT_COLOR.WHITE,
     strokeWidth = 2,
-    strokeColor = DEFAULT_COLOR.BLUE_DARK,
+    strokeColor = DEFAULT_COLOR.RED_DARK,
   } = props;
 
   return (

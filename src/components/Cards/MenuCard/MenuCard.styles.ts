@@ -8,7 +8,7 @@ import {IMenuCardStyleProps} from './MenuCard.types';
 import {StyleSheet} from 'react-native';
 
 export const generateStyleSheet = (props: IMenuCardStyleProps) => {
-  const {shouldFlex = false} = props;
+  const {shouldFlex = false, nameColor = DEFAULT_COLOR.BLACK} = props;
   return StyleSheet.create({
     mainContainer: {
       flex: shouldFlex ? 1 : undefined,
@@ -45,7 +45,7 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
       fontFamily: 'Roboto-Regular',
     },
     name: {
-      color: DEFAULT_COLOR.BLACK,
+      color: nameColor,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       fontFamily: 'Roboto-Regular',
     },

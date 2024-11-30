@@ -13,13 +13,14 @@ export const MenuCard = (props: IMenuCardProps) => {
     icon,
     label,
     name,
+    nameColor,
     shouldFlex,
     showButton = false,
     buttonLabel = '',
     handleMenuCardPress,
     onButtonPress,
   } = props;
-  const styles = generateStyleSheet({shouldFlex});
+  const styles = generateStyleSheet({shouldFlex, nameColor});
   return (
     <TouchableRipple
       borderless={true}

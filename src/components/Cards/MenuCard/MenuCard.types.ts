@@ -3,6 +3,7 @@ export interface IMenuCardProps {
   icon?: any;
   label?: string;
   name: string;
+  nameColor?: string;
   shouldFlex?: boolean;
   showButton?: boolean;
   buttonLabel?: string;
@@ -12,4 +13,5 @@ export interface IMenuCardProps {
 
 export interface IMenuCardStyleProps {
   shouldFlex?: boolean;
+  nameColor?: string;
 }

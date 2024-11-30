@@ -9,7 +9,7 @@ import {DEFAULT_COLOR} from '../../../Theme/Theme';
 const AlertCard = (props: IAlertCardProps) => {
   const {
     title = 'New version is available',
-    description = 'Update now to unlock latest features',
+    description = 'Update now to get latest features',
     onPress,
   } = props;
 
