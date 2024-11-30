@@ -1,7 +1,6 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useCallback, useState} from 'react';
 
-import BannerCard from '../../components/BannerCard/BannerCard';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import CustomBottomSheet from '../../components/CustomBottomSheet/CustomBottomSheet';
 import {DeleteIcon} from '../../assets/icons/DeleteIcon';
@@ -18,6 +17,7 @@ import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
 import {CrossIcon} from '../../assets/icons/CrossIcon';
+import BannerCard from '../../components/Cards/BannerCard/BannerCard';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
