@@ -1,4 +1,4 @@
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../../Theme/Theme';
 import {IBannerCardStyleProps} from './BannerCard.types';
 import {StyleSheet} from 'react-native';
 
