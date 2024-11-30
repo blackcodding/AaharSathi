@@ -30,15 +30,26 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
     container: {
       flexDirection: 'row',
     },
+    subContainer: {
+      flexDirection: 'row',
+    },
     logoImage: {
       height: 20,
       width: 20,
+    },
+    titleContainer: {
+      marginLeft: 12,
+    },
+    subName: {
+      color: DEFAULT_COLOR.GRAY_MEDIUM,
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
+      fontFamily: 'Roboto-Regular',
     },
     name: {
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       fontFamily: 'Roboto-Regular',
-      marginLeft: 12,
     },
+    
   });
 };

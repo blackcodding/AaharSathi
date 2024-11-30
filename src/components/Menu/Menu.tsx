@@ -122,6 +122,11 @@ export const Menu = (props: IMenuProps) => {
             name={'Log out'}
             handleMenuCardPress={onRecipePress}
           />
+          <MenuCard
+            icon={<LogoutIcon />}
+            name={'Log out'}
+            handleMenuCardPress={onRecipePress}
+          />
         </View>
       </TouchableOpacity>
     </TouchableOpacity>

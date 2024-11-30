@@ -4,6 +4,7 @@ export interface IMenuCardProps {
   name: string;
   shouldFlex?: boolean;
   handleMenuCardPress?: () => void;
+  onButtonPress?: () => void;
 }
 
 export interface IMenuCardStyleProps {
