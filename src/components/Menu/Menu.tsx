@@ -21,6 +21,7 @@ import RecipeScreen from '../../screens/RecipeScreen/RecipeScreen';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './Menu.styles';
 import {useNavigation} from '@react-navigation/native';
+import {LogoutIcon} from '../../assets/icons/LogoutIcon';
 
 export const Menu = (props: IMenuProps) => {
   const {onCloseMenuPress, onEditProfilePress} = props;
@@ -116,6 +117,11 @@ export const Menu = (props: IMenuProps) => {
               shouldFlex={true}
             />
           </View>
+          <MenuCard
+            icon={<LogoutIcon />}
+            name={'Log out'}
+            handleMenuCardPress={onRecipePress}
+          />
         </View>
       </TouchableOpacity>
     </TouchableOpacity>
