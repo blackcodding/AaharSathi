@@ -271,12 +271,14 @@ export const HomeScreen = () => {
 
         <BannerCard heading={'This is the heading of Banner Card'} />
       </ScrollView>
+
       {openMenu && (
         <Menu
           onCloseMenuPress={handleCloseMenuPress}
           onEditProfilePress={handleEditProfilePress}
         />
       )}
+
       {openToBuyBTS && (
         <CustomBottomSheet
           snapPoints={['40%']}
@@ -288,6 +290,7 @@ export const HomeScreen = () => {
           }}
         />
       )}
+
       {openAddItemBTS && (
         <CustomBottomSheet
           snapPoints={['40%']}
@@ -302,6 +305,7 @@ export const HomeScreen = () => {
           }}
         />
       )}
+
       {openExpiringSoonBTS && (
         <CustomBottomSheet
           snapPoints={['40%']}
@@ -313,6 +317,7 @@ export const HomeScreen = () => {
           }}
         />
       )}
+
       {openAddListItemBTS && (
         <CustomBottomSheet
           snapPoints={['40%']}
