@@ -15,7 +15,7 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
       flexDirection: 'row',
       alignItems: 'center',
       paddingHorizontal: 10,
-      paddingVertical: 8,
+      paddingVertical: 12,
       marginHorizontal: shouldFlex ? 2 : 0,
       marginVertical: 4,
       borderRadius: 12,
@@ -26,19 +26,20 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
       ...DEFAULT_SHADOW,
     },
     container: {
+      flex: 1,
       flexDirection: 'row',
+      alignItems: 'center',
     },
-    subContainer: {
-      flexDirection: 'row',
-    },
-    logoImage: {
+    iconContainer: {
       height: 20,
       width: 20,
+      marginRight: 16,
     },
     titleContainer: {
-      marginLeft: 12,
+      flex: 1,
+      marginRight: 16,
     },
-    subName: {
+    label: {
       color: DEFAULT_COLOR.GRAY_MEDIUM,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
       fontFamily: 'Roboto-Regular',
@@ -48,6 +49,5 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       fontFamily: 'Roboto-Regular',
     },
-    
   });
 };

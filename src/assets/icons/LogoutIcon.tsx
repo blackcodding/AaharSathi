@@ -7,8 +7,8 @@ import {View} from 'react-native';
 
 export const LogoutIcon = (props: IIconProps) => {
   const {
-    width = 28,
-    height = 28,
+    width = 24,
+    height = 24,
     fillColor = DEFAULT_COLOR.WHITE,
     strokeWidth = 2,
     strokeColor = DEFAULT_COLOR.BLUE_DARK,

@@ -58,6 +58,8 @@ export const Menu = (props: IMenuProps) => {
     closeMenuOnDelay();
   }, []);
 
+  const onLogoutPress = useCallback(() => {}, []);
+
   return (
     <TouchableOpacity
       activeOpacity={1}
@@ -106,7 +108,7 @@ export const Menu = (props: IMenuProps) => {
             name={'Recipe'}
             handleMenuCardPress={onRecipePress}
           />
-          <View style={styles.favoriteListContainer}>
+          <View style={styles.menuHeader}>
             <ContainerHeading title={'Favorite List and Recipes'} />
           </View>
           <View style={styles.feedbackAndHelpContainer}>
@@ -117,15 +119,21 @@ export const Menu = (props: IMenuProps) => {
               shouldFlex={true}
             />
           </View>
+          <View style={styles.menuHeader}>
+            <ContainerHeading title={'Other'} />
+          </View>
           <MenuCard
-            icon={<LogoutIcon />}
-            name={'Log out'}
-            handleMenuCardPress={onRecipePress}
+            label={'Version'}
+            name={'V1.0.0'}
+            showButton={true}
+            buttonLabel={'Update'}
+            onButtonPress={() => {}}
           />
+
           <MenuCard
             icon={<LogoutIcon />}
-            name={'Log out'}
-            handleMenuCardPress={onRecipePress}
+            name={'Log Out'}
+            handleMenuCardPress={onLogoutPress}
           />
         </View>
       </TouchableOpacity>

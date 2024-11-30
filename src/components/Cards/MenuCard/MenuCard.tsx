@@ -5,10 +5,20 @@ import React from 'react';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyleSheet} from './MenuCard.styles';
 import {DefaultButton} from '../../Buttons/DefaultButton/DefaultButton';
+import {DEFAULT_COLOR} from '../../../Theme/Theme';
 
 export const MenuCard = (props: IMenuCardProps) => {
-  const {image, icon, name, shouldFlex, handleMenuCardPress, onButtonPress} =
-    props;
+  const {
+    image,
+    icon,
+    label,
+    name,
+    shouldFlex,
+    showButton = false,
+    buttonLabel = '',
+    handleMenuCardPress,
+    onButtonPress,
+  } = props;
   const styles = generateStyleSheet({shouldFlex});
   return (
     <TouchableRipple
@@ -16,17 +26,23 @@ export const MenuCard = (props: IMenuCardProps) => {
       onPress={handleMenuCardPress}
       style={styles.mainContainer}>
       <View style={styles.container}>
-        <View style={styles.subContainer}>
-          {!!image && <Image style={styles.logoImage} src={image} />}
-          {!!icon && icon}
-          <View style={styles.titleContainer}>
-            <Text style={styles.subName}>{name}</Text>
-            <Text style={styles.name}>{name}</Text>
-          </View>
+        {!!image && <Image style={styles.iconContainer} src={image} />}
+        {!!icon && <View style={styles.iconContainer}>{icon}</View>}
+        <View style={styles.titleContainer}>
+          {!!label && <Text style={styles.label}>{label}</Text>}
+          <Text style={styles.name}>{name}</Text>
         </View>
-        <View>
-          <DefaultButton text={'Update'} onPress={onButtonPress} />
-        </View>
+        {showButton && (
+          <DefaultButton
+            text={buttonLabel}
+            colors={{
+              textColor: DEFAULT_COLOR.WHITE,
+              borderColor: DEFAULT_COLOR.GREEN_MEDIUM,
+              backgroundColor: DEFAULT_COLOR.GREEN_MEDIUM,
+            }}
+            onPress={onButtonPress}
+          />
+        )}
       </View>
     </TouchableRipple>
   );

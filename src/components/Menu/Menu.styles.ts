@@ -16,14 +16,14 @@ export const generateStyles = () => {
       backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     Menu: {
-      paddingHorizontal: 10,
+      paddingHorizontal: 8,
     },
-    favoriteListContainer: {
-      marginVertical: 10,
+    menuHeader: {
+      marginVertical: 8,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
     },
     listName: {
-      marginBottom: 10,
+      marginBottom: 12,
     },
     feedbackAndHelpContainer: {
       flexDirection: 'row',
@@ -34,7 +34,7 @@ export const generateStyles = () => {
       height: '20%',
       flexDirection: 'row',
       justifyContent: 'space-between',
-      padding: 10,
+      padding: 12,
     },
     profileContainer: {
       flexDirection: 'column',
