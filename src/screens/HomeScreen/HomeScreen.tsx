@@ -10,7 +10,7 @@ import InventoryScreen from '../ExpiringSoonScreen/ExpiringSoonScreen';
 import ItemDetailModel from '../../components/ItemDetailModel/ItemDetailModel';
 import {Menu} from '../../components/Menu/Menu';
 import MyListScreen from '../MyListScreen/MyListScreen';
-import {ScrollView} from 'react-native';
+import {Alert, ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
@@ -18,6 +18,7 @@ import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
 import {CrossIcon} from '../../assets/icons/CrossIcon';
 import BannerCard from '../../components/Cards/BannerCard/BannerCard';
+import AlertCard from '../../components/Cards/AlertCard/AlertCard';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -50,6 +51,10 @@ export const HomeScreen = () => {
 
   const onOptionsPress = () => {
     setOpenThreeDotsBTS(true);
+  };
+
+  const onUpdatePress = () => {
+    Alert.alert('On Update Pressed!');
   };
 
   const handleSeeAllExpiryCardPress = useCallback(() => {
@@ -237,6 +242,7 @@ export const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
         <Header />
+        <AlertCard onPress={onUpdatePress} />
         <ContainerHeading
           title={'Welcome Supriya'}
           titleColor={DEFAULT_COLOR.BLACK}
@@ -274,7 +280,6 @@ export const HomeScreen = () => {
             onOptionsPress={onOptionsPress}
           />
         </View>
-
         <BannerCard heading={'This is the heading of Banner Card'} />
       </ScrollView>
 

@@ -1,3 +1,4 @@
+import {DEFAULT_SHADOW} from './../../../Theme/Theme';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../../Theme/Theme';
 
 import {IGenerateStyleProps} from './DefaultButton.types';
@@ -13,14 +14,8 @@ export const generateStyles = (props: IGenerateStyleProps) => {
       borderRadius: 50,
       borderColor: borderColor || DEFAULT_COLOR.GRAY_LIGHT,
       backgroundColor: backgroundColor || DEFAULT_COLOR.WHITE,
-      elevation: 1,
       shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
-      shadowOffset: {
-        width: 2,
-        height: 2,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 2,
+      ...DEFAULT_SHADOW,
     },
     text: {
       color: textColor || DEFAULT_COLOR.BLACK,
