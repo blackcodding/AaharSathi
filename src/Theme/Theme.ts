@@ -34,4 +34,17 @@ export const DEFAULT_COLOR = {
   ORANGE_LIGHT: '#F7B27A',
   ORANGE_MEDIUM: '#EF6820',
   ORANGE_DARK: '#B93815',
+  ALERT_LIGHT: '#FEF0C7',
+  ALERT_MEDIUM: '#FEC84B',
+  ALERT_DARK: '#DC6803',
+};
+
+export const DEFAULT_SHADOW = {
+  elevation: 2,
+  shadowOffset: {
+    width: 2,
+    height: 2,
+  },
+  shadowOpacity: 0.2,
+  shadowRadius: 2,
 };

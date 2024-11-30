@@ -1,4 +1,4 @@
-import {DEFAULT_COLOR} from '../../Theme/Theme';
+import {DEFAULT_COLOR, DEFAULT_SHADOW} from '../../Theme/Theme';
 import {IChipStyleProps} from './Chip.types';
 import {StyleSheet} from 'react-native';
 
@@ -20,14 +20,8 @@ export const generateStyles = (props: IChipStyleProps) => {
         chipName === selectedChip
           ? DEFAULT_COLOR.OFF_WHITE
           : DEFAULT_COLOR.WHITE,
-      elevation: 2,
       shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
-      shadowOffset: {
-        width: 2,
-        height: 2,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 2,
+      ...DEFAULT_SHADOW,
     },
     textDecoration: {
       color: DEFAULT_COLOR.BLACK,

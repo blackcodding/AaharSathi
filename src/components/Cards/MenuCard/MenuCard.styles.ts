@@ -1,4 +1,8 @@
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../../Theme/Theme';
+import {
+  DEFAULT_COLOR,
+  DEFAULT_FONT_SIZE,
+  DEFAULT_SHADOW,
+} from '../../../Theme/Theme';
 
 import {IMenuCardStyleProps} from './MenuCard.types';
 import {StyleSheet} from 'react-native';
@@ -18,14 +22,8 @@ export const generateStyleSheet = (props: IMenuCardStyleProps) => {
       borderWidth: 1,
       backgroundColor: DEFAULT_COLOR.WHITE,
       borderColor: DEFAULT_COLOR.GRAY_LIGHT,
-      elevation: 2,
       shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
-      shadowOffset: {
-        width: 2,
-        height: 2,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 2,
+      ...DEFAULT_SHADOW,
     },
     container: {
       flexDirection: 'row',

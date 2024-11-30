@@ -17,14 +17,7 @@ export const generateStyles = () => {
       marginRight: 8,
       justifyContent: 'center',
       alignItems: 'center',
-      elevation: 2,
       shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
-      shadowOffset: {
-        width: 2,
-        height: 2,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 2,
     },
     imageContainer: {
       width: 25,

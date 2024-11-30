@@ -1,4 +1,10 @@
+export interface IAlertCardProps {
+  title?: string;
+  description?: string;
+  onPress: () => void;
+}
 
-export interface IAlertCardProps {}
-
-export interface IAlertCardStyleProps {}
+export interface IAlertCardStyleProps {
+  titleSize?: number;
+  descriptionSize?: number;
+}
