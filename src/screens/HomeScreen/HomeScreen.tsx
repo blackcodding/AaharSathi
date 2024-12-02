@@ -10,7 +10,7 @@ import InventoryScreen from '../ExpiringSoonScreen/ExpiringSoonScreen';
 import ItemDetailModel from '../../components/ItemDetailModel/ItemDetailModel';
 import {Menu} from '../../components/Menu/Menu';
 import MyListScreen from '../MyListScreen/MyListScreen';
-import {Alert, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
@@ -53,6 +53,10 @@ export const HomeScreen = () => {
 
   const onOptionsPress = () => {
     setOpenThreeDotsBTS(true);
+  };
+
+  const onDetailsPress = () => {
+    //TODO: On List Details Press Functionality
   };
 
   const onUpdatePress = () => {
@@ -279,6 +283,7 @@ export const HomeScreen = () => {
             data={upcomingListData}
             onAddItemPress={onAddListItemPress}
             onOptionsPress={onOptionsPress}
+            onDetailsPress={onDetailsPress}
           />
         </View>
         <BannerCard heading={'This is the heading of Banner Card'} />

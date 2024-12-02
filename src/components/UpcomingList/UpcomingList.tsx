@@ -11,6 +11,7 @@ export const UpcomingList = (props: IUpcomingListProps) => {
     showVertical = false,
     listStyles,
     onAddItemPress,
+    onDetailsPress,
     onOptionsPress,
   } = props;
   const styles = generateStyles();
@@ -34,7 +35,9 @@ export const UpcomingList = (props: IUpcomingListProps) => {
               onOptionsPress={() => {
                 onOptionsPress();
               }}
-              onDetailsPress={() => {}}
+              onDetailsPress={() => {
+                onDetailsPress();
+              }}
               onAddItemPress={() => {
                 onAddItemPress();
               }}
