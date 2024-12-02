@@ -23,6 +23,7 @@ import {generateStyles} from './Menu.styles';
 import {useNavigation} from '@react-navigation/native';
 import {LogoutIcon} from '../../assets/icons/LogoutIcon';
 import BackHeader from '../BackHeader/BackHeader';
+import {HomeScreen} from '../../screens/HomeScreen/HomeScreen';
 
 export const Menu = (props: IMenuProps) => {
   const {onCloseMenuPress, onEditProfilePress} = props;
@@ -36,6 +37,7 @@ export const Menu = (props: IMenuProps) => {
   }, []);
 
   const handleDashboardPress = useCallback(() => {
+    navigation.navigate(HomeScreen as never);
     onCloseMenuPress();
   }, []);
 
@@ -59,7 +61,21 @@ export const Menu = (props: IMenuProps) => {
     closeMenuOnDelay();
   }, []);
 
-  const onLogoutPress = useCallback(() => {}, []);
+  const onHelpPress = () => {
+    // TODO: Add navigation to help screen
+  };
+
+  const onFeedbackPress = () => {
+    // TODO: Add navigation to feedback screen
+  };
+
+  const onUpdatePress = () => {
+    // TODO: Add navigation to update profile screen
+  };
+
+  const onLogoutPress = () => {
+    // TODO: Add navigation to logout screen
+  };
 
   return (
     <TouchableOpacity
@@ -67,7 +83,7 @@ export const Menu = (props: IMenuProps) => {
       onPress={onCloseMenuPress}
       style={styles.mainContainer}>
       <TouchableOpacity activeOpacity={1} style={styles.menuContainer}>
-        <BackHeader />
+        <BackHeader onIconPress={onCloseMenuPress} />
         <View style={styles.profileMainContainer}>
           <View style={styles.profileContainer}>
             <Profile />
@@ -114,11 +130,17 @@ export const Menu = (props: IMenuProps) => {
             <ContainerHeading title={'Favorite List and Recipes'} />
           </View>
           <View style={styles.feedbackAndHelpContainer}>
-            <MenuCard icon={<HelpIcon />} name={'Help'} shouldFlex={true} />
+            <MenuCard
+              icon={<HelpIcon />}
+              name={'Help'}
+              shouldFlex={true}
+              onButtonPress={onHelpPress}
+            />
             <MenuCard
               icon={<FeedBackIcon strokeColor={DEFAULT_COLOR.GREEN_DARK} />}
               name={'Feedback'}
               shouldFlex={true}
+              onButtonPress={onFeedbackPress}
             />
           </View>
           <View style={styles.menuHeader}>
@@ -129,7 +151,7 @@ export const Menu = (props: IMenuProps) => {
             name={'V1.0.0'}
             showButton={true}
             buttonLabel={'Update'}
-            onButtonPress={() => {}}
+            onButtonPress={onUpdatePress}
           />
           <MenuCard
             icon={<LogoutIcon />}

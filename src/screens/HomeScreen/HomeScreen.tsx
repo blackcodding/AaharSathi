@@ -35,7 +35,9 @@ export const HomeScreen = () => {
     setOpenMenu(false);
   };
 
-  const handleEditProfilePress = () => {};
+  const handleEditProfilePress = () => {
+    //TODO: On Edit Profile Press Functionality
+  };
 
   const onItemPress = () => {
     setOpenToBuyBTS(true);

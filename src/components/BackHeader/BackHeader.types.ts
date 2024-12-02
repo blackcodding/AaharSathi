@@ -1,4 +1,5 @@
-
-export interface IBackHeaderProps {}
+export interface IBackHeaderProps {
+  onIconPress?: () => void;
+}
 
 export interface IBackHeaderStyleProps {}
