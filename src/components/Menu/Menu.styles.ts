@@ -31,18 +31,17 @@ export const generateStyles = () => {
     },
     profileMainContainer: {
       width: '100%',
-      height: '20%',
       flexDirection: 'row',
       justifyContent: 'space-between',
       padding: 12,
     },
     profileContainer: {
-      flexDirection: 'column',
+      flex: 1,
+      flexDirection: 'row',
     },
     personalDetailsContainer: {
       flexDirection: 'column',
-      justifyContent: 'center',
-      marginTop: 8,
+      marginLeft: 12,
     },
     iconStyles: {
       width: 40,
