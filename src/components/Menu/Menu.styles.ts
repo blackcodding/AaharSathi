@@ -16,7 +16,7 @@ export const generateStyles = () => {
       backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     Menu: {
-      paddingHorizontal: 8,
+      padding: 8,
     },
     menuHeader: {
       marginVertical: 8,
