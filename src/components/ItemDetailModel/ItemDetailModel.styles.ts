@@ -37,5 +37,10 @@ export const generateStyles = (props: IItemDetailModelStyleProps) => {
       justifyContent: 'space-between',
       alignItems: 'center',
     },
+    buttonContainer: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginTop: 32,
+    },
   });
 };

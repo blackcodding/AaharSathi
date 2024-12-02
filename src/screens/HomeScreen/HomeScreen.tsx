@@ -54,7 +54,7 @@ export const HomeScreen = () => {
   };
 
   const onUpdatePress = () => {
-    Alert.alert('On Update Pressed!');
+    //TODO: On Update Press Functionality
   };
 
   const handleSeeAllExpiryCardPress = useCallback(() => {
@@ -239,8 +239,7 @@ export const HomeScreen = () => {
     <View>
       <ScrollView
         style={styles.mainContainer}
-        showsVerticalScrollIndicator={false}
-        keyboardShouldPersistTaps={'handled'}>
+        showsVerticalScrollIndicator={false}>
         <Header />
         <AlertCard onPress={onUpdatePress} />
         <ContainerHeading
@@ -292,10 +291,22 @@ export const HomeScreen = () => {
 
       {openToBuyBTS && (
         <CustomBottomSheet
-          snapPoints={['40%']}
+          snapPoints={['42%']}
           heading={'Edit Item'}
           icon={<DeleteIcon />}
-          children={<ItemDetailModel />}
+          onIconPress={() => {
+            //TODO: On Icon Press Delete Functionality
+          }}
+          children={
+            <ItemDetailModel
+              actionType={'edit'}
+              onQuantityPress={() => {}}
+              onSavePress={() => {}}
+              onCancelPress={() => {
+                setOpenToBuyBTS(false);
+              }}
+            />
+          }
           onClose={() => {
             setOpenToBuyBTS(false);
           }}
@@ -304,13 +315,22 @@ export const HomeScreen = () => {
 
       {openAddItemBTS && (
         <CustomBottomSheet
-          snapPoints={['40%']}
+          snapPoints={['42%']}
           heading={'Add Item'}
           icon={<CrossIcon />}
           onIconPress={() => {
             setOpenAddItemBTS(false);
           }}
-          children={<ItemDetailModel />}
+          children={
+            <ItemDetailModel
+              actionType={'add'}
+              onQuantityPress={() => {}}
+              onSavePress={() => {}}
+              onCancelPress={() => {
+                setOpenAddItemBTS(false);
+              }}
+            />
+          }
           onClose={() => {
             setOpenAddItemBTS(false);
           }}
@@ -319,10 +339,10 @@ export const HomeScreen = () => {
 
       {openExpiringSoonBTS && (
         <CustomBottomSheet
-          snapPoints={['40%']}
+          snapPoints={['42%']}
           heading={'Expiring in 3 days'}
           icon={<DeleteIcon />}
-          children={<ItemDetailModel />}
+          children={<ItemDetailModel actionType={'delete'} />}
           onClose={() => {
             setOpenExpiringSoonBTS(false);
           }}
@@ -331,13 +351,22 @@ export const HomeScreen = () => {
 
       {openAddListItemBTS && (
         <CustomBottomSheet
-          snapPoints={['40%']}
+          snapPoints={['42%']}
           heading={'Add List Item'}
           icon={<CrossIcon />}
           onIconPress={() => {
             setOpenAddListItemBTS(false);
           }}
-          children={<ItemDetailModel />}
+          children={
+            <ItemDetailModel
+              actionType={'add'}
+              onQuantityPress={() => {}}
+              onSavePress={() => {}}
+              onCancelPress={() => {
+                setOpenAddListItemBTS(false);
+              }}
+            />
+          }
           onClose={() => {
             setOpenAddListItemBTS(false);
           }}
@@ -346,13 +375,13 @@ export const HomeScreen = () => {
 
       {openThreeDotsBTS && (
         <CustomBottomSheet
-          snapPoints={['40%']}
-          heading={'Edit List Item'}
+          snapPoints={['42%']}
+          heading={'Select Option'}
           icon={<CrossIcon />}
           onIconPress={() => {
             setOpenThreeDotsBTS(false);
           }}
-          children={<ItemDetailModel />}
+          children={<></>}
           onClose={() => {
             setOpenThreeDotsBTS(false);
           }}

@@ -8,9 +8,16 @@ import {PlusIcon} from '../../assets/icons/PlusIcon';
 import React from 'react';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './ItemDetailModel.styles';
+import noop from 'lodash/noop';
+import {DefaultButton} from '../Buttons/DefaultButton/DefaultButton';
 
 const ItemDetailModel = (props: IItemDetailModelProps) => {
-  const {} = props;
+  const {
+    actionType,
+    onQuantityPress = noop,
+    onSavePress = noop,
+    onCancelPress = noop,
+  } = props;
 
   const styles = generateStyles({});
 
@@ -28,21 +35,35 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
       <View style={styles.itemContainer}>
         <Text style={styles.textStyle}>{'Quantity'}</Text>
         <View style={styles.quantityContainer}>
-          <TouchableRipple borderless={true} style={styles.iconContainer}>
-            <MinusIcon
-              width={24}
-              height={24}
-              strokeColor={DEFAULT_COLOR.WHITE}
-            />
-          </TouchableRipple>
+          {actionType !== 'delete' && (
+            <TouchableRipple
+              borderless={true}
+              onPress={() => {
+                onQuantityPress('add');
+              }}
+              style={styles.iconContainer}>
+              <MinusIcon
+                width={24}
+                height={24}
+                strokeColor={DEFAULT_COLOR.WHITE}
+              />
+            </TouchableRipple>
+          )}
           <InputBox placeholder={'0'} keyboardType={'numeric'} />
-          <TouchableRipple borderless={true} style={styles.iconContainer}>
-            <PlusIcon
-              width={24}
-              height={24}
-              strokeColor={DEFAULT_COLOR.WHITE}
-            />
-          </TouchableRipple>
+          {actionType !== 'delete' && (
+            <TouchableRipple
+              borderless={true}
+              onPress={() => {
+                onQuantityPress('delete');
+              }}
+              style={styles.iconContainer}>
+              <PlusIcon
+                width={24}
+                height={24}
+                strokeColor={DEFAULT_COLOR.WHITE}
+              />
+            </TouchableRipple>
+          )}
         </View>
       </View>
       <View style={styles.itemContainer}>
@@ -54,6 +75,30 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
           }}
         />
       </View>
+      {actionType !== 'delete' && (
+        <View style={styles.buttonContainer}>
+          <DefaultButton
+            text={'Save'}
+            extraStyles={{
+              flex: 1,
+              marginRight: 12,
+            }}
+            colors={{
+              textColor: DEFAULT_COLOR.WHITE,
+              borderColor: DEFAULT_COLOR.BLUE_MEDIUM,
+              backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
+            }}
+            onPress={onSavePress}
+          />
+          <DefaultButton
+            text={'Cancel'}
+            extraStyles={{
+              flex: 1,
+            }}
+            onPress={onCancelPress}
+          />
+        </View>
+      )}
     </View>
   );
 };

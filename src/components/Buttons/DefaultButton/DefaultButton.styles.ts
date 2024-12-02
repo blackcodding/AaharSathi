@@ -9,6 +9,7 @@ export const generateStyles = (props: IGenerateStyleProps) => {
   const {textColor, borderColor, backgroundColor} = colors || {};
   return StyleSheet.create({
     container: {
+      alignItems: 'center',
       alignSelf: alignSelf || 'center',
       borderWidth: 1.25,
       borderRadius: 50,

@@ -6,6 +6,7 @@ interface IColorsProps {
 
 export interface IDefaultButtonProps {
   text: string;
+  extraStyles?: any;
   colors?: IColorsProps;
   alignSelf?: 'center' | 'flex-start' | 'flex-end';
   onPress?: () => void;

@@ -23,12 +23,16 @@ const Header = (props: IHeaderProps) => {
     setOpenMenu(false);
   };
 
+  const onNotificationPress = () => {
+    //TODO: On Notification Press Functionality
+  };
+
   const handleEditProfilePress = () => {};
 
   const styles = generateStyles({});
 
   return (
-    <>
+    <View>
       <View style={styles.profileContainer}>
         <Profile handleProfilePress={handleProfilePress} />
         <InputBox
@@ -37,12 +41,12 @@ const Header = (props: IHeaderProps) => {
           showCrossIcon={true}
         />
         <TouchableRipple
-          onPress={() => {}}
+          onPress={onNotificationPress}
           borderless={true}
           style={commonStyles.gifContainer}>
           <Image
             source={
-              true
+              false
                 ? require('../../assets/Gif/RingingBell.gif')
                 : require('../../assets/Images/Bell.png')
             }
@@ -58,7 +62,7 @@ const Header = (props: IHeaderProps) => {
           />
         </Portal>
       )}
-    </>
+    </View>
   );
 };
 
