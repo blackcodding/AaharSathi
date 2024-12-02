@@ -22,6 +22,7 @@ import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './Menu.styles';
 import {useNavigation} from '@react-navigation/native';
 import {LogoutIcon} from '../../assets/icons/LogoutIcon';
+import BackHeader from '../BackHeader/BackHeader';
 
 export const Menu = (props: IMenuProps) => {
   const {onCloseMenuPress, onEditProfilePress} = props;
@@ -66,6 +67,7 @@ export const Menu = (props: IMenuProps) => {
       onPress={onCloseMenuPress}
       style={styles.mainContainer}>
       <TouchableOpacity activeOpacity={1} style={styles.menuContainer}>
+        <BackHeader />
         <View style={styles.profileMainContainer}>
           <View style={styles.profileContainer}>
             <Profile />
