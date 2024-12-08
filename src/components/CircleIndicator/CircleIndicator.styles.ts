@@ -1,3 +1,4 @@
+import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {ICircleIndicatorStyleProps} from './CircleIndicator.types';
 import {StyleSheet} from 'react-native';
 
@@ -7,10 +8,12 @@ export const generateStyles = (props: ICircleIndicatorStyleProps) => {
   return StyleSheet.create({
     mainContainer: {},
     circle: {
-      width: 12,
-      height: 12,
+      width: 10,
+      height: 10,
       borderRadius: 50,
-      backgroundColor: 'red',
+      borderWidth: 1,
+      borderColor: DEFAULT_COLOR.RED_LIGHT,
+      backgroundColor: DEFAULT_COLOR.CRIMSON,
     },
   });
 };
