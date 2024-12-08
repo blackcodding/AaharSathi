@@ -19,6 +19,13 @@ export const generateStyles = () => {
       alignItems: 'center',
       shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
     },
+    headerContainer: {
+      width: 100,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingHorizontal: 4,
+    },
     imageContainer: {
       width: 25,
       height: 25,

@@ -7,6 +7,7 @@ import React from 'react';
 import {Tag} from '../../Tags/Tag';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './DetailCard.styles';
+import CircleIndicator from '../../CircleIndicator/CircleIndicator';
 
 export const DetailCard = (props: IDetailCardProps) => {
   const {tagDetail, image, name, quantity, onPress} = props;
@@ -17,15 +18,16 @@ export const DetailCard = (props: IDetailCardProps) => {
       style={styles.mainContainer}
       onPress={onPress}>
       <>
-        <Tag
-          text={tagDetail}
-          isAbsolute={true}
-          top={2}
-          right={2}
-          color={DEFAULT_COLOR.RED_DARK}
-          backgroundColor={DEFAULT_COLOR.CRIMSON}
-          borderColor={DEFAULT_COLOR.RED_LIGHT}
-        />
+        <View style={styles.headerContainer}>
+          <CircleIndicator />
+          <Tag
+            text={tagDetail}
+            color={DEFAULT_COLOR.RED_DARK}
+            backgroundColor={DEFAULT_COLOR.CRIMSON}
+            borderColor={DEFAULT_COLOR.RED_LIGHT}
+          />
+        </View>
+
         <View style={styles.imageContainer}>
           <Image
             style={styles.image}
