@@ -50,8 +50,8 @@ function App(): React.JSX.Element {
             screenOptions={{
               headerShown: false,
             }}>
-            <Stack.Screen name={'SignUpScreen'} component={SignUpScreen} />
             <Stack.Screen name={'SignInScreen'} component={SignInScreen} />
+            <Stack.Screen name={'SignUpScreen'} component={SignUpScreen} />
             <Stack.Screen
               name={'AuthenticationScreen'}
               component={AuthenticationScreen}
