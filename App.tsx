@@ -20,6 +20,10 @@ import {PortalProvider} from '@gorhom/portal';
 import React from 'react';
 import RecipeScreen from './src/screens/RecipeScreen/RecipeScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
+import SignInScreen from './src/screens/SignInScreen/SignInScreen';
+import AuthenticationScreen from './src/screens/AuthenticationScreen/AuthenticationScreen';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen/ForgotPasswordScreen';
 
 //TODO: Add Suspense
 const DashboardScreen = React.lazy(
@@ -46,11 +50,24 @@ function App(): React.JSX.Element {
             screenOptions={{
               headerShown: false,
             }}>
+            <Stack.Screen name={'SignUpScreen'} component={SignUpScreen} />
+            <Stack.Screen name={'SignInScreen'} component={SignInScreen} />
+            <Stack.Screen
+              name={'AuthenticationScreen'}
+              component={AuthenticationScreen}
+            />
+            <Stack.Screen
+              name={'ForgotPasswordScreen'}
+              component={ForgotPasswordScreen}
+            />
             <Stack.Screen
               name={'OnboardingScreen'}
               component={OnboardingScreen}
             />
-            <Stack.Screen name="DashboardScreen" component={DashboardScreen} />
+            <Stack.Screen
+              name={'DashboardScreen'}
+              component={DashboardScreen}
+            />
             <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
             <Stack.Screen name={'MyListScreen'} component={MyListScreen} />
             <Stack.Screen
