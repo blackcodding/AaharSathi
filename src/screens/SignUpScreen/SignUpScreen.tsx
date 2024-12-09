@@ -19,6 +19,10 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
     navigation.navigate(SignInScreen as never);
   };
 
+  const onContinuePress = () => {
+    navigation.navigate(SignInScreen as never);
+  };
+
   return (
     <View style={styles.mainContainer}>
       <View style={commonStyles.lottieImageContainer}>
@@ -28,9 +32,6 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
           autoPlay
           loop
         />
-        <TouchableRipple onPress={onSignInPress}>
-          <Text>{'Sign In'}</Text>
-        </TouchableRipple>
       </View>
     </View>
   );
