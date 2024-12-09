@@ -14,4 +14,11 @@ export const commonStyles = StyleSheet.create({
     height: '90%',
     objectFit: 'contain',
   },
+  lottieImageContainer: {
+    flex: 0.4,
+  },
+  lottie: {
+    width: '100%',
+    height: '100%',
+  },
 });
