@@ -5,8 +5,15 @@ import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './DefaultButton.styles';
 
 export const DefaultButton = (props: IDefaultButtonProps) => {
-  const {text = 'Default', extraStyles, colors, alignSelf, onPress} = props;
-  const styles = generateStyles({colors, alignSelf});
+  const {
+    variant = 'secondary',
+    text = 'Default',
+    extraStyles,
+    colors,
+    alignSelf,
+    onPress,
+  } = props;
+  const styles = generateStyles({variant, colors, alignSelf});
   return (
     <TouchableRipple
       borderless={true}

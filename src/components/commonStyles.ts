@@ -16,6 +16,7 @@ export const commonStyles = StyleSheet.create({
   },
   lottieImageContainer: {
     flex: 0.4,
+    alignItems: 'center',
   },
   lottie: {
     width: '100%',

@@ -5,17 +5,17 @@ import {IGenerateStyleProps} from './DefaultButton.types';
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: IGenerateStyleProps) => {
-  const {colors, alignSelf} = props;
+  const {variant = 'secondary', colors, alignSelf} = props;
   const {textColor, borderColor, backgroundColor} = colors || {};
   return StyleSheet.create({
     container: {
       alignItems: 'center',
       alignSelf: alignSelf || 'center',
       borderWidth: 1.25,
-      borderRadius: 50,
+      borderRadius: variant === 'secondary' ? 50 : 12,
       borderColor: borderColor || DEFAULT_COLOR.GRAY_LIGHT,
       backgroundColor: backgroundColor || DEFAULT_COLOR.WHITE,
-      shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
+      shadowColor: DEFAULT_COLOR.GRAY_LIGHT,
       ...DEFAULT_SHADOW,
     },
     text: {
@@ -23,7 +23,7 @@ export const generateStyles = (props: IGenerateStyleProps) => {
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
       fontFamily: 'Roboto-Medium',
       paddingHorizontal: 12,
-      paddingVertical: 4,
+      paddingVertical: variant === 'secondary' ? 4 : 8,
     },
   });
 };

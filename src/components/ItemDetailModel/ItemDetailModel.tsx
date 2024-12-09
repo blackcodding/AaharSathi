@@ -78,6 +78,7 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
       {actionType !== 'delete' && (
         <View style={styles.buttonContainer}>
           <DefaultButton
+            variant={'primary'}
             text={'Save'}
             extraStyles={{
               flex: 1,
@@ -91,6 +92,7 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
             onPress={onSavePress}
           />
           <DefaultButton
+            variant={'primary'}
             text={'Cancel'}
             extraStyles={{
               flex: 1,

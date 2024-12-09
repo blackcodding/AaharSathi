@@ -9,5 +9,15 @@ export const generateStyles = (props: ISignInScreenStyleProps) => {
       flex: 1,
       flexDirection: 'column',
     },
+    heading: {},
+    secondaryContainer: {
+      flexDirection: 'column',
+      padding: 20,
+    },
+    inputContainer: {},
+    labelContainer: {},
+    authContainer: {
+      flexDirection: 'row',
+    },
   });
 };

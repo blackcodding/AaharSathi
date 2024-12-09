@@ -5,6 +5,7 @@ interface IColorsProps {
 }
 
 export interface IDefaultButtonProps {
+  variant?: 'primary' | 'secondary';
   text: string;
   extraStyles?: any;
   colors?: IColorsProps;
@@ -13,6 +14,7 @@ export interface IDefaultButtonProps {
 }
 
 export interface IGenerateStyleProps {
+  variant?: 'primary' | 'secondary';
   colors?: IColorsProps;
   alignSelf?: 'center' | 'flex-start' | 'flex-end';
 }
