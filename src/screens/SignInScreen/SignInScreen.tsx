@@ -1,6 +1,6 @@
 import {ISignInScreenProps} from './SignInScreen.types';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, TextInput, View} from 'react-native';
 import {generateStyles} from './SignInScreen.styles';
 import {commonStyles} from '../../components/commonStyles';
 import LottieView from 'lottie-react-native';
@@ -12,6 +12,7 @@ import AuthenticationScreen from '../AuthenticationScreen/AuthenticationScreen';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
+import {EmailIcon} from '../../assets/icons/EmailIcon';
 
 const SignInScreen = (props: ISignInScreenProps) => {
   const {} = props;
@@ -48,7 +49,13 @@ const SignInScreen = (props: ISignInScreenProps) => {
           title={'Login'}
           titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_EXTRA_LARGE}
         />
-        <View style={styles.inputContainer}></View>
+        <View style={styles.inputContainer}>
+          <View style={styles.emailContainer}>
+            <EmailIcon />
+            <TextInput placeholder={'Email'} keyboardType={'email-address'} />
+          </View>
+          <TextInput placeholder={'Password'} />
+        </View>
         <View style={styles.labelContainer}></View>
         <DefaultButton
           variant={'primary'}

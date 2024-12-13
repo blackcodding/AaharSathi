@@ -2,7 +2,7 @@ import {IProfileProps} from './Profile.types';
 import {Image} from 'react-native';
 import React from 'react';
 import {TouchableRipple} from 'react-native-paper';
-import {UserIcon} from '../../assets/icons/userIcon';
+import {UserIcon} from '../../assets/icons/UserIcon';
 import {generateStyles} from './Profile.styles';
 
 export const Profile = (props: IProfileProps) => {

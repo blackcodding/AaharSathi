@@ -8,7 +8,7 @@ import {PlusIcon} from '../../../assets/icons/PlusIcon';
 import React from 'react';
 import {Tag} from '../../Tags/Tag';
 import {TouchableRipple} from 'react-native-paper';
-import {UserIcon} from '../../../assets/icons/userIcon';
+import {UserIcon} from '../../../assets/icons/UserIcon';
 import {generateStyles} from './ListCard.styles';
 
 export const ListCard = (props: IListCardProps) => {

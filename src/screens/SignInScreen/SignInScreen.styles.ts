@@ -15,6 +15,7 @@ export const generateStyles = (props: ISignInScreenStyleProps) => {
       padding: 20,
     },
     inputContainer: {},
+    emailContainer: {},
     labelContainer: {},
     authContainer: {
       flexDirection: 'row',
