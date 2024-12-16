@@ -3,7 +3,7 @@ import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: any) => {
-  const {titleColor, titleSize, subTitleSize} = props || {};
+  const {titleColor, titleSize, subtitleColor, subTitleSize} = props || {};
   return StyleSheet.create({
     titleContainer: {
       paddingVertical: 4,
@@ -23,7 +23,7 @@ export const generateStyles = (props: any) => {
       paddingVertical: 4,
       fontFamily: 'Roboto-Medium',
       fontSize: subTitleSize || DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
-      color: DEFAULT_COLOR.BLUE_DARK,
+      color: subtitleColor || DEFAULT_COLOR.BLUE_DARK,
     },
   });
 };

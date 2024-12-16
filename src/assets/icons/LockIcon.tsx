@@ -10,7 +10,7 @@ export const LockIcon = (props: IIconProps) => {
     height = 24,
     fillColor = DEFAULT_COLOR.WHITE,
     strokeWidth = 2,
-    strokeColor = DEFAULT_COLOR.GRAY_LIGHT,
+    strokeColor = DEFAULT_COLOR.GRAY_MEDIUM,
   } = props;
 
   return (

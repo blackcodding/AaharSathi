@@ -6,8 +6,21 @@ import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './ContainerHeading.styles';
 
 export const ContainerHeading = (props: IContainerHeadingProps) => {
-  const {title, titleColor, titleSize, subtitle, subTitleSize, onPress} = props;
-  const styles = generateStyles({titleColor, titleSize, subTitleSize});
+  const {
+    title,
+    titleColor,
+    titleSize,
+    subtitle,
+    subtitleColor,
+    subTitleSize,
+    onPress,
+  } = props;
+  const styles = generateStyles({
+    titleColor,
+    titleSize,
+    subtitleColor,
+    subTitleSize,
+  });
   return (
     <View style={styles.titleContainer}>
       <Text style={styles.title}>{title}</Text>

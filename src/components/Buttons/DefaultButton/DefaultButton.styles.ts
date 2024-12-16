@@ -20,10 +20,13 @@ export const generateStyles = (props: IGenerateStyleProps) => {
     },
     text: {
       color: textColor || DEFAULT_COLOR.BLACK,
-      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
+      fontSize:
+        variant === 'secondary'
+          ? DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR
+          : DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
       fontFamily: 'Roboto-Medium',
       paddingHorizontal: 12,
-      paddingVertical: variant === 'secondary' ? 4 : 8,
+      paddingVertical: variant === 'secondary' ? 4 : 12,
     },
   });
 };
