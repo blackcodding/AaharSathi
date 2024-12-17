@@ -15,8 +15,11 @@ export const commonStyles = StyleSheet.create({
     height: '90%',
     objectFit: 'contain',
   },
-  lottieImageContainer: {
-    flex: 0.5,
+  keyboardAvoidingView: {
+    flex: 1,
+  },
+  lottieContainer: {
+    flex: 0.35,
     alignItems: 'center',
   },
   lottie: {

@@ -3,21 +3,15 @@ import {ISignInScreenStyleProps} from './SignInScreen.types';
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: ISignInScreenStyleProps) => {
-  const {} = props || {};
+  const {height} = props || {};
 
   return StyleSheet.create({
     mainContainer: {
-      flex: 1,
-      flexDirection: 'column',
-      backgroundColor: DEFAULT_COLOR.OFF_WHITE,
+      height: height,
     },
-    secondaryContainer: {
-      flexDirection: 'column',
-      padding: 20,
-      marginTop: 60,
-    },
-    inputContainer: {
-      flexDirection: 'column',
+    loginContainer: {
+      flex: 0.65,
+      paddingHorizontal: 20,
     },
     labelContainer: {
       alignSelf: 'flex-end',
@@ -33,10 +27,9 @@ export const generateStyles = (props: ISignInScreenStyleProps) => {
       color: DEFAULT_COLOR.BLUE_DARK,
     },
     authContainer: {
-      position: 'absolute',
-      bottom: 20,
       flexDirection: 'row',
       alignSelf: 'center',
+      marginTop: 20,
     },
   });
 };
