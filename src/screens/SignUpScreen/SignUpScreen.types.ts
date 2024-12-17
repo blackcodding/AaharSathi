@@ -1,4 +1,7 @@
-
 export interface ISignUpScreenProps {}
 
-export interface ISignUpScreenStyleProps {}
+export interface ISignUpScreenStyleProps {
+  height: any;
+  width: any;
+  
+}
