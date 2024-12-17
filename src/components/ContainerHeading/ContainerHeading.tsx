@@ -16,6 +16,7 @@ export const ContainerHeading = (props: IContainerHeadingProps) => {
     onPress,
   } = props;
   const styles = generateStyles({
+    title,
     titleColor,
     titleSize,
     subtitleColor,

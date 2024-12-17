@@ -1,4 +1,6 @@
-
 export interface IForgotPasswordScreenProps {}
 
-export interface IForgotPasswordScreenStyleProps {}
+export interface IForgotPasswordScreenStyleProps {
+  height: any;
+  width: any;
+}
