@@ -1,21 +1,28 @@
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {IAuthenticationScreenStyleProps} from './AuthenticationScreen.types';
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: IAuthenticationScreenStyleProps) => {
-  const {} = props || {};
+  const {height, width} = props || {};
 
   return StyleSheet.create({
     mainContainer: {
-      flex: 1,
+      height: height,
     },
-    imageContainer: {
-      flex: 0.4,
-      justifyContent: 'center',
+    verifyOTPContainer: {
+      flex: 0.65,
+      paddingHorizontal: 20,
     },
-    image: {
+    label: {
+      fontFamily: 'Roboto-Medium',
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
+      fontWeight: 'bold',
+      color: DEFAULT_COLOR.BLUE_DARK,
+    },
+    authContainer: {
+      flexDirection: 'row',
       alignSelf: 'center',
-      width: '60%',
-      height: '60%',
+      marginTop: 20,
     },
   });
 };
