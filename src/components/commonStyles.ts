@@ -38,13 +38,13 @@ export const commonStyles = StyleSheet.create({
   },
   inputIcon: {
     marginTop: 6,
+    marginRight: 12,
   },
   inputBox: {
     flex: 1,
     alignItems: 'center',
     paddingVertical: 6,
     paddingHorizontal: 0,
-    marginLeft: 12,
     borderBottomWidth: 2,
     borderBottomColor: DEFAULT_COLOR.GRAY_LIGHT,
   },

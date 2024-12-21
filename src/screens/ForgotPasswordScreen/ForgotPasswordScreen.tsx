@@ -1,5 +1,5 @@
 import {IForgotPasswordScreenProps} from './ForgotPasswordScreen.types';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Image,
   KeyboardAvoidingView,
@@ -11,7 +11,6 @@ import {
   View,
 } from 'react-native';
 import {generateStyles} from './ForgotPasswordScreen.styles';
-import LottieView from 'lottie-react-native';
 import {commonStyles} from '../../components/commonStyles';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
@@ -24,9 +23,13 @@ import SignInScreen from '../SignInScreen/SignInScreen';
 const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
   const {} = props;
 
+  const [focusedField, setFocusedField] = useState<string>('');
+
   const navigation = useNavigation();
 
   const {height, width} = useWindowDimensions();
+
+  const styles = generateStyles({height, width});
 
   const onSubmitPress = () => {
     // TODO: Implement forgot password functionality
@@ -36,7 +39,13 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
     navigation.navigate(SignInScreen as never);
   };
 
-  const styles = generateStyles({height, width});
+  const onFocus = (fieldName: string) => {
+    setFocusedField(fieldName);
+  };
+
+  const onBlur = () => {
+    setFocusedField('');
+  };
 
   return (
     <KeyboardAvoidingView
@@ -68,9 +77,20 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
                 <MailIcon />
               </View>
               <TextInput
-                style={commonStyles.inputBox}
+                style={[
+                  commonStyles.inputBox,
+                  {
+                    borderBottomColor:
+                      focusedField === 'Email'
+                        ? DEFAULT_COLOR.RED_LIGHT
+                        : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}
                 placeholder={'Email'}
                 keyboardType={'email-address'}
+                autoCapitalize={'none'}
+                onFocus={() => onFocus('Email')}
+                onBlur={onBlur}
               />
             </View>
             <DefaultButton

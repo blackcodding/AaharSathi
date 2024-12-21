@@ -126,6 +126,7 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                 ]}
                 placeholder={'Email'}
                 keyboardType={'email-address'}
+                autoCapitalize={'none'}
                 onFocus={() => onFocus('Email')}
                 onBlur={onBlur}
               />

@@ -1,11 +1,12 @@
 import {IAuthenticationScreenProps} from './AuthenticationScreen.types';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   Image,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
   Text,
+  TextInput,
   useWindowDimensions,
   View,
 } from 'react-native';
@@ -13,15 +14,18 @@ import {generateStyles} from './AuthenticationScreen.styles';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {commonStyles} from '../../components/commonStyles';
-import LottieView from 'lottie-react-native';
 import {useNavigation} from '@react-navigation/native';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import {TouchableRipple} from 'react-native-paper';
 const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
   const {} = props;
 
+  const [focusedField, setFocusedField] = useState<string>('');
+
   const navigation = useNavigation();
   const {height, width} = useWindowDimensions();
+
+  const styles = generateStyles({height, width});
 
   const onVerifyPress = () => {
     //TODO: Implement onVerifyPress functionality
@@ -31,7 +35,13 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
     //TODO: Implement onResendCodePress functionality
   };
 
-  const styles = generateStyles({height, width});
+  const onFocus = (fieldName: string) => {
+    setFocusedField(fieldName);
+  };
+
+  const onBlur = () => {
+    setFocusedField('');
+  };
 
   return (
     <KeyboardAvoidingView
@@ -58,7 +68,22 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
               subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR}
               subtitleColor={DEFAULT_COLOR.GRAY_DARK}
             />
-
+            <View style={commonStyles.inputBoxContainer}>
+              <TextInput
+                style={[
+                  commonStyles.inputBox,
+                  {
+                    borderBottomColor:
+                      focusedField === 'OTP'
+                        ? DEFAULT_COLOR.RED_LIGHT
+                        : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}
+                keyboardType={'numeric'}
+                onFocus={() => onFocus('OTP')}
+                onBlur={onBlur}
+              />
+            </View>
             <DefaultButton
               variant={'primary'}
               text={'Verify'}
