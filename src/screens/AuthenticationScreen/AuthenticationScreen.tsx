@@ -68,21 +68,26 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
               subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR}
               subtitleColor={DEFAULT_COLOR.GRAY_DARK}
             />
-            <View style={commonStyles.inputBoxContainer}>
-              <TextInput
-                style={[
-                  commonStyles.inputBox,
-                  {
-                    borderBottomColor:
-                      focusedField === 'OTP'
-                        ? DEFAULT_COLOR.RED_LIGHT
-                        : DEFAULT_COLOR.GRAY_LIGHT,
-                  },
-                ]}
-                keyboardType={'numeric'}
-                onFocus={() => onFocus('OTP')}
-                onBlur={onBlur}
-              />
+            <View style={styles.OTPInputBoxContainer}>
+              {['1', '2', '3', '4'].map((item: string, index: number) => {
+                return (
+                  <TextInput
+                    style={[
+                      styles.OTPInputBox,
+                      {
+                        borderBottomColor:
+                          focusedField === 'OTP'
+                            ? DEFAULT_COLOR.RED_LIGHT
+                            : DEFAULT_COLOR.GRAY_LIGHT,
+                      },
+                    ]}
+                    keyboardType={'numeric'}
+                    value={item}
+                    onFocus={() => onFocus('OTP')}
+                    onBlur={onBlur}
+                  />
+                );
+              })}
             </View>
             <DefaultButton
               variant={'primary'}

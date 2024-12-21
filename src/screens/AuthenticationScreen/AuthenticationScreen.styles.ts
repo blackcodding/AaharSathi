@@ -24,5 +24,24 @@ export const generateStyles = (props: IAuthenticationScreenStyleProps) => {
       alignSelf: 'center',
       marginTop: 20,
     },
+    OTPInputBoxContainer: {
+      width: '70%',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginTop: 20,
+    },
+    OTPInputBox: {
+      flex: 0.22,
+      textAlign: 'center',
+      borderWidth: 1.25,
+      backgroundColor: DEFAULT_COLOR.WHITE,
+      borderColor: DEFAULT_COLOR.GRAY_LIGHT,
+      borderRadius: 12,
+      fontFamily: 'Roboto-Medium',
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+      fontWeight: 'bold',
+      color: DEFAULT_COLOR.BLACK,
+    },
   });
 };
