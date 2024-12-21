@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import {
   Image,
   KeyboardAvoidingView,
-  Platform,
   ScrollView,
   Text,
   TextInput,
@@ -46,7 +45,7 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
   return (
     <KeyboardAvoidingView
       style={commonStyles.keyboardAvoidingView}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={'position'}
       keyboardVerticalOffset={height * 0.07}>
       <ScrollView
         showsVerticalScrollIndicator={false}

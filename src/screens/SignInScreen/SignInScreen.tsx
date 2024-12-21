@@ -2,7 +2,6 @@ import {ISignInScreenProps} from './SignInScreen.types';
 import React, {useState} from 'react';
 import {
   KeyboardAvoidingView,
-  Platform,
   ScrollView,
   Text,
   TextInput,
@@ -56,7 +55,7 @@ const SignInScreen = (props: ISignInScreenProps) => {
   return (
     <KeyboardAvoidingView
       style={commonStyles.keyboardAvoidingView}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={'position'}
       keyboardVerticalOffset={height * 0.07}>
       <ScrollView
         showsVerticalScrollIndicator={false}
