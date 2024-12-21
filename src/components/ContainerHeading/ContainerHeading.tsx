@@ -25,13 +25,18 @@ export const ContainerHeading = (props: IContainerHeadingProps) => {
   return (
     <View style={styles.titleContainer}>
       <Text style={styles.title}>{title}</Text>
-      {!!subtitle && (
+      {!!subtitle && onPress && (
         <TouchableRipple
           borderless={true}
           onPress={onPress}
           style={styles.subtitleContainer}>
           <Text style={styles.subtitle}>{subtitle}</Text>
         </TouchableRipple>
+      )}
+      {!!subtitle && !onPress && (
+        <View style={styles.subtitleContainer}>
+          <Text style={styles.subtitle}>{subtitle}</Text>
+        </View>
       )}
     </View>
   );
