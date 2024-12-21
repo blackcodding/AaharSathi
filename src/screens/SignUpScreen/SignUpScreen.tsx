@@ -1,5 +1,5 @@
 import {ISignUpScreenProps} from './SignUpScreen.types';
-import React from 'react';
+import React, {useState} from 'react';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -26,6 +26,8 @@ import {LockIcon} from '../../assets/icons/LockIcon';
 const SignUpScreen = (props: ISignUpScreenProps) => {
   const {} = props;
 
+  const [focusedField, setFocusedField] = useState<string>('');
+
   const navigation = useNavigation();
 
   const {height, width} = useWindowDimensions();
@@ -40,11 +42,19 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
     navigation.navigate(SignInScreen as never);
   };
 
+  const onFocus = (fieldName: string) => {
+    setFocusedField(fieldName);
+  };
+
+  const onBlur = () => {
+    setFocusedField('');
+  };
+
   return (
     <KeyboardAvoidingView
       style={commonStyles.keyboardAvoidingView}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={32}>
+      keyboardVerticalOffset={height * 0.07}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
@@ -67,8 +77,18 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                 <AtIcon />
               </View>
               <TextInput
-                style={commonStyles.inputBox}
+                style={[
+                  commonStyles.inputBox,
+                  {
+                    borderBottomColor:
+                      focusedField === 'User Name'
+                        ? DEFAULT_COLOR.RED_LIGHT
+                        : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}
                 placeholder={'User Name'}
+                onFocus={() => onFocus('User Name')}
+                onBlur={onBlur}
               />
             </View>
             <View style={commonStyles.inputBoxContainer}>
@@ -76,8 +96,18 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                 <UserIcon />
               </View>
               <TextInput
-                style={commonStyles.inputBox}
+                style={[
+                  commonStyles.inputBox,
+                  {
+                    borderBottomColor:
+                      focusedField === 'Full Name'
+                        ? DEFAULT_COLOR.RED_LIGHT
+                        : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}
                 placeholder={'Full Name'}
+                onFocus={() => onFocus('Full Name')}
+                onBlur={onBlur}
               />
             </View>
             <View style={commonStyles.inputBoxContainer}>
@@ -85,9 +115,19 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                 <MailIcon />
               </View>
               <TextInput
-                style={commonStyles.inputBox}
+                style={[
+                  commonStyles.inputBox,
+                  {
+                    borderBottomColor:
+                      focusedField === 'Email'
+                        ? DEFAULT_COLOR.RED_LIGHT
+                        : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}
                 placeholder={'Email'}
                 keyboardType={'email-address'}
+                onFocus={() => onFocus('Email')}
+                onBlur={onBlur}
               />
             </View>
             <View style={commonStyles.inputBoxContainer}>
@@ -95,8 +135,18 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                 <LockIcon />
               </View>
               <TextInput
-                style={commonStyles.inputBox}
+                style={[
+                  commonStyles.inputBox,
+                  {
+                    borderBottomColor:
+                      focusedField === 'Password'
+                        ? DEFAULT_COLOR.RED_LIGHT
+                        : DEFAULT_COLOR.GRAY_LIGHT,
+                  },
+                ]}
                 placeholder={'Password'}
+                onFocus={() => onFocus('Password')}
+                onBlur={onBlur}
               />
             </View>
             <DefaultButton

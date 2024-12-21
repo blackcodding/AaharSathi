@@ -57,7 +57,7 @@ const SignInScreen = (props: ISignInScreenProps) => {
     <KeyboardAvoidingView
       style={commonStyles.keyboardAvoidingView}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={32}>
+      keyboardVerticalOffset={height * 0.07}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
