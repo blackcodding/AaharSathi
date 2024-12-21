@@ -1,6 +1,7 @@
 import {IForgotPasswordScreenProps} from './ForgotPasswordScreen.types';
 import React from 'react';
 import {
+  Image,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -47,11 +48,9 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
         keyboardShouldPersistTaps={'handled'}>
         <View style={styles.mainContainer}>
           <View style={commonStyles.lottieContainer}>
-            <LottieView
-              source={require('../../assets/Lottie/ForgotPassword.json')}
-              style={commonStyles.lottie}
-              autoPlay
-              loop
+            <Image
+              source={require('../../assets/Images/ForgotPassword.png')}
+              style={commonStyles.lottieImage}
             />
           </View>
           <View style={styles.forgotPasswordContainer}>
