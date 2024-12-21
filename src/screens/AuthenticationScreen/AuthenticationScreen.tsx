@@ -20,7 +20,7 @@ import {TouchableRipple} from 'react-native-paper';
 const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
   const {} = props;
 
-  const [focusedField, setFocusedField] = useState<string>('');
+  const [focusedFieldIndex, setFocusedFieldIndex] = useState<number>(0);
 
   const navigation = useNavigation();
   const {height, width} = useWindowDimensions();
@@ -35,12 +35,12 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
     //TODO: Implement onResendCodePress functionality
   };
 
-  const onFocus = (fieldName: string) => {
-    setFocusedField(fieldName);
+  const onFocus = (index: number) => {
+    setFocusedFieldIndex(index);
   };
 
   const onBlur = () => {
-    setFocusedField('');
+    setFocusedFieldIndex(-1);
   };
 
   return (
@@ -75,15 +75,15 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
                     style={[
                       styles.OTPInputBox,
                       {
-                        borderBottomColor:
-                          focusedField === 'OTP'
+                        borderColor:
+                          focusedFieldIndex === index
                             ? DEFAULT_COLOR.RED_LIGHT
                             : DEFAULT_COLOR.GRAY_LIGHT,
                       },
                     ]}
                     keyboardType={'numeric'}
                     value={item}
-                    onFocus={() => onFocus('OTP')}
+                    onFocus={() => onFocus(index)}
                     onBlur={onBlur}
                   />
                 );
