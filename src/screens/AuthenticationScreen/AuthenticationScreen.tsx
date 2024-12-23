@@ -20,6 +20,7 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
   const {} = props;
 
   const [focusedFieldIndex, setFocusedFieldIndex] = useState<number>(0);
+  const [OTPArray, setOTPArray] = useState<string[]>(['', '', '', '']);
 
   const navigation = useNavigation();
   const {height, width} = useWindowDimensions();
@@ -65,7 +66,7 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
               subtitleColor={DEFAULT_COLOR.GRAY_DARK}
             />
             <View style={styles.OTPInputBoxContainer}>
-              {['1', '2', '3', '4'].map((item: string, index: number) => {
+              {OTPArray.map((item: string, index: number) => {
                 return (
                   <TextInput
                     style={[
@@ -79,6 +80,9 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
                     ]}
                     keyboardType={'numeric'}
                     value={item}
+                    onChangeText={text => {
+                      console.log('--->', text);
+                    }}
                     onFocus={() => onFocus(index)}
                     onBlur={onBlur}
                   />
