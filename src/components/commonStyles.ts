@@ -17,6 +17,7 @@ export const commonStyles = StyleSheet.create({
   },
   keyboardAvoidingView: {
     flex: 1,
+    paddingBottom: 8,
   },
   lottieContainer: {
     flex: 0.35,

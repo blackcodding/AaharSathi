@@ -47,10 +47,7 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={commonStyles.keyboardAvoidingView}
-      behavior={'position'}
-      keyboardVerticalOffset={height * 0.07}>
+    <KeyboardAvoidingView style={commonStyles.keyboardAvoidingView}>
       <ScrollView
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
