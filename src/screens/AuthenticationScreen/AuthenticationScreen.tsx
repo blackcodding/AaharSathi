@@ -1,5 +1,5 @@
 import {IAuthenticationScreenProps} from './AuthenticationScreen.types';
-import React, {useState} from 'react';
+import React, {RefObject, useRef, useState} from 'react';
 import {
   Image,
   KeyboardAvoidingView,
@@ -27,6 +27,13 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
 
   const styles = generateStyles({height, width});
 
+  const inputRefArray: RefObject<TextInput>[] = [
+    useRef<TextInput>(null),
+    useRef<TextInput>(null),
+    useRef<TextInput>(null),
+    useRef<TextInput>(null),
+  ];
+
   const onVerifyPress = () => {
     //TODO: Implement onVerifyPress functionality
   };
@@ -41,6 +48,24 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
 
   const onBlur = () => {
     setFocusedFieldIndex(-1);
+  };
+
+  const handleOTP = (text: string, index: number) => {
+    const localOTPArray = [...OTPArray];
+    localOTPArray[index] = text;
+    setOTPArray(localOTPArray);
+
+    if (text !== '') {
+      inputRefArray[index + 1]?.current?.focus();
+      setFocusedFieldIndex(index + 1);
+    }
+  };
+
+  const handleOnKeyPress = (key: string, index: number) => {
+    if (key === 'Backspace' && index > 0 && OTPArray[index] === '') {
+      inputRefArray[index - 1]?.current?.focus();
+      setFocusedFieldIndex(index - 1);
+    }
   };
 
   return (
@@ -80,10 +105,17 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
                     ]}
                     keyboardType={'numeric'}
                     value={item}
+                    autoFocus={index === 0}
+                    maxLength={1}
                     onChangeText={text => {
-                      console.log('--->', text);
+                      handleOTP(text, index);
                     }}
                     onFocus={() => onFocus(index)}
+                    onKeyPress={({nativeEvent}) => {
+                      const {key} = nativeEvent;
+                      handleOnKeyPress(key, index);
+                    }}
+                    ref={inputRefArray[index]}
                     onBlur={onBlur}
                   />
                 );
