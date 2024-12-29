@@ -5,12 +5,13 @@
  * @format
  */
 
+import {Image, StatusBar, View, useColorScheme} from 'react-native';
 import React, {useState} from 'react';
-import {StatusBar, View, useColorScheme} from 'react-native';
 
 import AuthenticationScreen from './src/screens/AuthenticationScreen/AuthenticationScreen';
 import CreateListScreen from './src/screens/CreateListScreen/CreateListScreen';
 import {DEFAULT_COLOR} from './src/Theme/Theme';
+import DraggableView from './src/assets/Elements/DraggableView';
 import ExpiringSoonScreen from './src/screens/ExpiringSoonScreen/ExpiringSoonScreen';
 import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen/ForgotPasswordScreen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -24,23 +25,10 @@ import RecipeScreen from './src/screens/RecipeScreen/RecipeScreen';
 import SignInScreen from './src/screens/SignInScreen/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 import {StyleSheet} from 'react-native';
+import {TouchableRipple} from 'react-native-paper';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // import DashboardScreen from './src/screens/DashboardScreen/DashboardScreen';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //TODO: Add Suspense
 const DashboardScreen = React.lazy(
@@ -59,13 +47,29 @@ function App(): React.JSX.Element {
 
   return (
     <GestureHandlerRootView style={styles.mainContainer}>
-      {showNetworkLogger && (
-        <View style={styles.networkLoggerContainer}>
-          <NetworkLogger />
-        </View>
-      )}
       <NavigationContainer>
         <PortalProvider>
+          <DraggableView containerStyle={styles.loggerContainer}>
+            <TouchableRipple
+              borderless={true}
+              onPress={() => {
+                setShowNetworkLogger(status => !status);
+              }}
+              style={styles.logger}>
+              <Image
+                style={styles.loggerImage}
+                source={{
+                  uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Shinchan.jpg?updatedAt=1727286136981',
+                }}
+              />
+            </TouchableRipple>
+          </DraggableView>
+
+          {showNetworkLogger && (
+            <View style={styles.networkLoggerContainer}>
+              <NetworkLogger />
+            </View>
+          )}
           <StatusBar
             barStyle={isDarkMode ? 'light-content' : 'dark-content'}
             backgroundColor={DEFAULT_COLOR.WHITE}
@@ -115,6 +119,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   networkLoggerContainer: {
+    height: '100%',
+  },
+  loggerContainer: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    zIndex: 1,
+  },
+  logger: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    backgroundColor: DEFAULT_COLOR.RED_LIGHT,
+    overflow: 'hidden',
+  },
+  loggerImage: {
+    width: '100%',
     height: '100%',
   },
 });
