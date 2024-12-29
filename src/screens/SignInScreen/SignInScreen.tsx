@@ -1,26 +1,27 @@
-import {ISignInScreenProps} from './SignInScreen.types';
-import React, {useState} from 'react';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {
   KeyboardAvoidingView,
   ScrollView,
   Text,
   TextInput,
-  useWindowDimensions,
   View,
+  useWindowDimensions,
 } from 'react-native';
-import {generateStyles} from './SignInScreen.styles';
-import {commonStyles} from '../../components/commonStyles';
-import LottieView from 'lottie-react-native';
-import {TouchableRipple} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
-import SignUpScreen from '../SignUpScreen/SignUpScreen';
-import ForgotPasswordScreen from '../ForgotPasswordScreen/ForgotPasswordScreen';
+import React, {useState} from 'react';
+
 import AuthenticationScreen from '../AuthenticationScreen/AuthenticationScreen';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
+import ForgotPasswordScreen from '../ForgotPasswordScreen/ForgotPasswordScreen';
+import {ISignInScreenProps} from './SignInScreen.types';
 import {LockIcon} from '../../assets/icons/LockIcon';
+import LottieView from 'lottie-react-native';
 import {MailIcon} from '../../assets/icons/MailIcon';
+import SignUpScreen from '../SignUpScreen/SignUpScreen';
+import {TouchableRipple} from 'react-native-paper';
+import {commonStyles} from '../../components/commonStyles';
+import {generateStyles} from './SignInScreen.styles';
+import {useNavigation} from '@react-navigation/native';
 
 const SignInScreen = (props: ISignInScreenProps) => {
   const {} = props;

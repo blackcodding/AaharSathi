@@ -1,6 +1,7 @@
 import {Text, View} from 'react-native';
 
 import {DEFAULT_COLOR} from '../../Theme/Theme';
+import {DefaultButton} from '../Buttons/DefaultButton/DefaultButton';
 import {IItemDetailModelProps} from './ItemDetailModel.types';
 import InputBox from '../InputBox/InputBox';
 import {MinusIcon} from '../../assets/icons/MinusIcon';
@@ -9,7 +10,6 @@ import React from 'react';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './ItemDetailModel.styles';
 import noop from 'lodash/noop';
-import {DefaultButton} from '../Buttons/DefaultButton/DefaultButton';
 
 const ItemDetailModel = (props: IItemDetailModelProps) => {
   const {

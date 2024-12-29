@@ -1,6 +1,7 @@
 import React, {useCallback} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
+import BackHeader from '../BackHeader/BackHeader';
 import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
 import {CreateListIcon} from '../../assets/icons/TabBarIcons/CreateListIcon';
 import CreateListScreen from '../../screens/CreateListScreen/CreateListScreen';
@@ -10,7 +11,9 @@ import {ExpiringSoonIcon} from '../../assets/icons/TabBarIcons/ExpiringSoonIcon'
 import ExpiringSoonScreen from '../../screens/ExpiringSoonScreen/ExpiringSoonScreen';
 import {FeedBackIcon} from '../../assets/icons/TabBarIcons/FeedBackIcon';
 import {HelpIcon} from '../../assets/icons/TabBarIcons/HelpIcon';
+import {HomeScreen} from '../../screens/HomeScreen/HomeScreen';
 import {IMenuProps} from './Menu.types';
+import {LogoutIcon} from '../../assets/icons/LogoutIcon';
 import {MenuCard} from '../Cards/MenuCard/MenuCard';
 import {MyListIcon} from '../../assets/icons/TabBarIcons/MyListIcon';
 import MyListScreen from '../../screens/MyListScreen/MyListScreen';
@@ -21,9 +24,6 @@ import RecipeScreen from '../../screens/RecipeScreen/RecipeScreen';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './Menu.styles';
 import {useNavigation} from '@react-navigation/native';
-import {LogoutIcon} from '../../assets/icons/LogoutIcon';
-import BackHeader from '../BackHeader/BackHeader';
-import {HomeScreen} from '../../screens/HomeScreen/HomeScreen';
 
 export const Menu = (props: IMenuProps) => {
   const {onCloseMenuPress, onEditProfilePress} = props;

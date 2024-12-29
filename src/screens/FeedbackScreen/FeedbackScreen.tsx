@@ -1,4 +1,3 @@
-
 import {IFeedbackScreenProps} from './FeedbackScreen.types';
 import React from 'react';
 import {View} from 'react-native';
@@ -9,11 +8,7 @@ const FeedbackScreen = (props: IFeedbackScreenProps) => {
 
   const styles = generateStyles({});
 
-  return (
-    <View style={styles.mainContainer}>
-    {}
-    </View>
-  );
+  return <View style={styles.mainContainer}>{}</View>;
 };
 
 export default FeedbackScreen;

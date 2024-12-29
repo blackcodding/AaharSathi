@@ -3,6 +3,7 @@ import {
   DEFAULT_FONT_SIZE,
   DEFAULT_SHADOW,
 } from '../../../Theme/Theme';
+
 import {IAlertCardStyleProps} from './AlertCard.types';
 import {StyleSheet} from 'react-native';
 

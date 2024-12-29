@@ -1,21 +1,23 @@
-import {IAuthenticationScreenProps} from './AuthenticationScreen.types';
-import React, {RefObject, useRef, useState} from 'react';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {
   Image,
   KeyboardAvoidingView,
   ScrollView,
   Text,
   TextInput,
-  useWindowDimensions,
   View,
+  useWindowDimensions,
 } from 'react-native';
-import {generateStyles} from './AuthenticationScreen.styles';
+import React, {RefObject, useRef, useState} from 'react';
+
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import {commonStyles} from '../../components/commonStyles';
-import {useNavigation} from '@react-navigation/native';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
+import {IAuthenticationScreenProps} from './AuthenticationScreen.types';
 import {TouchableRipple} from 'react-native-paper';
+import {commonStyles} from '../../components/commonStyles';
+import {generateStyles} from './AuthenticationScreen.styles';
+import {useNavigation} from '@react-navigation/native';
+
 const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
   const {} = props;
 

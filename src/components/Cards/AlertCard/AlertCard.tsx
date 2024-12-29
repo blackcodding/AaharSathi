@@ -1,10 +1,11 @@
+import {Text, View} from 'react-native';
+
+import {BellIcon} from '../../../assets/icons/BellIcon';
+import {DEFAULT_COLOR} from '../../../Theme/Theme';
+import {DefaultButton} from '../../Buttons/DefaultButton/DefaultButton';
 import {IAlertCardProps} from './AlertCard.types';
 import React from 'react';
-import {Text, View} from 'react-native';
 import {generateStyles} from './AlertCard.styles';
-import {BellIcon} from '../../../assets/icons/BellIcon';
-import {DefaultButton} from '../../Buttons/DefaultButton/DefaultButton';
-import {DEFAULT_COLOR} from '../../../Theme/Theme';
 
 const AlertCard = (props: IAlertCardProps) => {
   const {

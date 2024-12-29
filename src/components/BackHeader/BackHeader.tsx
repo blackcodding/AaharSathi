@@ -1,9 +1,10 @@
-import {IBackHeaderProps} from './BackHeader.types';
-import React from 'react';
 import {Text, View} from 'react-native';
-import {generateStyles} from './BackHeader.styles';
+
+import {IBackHeaderProps} from './BackHeader.types';
 import {LeftArrowIcon} from '../../assets/icons/LeftArrowIcon';
+import React from 'react';
 import {TouchableRipple} from 'react-native-paper';
+import {generateStyles} from './BackHeader.styles';
 import {useNavigation} from '@react-navigation/native';
 
 const BackHeader = (props: IBackHeaderProps) => {

@@ -1,23 +1,24 @@
-import {IForgotPasswordScreenProps} from './ForgotPasswordScreen.types';
-import React, {useState} from 'react';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {
   Image,
   KeyboardAvoidingView,
   ScrollView,
   Text,
   TextInput,
-  useWindowDimensions,
   View,
+  useWindowDimensions,
 } from 'react-native';
-import {generateStyles} from './ForgotPasswordScreen.styles';
-import {commonStyles} from '../../components/commonStyles';
+import React, {useState} from 'react';
+
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import {MailIcon} from '../../assets/icons/MailIcon';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
-import {TouchableRipple} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
+import {IForgotPasswordScreenProps} from './ForgotPasswordScreen.types';
+import {MailIcon} from '../../assets/icons/MailIcon';
 import SignInScreen from '../SignInScreen/SignInScreen';
+import {TouchableRipple} from 'react-native-paper';
+import {commonStyles} from '../../components/commonStyles';
+import {generateStyles} from './ForgotPasswordScreen.styles';
+import {useNavigation} from '@react-navigation/native';
 
 const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
   const {} = props;

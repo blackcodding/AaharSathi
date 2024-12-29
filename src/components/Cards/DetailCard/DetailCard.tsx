@@ -1,5 +1,6 @@
 import {Image, Text, View} from 'react-native';
 
+import CircleIndicator from '../../CircleIndicator/CircleIndicator';
 import {DEFAULT_COLOR} from '../../../Theme/Theme';
 import {IDetailCardProps} from './DetailCard.types';
 import {PlusIcon} from '../../../assets/icons/PlusIcon';
@@ -7,7 +8,6 @@ import React from 'react';
 import {Tag} from '../../Tags/Tag';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './DetailCard.styles';
-import CircleIndicator from '../../CircleIndicator/CircleIndicator';
 
 export const DetailCard = (props: IDetailCardProps) => {
   const {tagDetail, image, name, quantity, onPress} = props;

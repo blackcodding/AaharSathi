@@ -6,9 +6,9 @@ import InputBox from '../InputBox/InputBox';
 import {Menu} from '../Menu/Menu';
 import {Portal} from '@gorhom/portal';
 import {Profile} from '../Profile/Profile';
+import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../commonStyles';
 import {generateStyles} from './Header.styles';
-import {TouchableRipple} from 'react-native-paper';
 
 const Header = (props: IHeaderProps) => {
   const {} = props;

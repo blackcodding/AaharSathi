@@ -1,4 +1,3 @@
-
 import {ICircleIndicatorProps} from './CircleIndicator.types';
 import React from 'react';
 import {View} from 'react-native';

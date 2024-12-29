@@ -1,6 +1,6 @@
-import {DEFAULT_SHADOW} from './../../../Theme/Theme';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../../Theme/Theme';
 
+import {DEFAULT_SHADOW} from './../../../Theme/Theme';
 import {IGenerateStyleProps} from './DefaultButton.types';
 import {StyleSheet} from 'react-native';
 

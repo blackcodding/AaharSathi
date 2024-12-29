@@ -1,8 +1,9 @@
+import {Text, View} from 'react-native';
+
 import {IPrimaryButtonProps} from './PrimaryButton.types';
 import React from 'react';
-import {Text, View} from 'react-native';
-import {generateStyles} from './PrimaryButton.styles';
 import {TouchableRipple} from 'react-native-paper';
+import {generateStyles} from './PrimaryButton.styles';
 
 const PrimaryButton = (props: IPrimaryButtonProps) => {
   const {label = ''} = props;

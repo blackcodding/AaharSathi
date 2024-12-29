@@ -1,4 +1,3 @@
-
 import {IHelpCardProps} from './HelpCard.types';
 import React from 'react';
 import {View} from 'react-native';
@@ -9,11 +8,7 @@ const HelpCard = (props: IHelpCardProps) => {
 
   const styles = generateStyles({});
 
-  return (
-    <View style={styles.mainContainer}>
-    {}
-    </View>
-  );
+  return <View style={styles.mainContainer}>{}</View>;
 };
 
 export default HelpCard;

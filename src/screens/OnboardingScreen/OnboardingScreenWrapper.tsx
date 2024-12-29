@@ -3,7 +3,6 @@ import React, {useCallback, useRef, useState} from 'react';
 
 import DashboardScreen from '../DashboardScreen/DashboardScreen';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
-import {HomeScreen} from '../HomeScreen/HomeScreen';
 import {OnboardingScreen} from './OnboardingScreen';
 import {generateStyles} from './OnboardingScreen.styles';
 import {useNavigation} from '@react-navigation/native';

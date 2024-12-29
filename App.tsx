@@ -11,7 +11,6 @@ import {StatusBar, View, useColorScheme} from 'react-native';
 import AuthenticationScreen from './src/screens/AuthenticationScreen/AuthenticationScreen';
 import CreateListScreen from './src/screens/CreateListScreen/CreateListScreen';
 import {DEFAULT_COLOR} from './src/Theme/Theme';
-// import DashboardScreen from './src/screens/DashboardScreen/DashboardScreen';
 import ExpiringSoonScreen from './src/screens/ExpiringSoonScreen/ExpiringSoonScreen';
 import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen/ForgotPasswordScreen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -26,6 +25,22 @@ import SignInScreen from './src/screens/SignInScreen/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 import {StyleSheet} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+// import DashboardScreen from './src/screens/DashboardScreen/DashboardScreen';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //TODO: Add Suspense
 const DashboardScreen = React.lazy(

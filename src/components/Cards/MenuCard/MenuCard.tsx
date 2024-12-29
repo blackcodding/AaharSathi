@@ -1,11 +1,11 @@
 import {Image, Text, View} from 'react-native';
 
+import {DEFAULT_COLOR} from '../../../Theme/Theme';
+import {DefaultButton} from '../../Buttons/DefaultButton/DefaultButton';
 import {IMenuCardProps} from './MenuCard.types';
 import React from 'react';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyleSheet} from './MenuCard.styles';
-import {DefaultButton} from '../../Buttons/DefaultButton/DefaultButton';
-import {DEFAULT_COLOR} from '../../../Theme/Theme';
 
 export const MenuCard = (props: IMenuCardProps) => {
   const {

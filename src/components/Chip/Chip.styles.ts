@@ -1,4 +1,5 @@
 import {DEFAULT_COLOR, DEFAULT_SHADOW} from '../../Theme/Theme';
+
 import {IChipStyleProps} from './Chip.types';
 import {StyleSheet} from 'react-native';
 

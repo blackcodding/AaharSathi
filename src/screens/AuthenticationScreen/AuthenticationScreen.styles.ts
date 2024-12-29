@@ -1,4 +1,5 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+
 import {IAuthenticationScreenStyleProps} from './AuthenticationScreen.types';
 import {StyleSheet} from 'react-native';
 

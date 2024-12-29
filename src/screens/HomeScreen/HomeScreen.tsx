@@ -1,7 +1,10 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useCallback, useState} from 'react';
 
+import AlertCard from '../../components/Cards/AlertCard/AlertCard';
+import BannerCard from '../../components/Cards/BannerCard/BannerCard';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
+import {CrossIcon} from '../../assets/icons/CrossIcon';
 import CustomBottomSheet from '../../components/CustomBottomSheet/CustomBottomSheet';
 import {DeleteIcon} from '../../assets/icons/DeleteIcon';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
@@ -16,9 +19,6 @@ import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
-import {CrossIcon} from '../../assets/icons/CrossIcon';
-import BannerCard from '../../components/Cards/BannerCard/BannerCard';
-import AlertCard from '../../components/Cards/AlertCard/AlertCard';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
