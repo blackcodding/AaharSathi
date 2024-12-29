@@ -1,33 +1,45 @@
-import {ISignUpScreenProps} from './SignUpScreen.types';
-import React, {useState} from 'react';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {
   KeyboardAvoidingView,
   ScrollView,
   Text,
   TextInput,
-  useWindowDimensions,
   View,
+  useWindowDimensions,
 } from 'react-native';
-import {generateStyles} from './SignUpScreen.styles';
-import {commonStyles} from '../../components/commonStyles';
-import LottieView from 'lottie-react-native';
-import {TouchableRipple} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
-import SignInScreen from '../SignInScreen/SignInScreen';
-import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
-import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
-import {UserIcon} from '../../assets/icons/UserIcon';
+import React, {useState} from 'react';
+
 import {AtIcon} from '../../assets/icons/AtIcon';
-import {MailIcon} from '../../assets/icons/MailIcon';
+import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
+import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
+import {ISignUpScreenProps} from './SignUpScreen.types';
 import {LockIcon} from '../../assets/icons/LockIcon';
+import LottieView from 'lottie-react-native';
+import {MailIcon} from '../../assets/icons/MailIcon';
+import SignInScreen from '../SignInScreen/SignInScreen';
+import {TouchableRipple} from 'react-native-paper';
+import {UserIcon} from '../../assets/icons/UserIcon';
+import {commonStyles} from '../../components/commonStyles';
+import {generateStyles} from './SignUpScreen.styles';
+import {useNavigation} from '@react-navigation/native';
+import useValidation from '../../hooks/useValidation';
 
 const SignUpScreen = (props: ISignUpScreenProps) => {
   const {} = props;
 
   const [focusedField, setFocusedField] = useState<string>('');
+  const [username, setUsername] = useState<string | null>(null);
+  const [fullName, setFullName] = useState<string | null>(null);
+  const [email, setEmail] = useState<string | null>(null);
+  const [password, setPassword] = useState<string | null>(null);
+
+  const [errorType, setErrorType] = useState<
+    'username' | 'fullName' | 'email' | 'password' | null
+  >(null);
 
   const navigation = useNavigation();
+
+  const validate = useValidation();
 
   const {height, width} = useWindowDimensions();
 
@@ -37,8 +49,27 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
     navigation.navigate(SignInScreen as never);
   };
 
-  const onContinuePress = () => {
-    navigation.navigate(SignInScreen as never);
+  const onContinuePress = async () => {
+    try {
+      const response = await fetch(
+        'http://localhost:3000/api/v1/users/register',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username,
+            fullName,
+            email,
+            password,
+          }),
+        },
+      );
+      console.log('🚀 ~ onContinuePress ~ response:', response.json());
+    } catch (error) {
+      console.log('Error --->', error);
+    }
   };
 
   const onFocus = (fieldName: string) => {
@@ -47,6 +78,56 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
 
   const onBlur = () => {
     setFocusedField('');
+  };
+
+  const handleUsername = (username: string) => {
+    setUsername(username);
+    if (validate.isValidUsername(username)) {
+      setErrorType(null);
+    } else {
+      setErrorType('username');
+    }
+  };
+
+  const handleFullName = (fullName: string) => {
+    setFullName(fullName);
+    if (validate.isValidFullName(fullName)) {
+      setErrorType(null);
+    } else {
+      setErrorType('fullName');
+    }
+  };
+
+  const handleEmail = (email: string) => {
+    setEmail(email);
+    if (validate.isValidEmail(email)) {
+      setErrorType(null);
+    } else {
+      setErrorType('email');
+    }
+  };
+
+  const handlePassword = (password: string) => {
+    setPassword(password);
+    if (validate.isValidPassword(password)) {
+      setErrorType(null);
+    } else {
+      setErrorType('password');
+    }
+  };
+
+  const disabled = () => {
+    if (
+      errorType !== null ||
+      username === '' ||
+      fullName === '' ||
+      email === '' ||
+      password === ''
+    ) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -68,6 +149,7 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
               title={'Sign Up'}
               titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_EXTRA_LARGE}
             />
+
             <View style={commonStyles.inputBoxContainer}>
               <View style={commonStyles.inputIcon}>
                 <AtIcon />
@@ -83,10 +165,19 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                   },
                 ]}
                 placeholder={'User Name'}
+                onChangeText={text => {
+                  handleUsername(text);
+                }}
                 onFocus={() => onFocus('User Name')}
                 onBlur={onBlur}
               />
             </View>
+            {errorType === 'username' && (
+              <Text style={commonStyles.error}>
+                {validate.error.usernameError}
+              </Text>
+            )}
+
             <View style={commonStyles.inputBoxContainer}>
               <View style={commonStyles.inputIcon}>
                 <UserIcon />
@@ -102,10 +193,19 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                   },
                 ]}
                 placeholder={'Full Name'}
+                onChangeText={text => {
+                  handleFullName(text);
+                }}
                 onFocus={() => onFocus('Full Name')}
                 onBlur={onBlur}
               />
             </View>
+            {errorType === 'fullName' && (
+              <Text style={commonStyles.error}>
+                {validate.error.fullNameError}
+              </Text>
+            )}
+
             <View style={commonStyles.inputBoxContainer}>
               <View style={commonStyles.inputIcon}>
                 <MailIcon />
@@ -123,10 +223,19 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                 placeholder={'Email'}
                 keyboardType={'email-address'}
                 autoCapitalize={'none'}
+                onChangeText={text => {
+                  handleEmail(text);
+                }}
                 onFocus={() => onFocus('Email')}
                 onBlur={onBlur}
               />
             </View>
+            {errorType === 'email' && (
+              <Text style={commonStyles.error}>
+                {validate.error.emailError}
+              </Text>
+            )}
+
             <View style={commonStyles.inputBoxContainer}>
               <View style={commonStyles.inputIcon}>
                 <LockIcon />
@@ -142,22 +251,33 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                   },
                 ]}
                 placeholder={'Password'}
+                onChangeText={text => {
+                  handlePassword(text);
+                }}
                 onFocus={() => onFocus('Password')}
                 onBlur={onBlur}
               />
             </View>
+            {errorType === 'password' && (
+              <Text style={commonStyles.error}>
+                {validate.error.passwordError}
+              </Text>
+            )}
+
             <DefaultButton
               variant={'primary'}
               text={'Continue'}
               extraStyles={{
                 width: '100%',
                 marginTop: 40,
+                opacity: disabled() ? 0.6 : 1,
               }}
               colors={{
                 textColor: DEFAULT_COLOR.WHITE,
                 borderColor: DEFAULT_COLOR.BLUE_MEDIUM,
                 backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
               }}
+              disabled={disabled()}
               onPress={onContinuePress}
             />
             <View style={styles.authContainer}>

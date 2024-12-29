@@ -1,5 +1,6 @@
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../Theme/Theme';
+
 import {StyleSheet} from 'react-native';
-import {DEFAULT_COLOR} from '../Theme/Theme';
 
 export const commonStyles = StyleSheet.create({
   gifContainer: {
@@ -35,11 +36,14 @@ export const commonStyles = StyleSheet.create({
   inputBoxContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 12,
   },
   inputIcon: {
     marginTop: 6,
     marginRight: 12,
+  },
+  inputWrapper: {
+    flex: 1,
   },
   inputBox: {
     flex: 1,
@@ -48,5 +52,12 @@ export const commonStyles = StyleSheet.create({
     paddingHorizontal: 0,
     borderBottomWidth: 2,
     borderBottomColor: DEFAULT_COLOR.GRAY_LIGHT,
+  },
+  error: {
+    fontFamily: 'Roboto-Regular',
+    fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_SMALL,
+    color: DEFAULT_COLOR.RED_DARK,
+    marginLeft: 40,
+    marginTop: 4,
   },
 });

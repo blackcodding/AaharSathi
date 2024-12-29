@@ -5,25 +5,27 @@
  * @format
  */
 
-import {StatusBar, useColorScheme} from 'react-native';
+import React, {useState} from 'react';
+import {StatusBar, View, useColorScheme} from 'react-native';
 
+import AuthenticationScreen from './src/screens/AuthenticationScreen/AuthenticationScreen';
 import CreateListScreen from './src/screens/CreateListScreen/CreateListScreen';
 import {DEFAULT_COLOR} from './src/Theme/Theme';
 // import DashboardScreen from './src/screens/DashboardScreen/DashboardScreen';
 import ExpiringSoonScreen from './src/screens/ExpiringSoonScreen/ExpiringSoonScreen';
+import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen/ForgotPasswordScreen';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {HomeScreen} from './src/screens/HomeScreen/HomeScreen';
 import MyListScreen from './src/screens/MyListScreen/MyListScreen';
 import {NavigationContainer} from '@react-navigation/native';
+import NetworkLogger from 'react-native-network-logger';
 import {OnboardingScreenWrapper} from './src/screens/OnboardingScreen/OnboardingScreenWrapper';
 import {PortalProvider} from '@gorhom/portal';
-import React from 'react';
 import RecipeScreen from './src/screens/RecipeScreen/RecipeScreen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
 import SignInScreen from './src/screens/SignInScreen/SignInScreen';
-import AuthenticationScreen from './src/screens/AuthenticationScreen/AuthenticationScreen';
-import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen/ForgotPasswordScreen';
+import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
+import {StyleSheet} from 'react-native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 //TODO: Add Suspense
 const DashboardScreen = React.lazy(
@@ -34,12 +36,19 @@ function App(): React.JSX.Element {
   const Stack = createNativeStackNavigator();
   const isDarkMode = useColorScheme() === 'dark';
 
+  const [showNetworkLogger, setShowNetworkLogger] = useState(false);
+
   const OnboardingScreen = () => {
     return <OnboardingScreenWrapper />;
   };
 
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
+    <GestureHandlerRootView style={styles.mainContainer}>
+      {showNetworkLogger && (
+        <View style={styles.networkLoggerContainer}>
+          <NetworkLogger />
+        </View>
+      )}
       <NavigationContainer>
         <PortalProvider>
           <StatusBar
@@ -85,5 +94,14 @@ function App(): React.JSX.Element {
     </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+  },
+  networkLoggerContainer: {
+    height: '100%',
+  },
+});
 
 export default App;

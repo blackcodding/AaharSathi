@@ -10,6 +10,7 @@ export interface IDefaultButtonProps {
   extraStyles?: any;
   colors?: IColorsProps;
   alignSelf?: 'center' | 'flex-start' | 'flex-end';
+  disabled?: boolean;
   onPress?: () => void;
 }
 

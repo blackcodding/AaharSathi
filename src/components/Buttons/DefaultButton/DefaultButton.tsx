@@ -11,12 +11,14 @@ export const DefaultButton = (props: IDefaultButtonProps) => {
     extraStyles,
     colors,
     alignSelf,
+    disabled = false,
     onPress,
   } = props;
   const styles = generateStyles({variant, colors, alignSelf});
   return (
     <TouchableRipple
       borderless={true}
+      disabled={disabled}
       style={[styles.container, extraStyles]}
       onPress={onPress}>
       <Text style={styles.text} numberOfLines={1}>
