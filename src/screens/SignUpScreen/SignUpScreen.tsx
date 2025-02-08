@@ -52,7 +52,7 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
   const onContinuePress = async () => {
     try {
       const response = await fetch(
-        'http://localhost:3000/api/v1/users/register',
+        'http://192.168.1.7:3000/api/v1/users/register',
         {
           method: 'POST',
           headers: {

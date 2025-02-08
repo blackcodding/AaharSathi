@@ -22,13 +22,19 @@ import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './SignInScreen.styles';
 import {useNavigation} from '@react-navigation/native';
+import useValidation from '../../hooks/useValidation';
 
 const SignInScreen = (props: ISignInScreenProps) => {
   const {} = props;
 
   const [focusedField, setFocusedField] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [errorType, setErrorType] = useState<'email' | 'password' | null>(null);
 
   const navigation = useNavigation();
+  const validate = useValidation();
+
   const {height, width} = useWindowDimensions();
 
   const styles = generateStyles({height, width});
@@ -41,8 +47,27 @@ const SignInScreen = (props: ISignInScreenProps) => {
     navigation.navigate(ForgotPasswordScreen as never);
   };
 
-  const onLoginPress = () => {
-    navigation.navigate(AuthenticationScreen as never);
+  const onLoginPress = async () => {
+    try {
+      const response = await fetch(
+        'http://192.168.1.7:3000/api/v1/users/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        },
+      );
+
+      const data = await response.json();
+      console.log('Data --->', data.data);
+    } catch (error) {
+      console.log('Error --->', error);
+    }
   };
 
   const onFocus = (fieldName: string) => {
@@ -51,6 +76,32 @@ const SignInScreen = (props: ISignInScreenProps) => {
 
   const onBlur = () => {
     setFocusedField('');
+  };
+
+  const handleEmail = (email: string) => {
+    setEmail(email);
+    if (validate.isValidEmail(email)) {
+      setErrorType(null);
+    } else {
+      setErrorType('email');
+    }
+  };
+
+  const handlePassword = (password: string) => {
+    setPassword(password);
+    if (validate.isValidPassword(password)) {
+      setErrorType(null);
+    } else {
+      setErrorType('password');
+    }
+  };
+
+  const disabled = () => {
+    if (errorType !== null || email === '' || password === '') {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   return (
@@ -89,10 +140,16 @@ const SignInScreen = (props: ISignInScreenProps) => {
                 placeholder={'Email'}
                 keyboardType={'email-address'}
                 autoCapitalize={'none'}
+                onChangeText={text => handleEmail(text)}
                 onFocus={() => onFocus('Email')}
                 onBlur={onBlur}
               />
             </View>
+            {errorType === 'email' && (
+              <Text style={commonStyles.error}>
+                {validate.error.emailError}
+              </Text>
+            )}
             <View style={commonStyles.inputBoxContainer}>
               <View style={commonStyles.inputIcon}>
                 <LockIcon />
@@ -108,10 +165,16 @@ const SignInScreen = (props: ISignInScreenProps) => {
                   },
                 ]}
                 placeholder={'Password'}
+                onChangeText={text => handlePassword(text)}
                 onFocus={() => onFocus('Password')}
                 onBlur={onBlur}
               />
             </View>
+            {errorType === 'password' && (
+              <Text style={commonStyles.error}>
+                {validate.error.passwordError}
+              </Text>
+            )}
             <TouchableRipple
               style={styles.labelContainer}
               borderless={true}
@@ -124,12 +187,14 @@ const SignInScreen = (props: ISignInScreenProps) => {
               extraStyles={{
                 width: '100%',
                 marginTop: 20,
+                opacity: disabled() ? 0.6 : 1,
               }}
               colors={{
                 textColor: DEFAULT_COLOR.WHITE,
                 borderColor: DEFAULT_COLOR.BLUE_MEDIUM,
                 backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
               }}
+              disabled={disabled()}
               onPress={onLoginPress}
             />
             <View style={styles.authContainer}>
