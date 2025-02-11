@@ -21,6 +21,7 @@ import SignUpScreen from '../SignUpScreen/SignUpScreen';
 import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './SignInScreen.styles';
+import {signInUserUrl} from '../../API/API';
 import {useNavigation} from '@react-navigation/native';
 import useValidation from '../../hooks/useValidation';
 
@@ -49,19 +50,17 @@ const SignInScreen = (props: ISignInScreenProps) => {
 
   const onLoginPress = async () => {
     try {
-      const response = await fetch(
-        'http://192.168.1.7:3000/api/v1/users/login',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
+      const url = signInUserUrl();
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
       const data = await response.json();
       console.log('Data --->', data.data);

@@ -17,22 +17,38 @@ import {MailIcon} from '../../assets/icons/MailIcon';
 import SignInScreen from '../SignInScreen/SignInScreen';
 import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../../components/commonStyles';
+import {forgotPasswordUrl} from '../../API/API';
 import {generateStyles} from './ForgotPasswordScreen.styles';
 import {useNavigation} from '@react-navigation/native';
+import useValidation from '../../hooks/useValidation';
 
 const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
   const {} = props;
 
   const [focusedField, setFocusedField] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [isError, setIsError] = useState<boolean>(false);
 
   const navigation = useNavigation();
+  const validate = useValidation();
 
   const {height, width} = useWindowDimensions();
 
   const styles = generateStyles({height, width});
 
-  const onSubmitPress = () => {
-    // TODO: Implement forgot password functionality
+  const onSubmitPress = async () => {
+    try {
+      const url = forgotPasswordUrl();
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({email}),
+      });
+    } catch (error) {
+      console.log('Error --->', error);
+    }
   };
 
   const onSignInPress = () => {
@@ -45,6 +61,15 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
 
   const onBlur = () => {
     setFocusedField('');
+  };
+
+  const handleEmail = (email: string) => {
+    setEmail(email);
+    if (validate.isValidEmail(email)) {
+      setIsError(false);
+    } else {
+      setIsError(true);
+    }
   };
 
   return (
@@ -86,22 +111,30 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
                 placeholder={'Email'}
                 keyboardType={'email-address'}
                 autoCapitalize={'none'}
+                onChangeText={text => handleEmail(text)}
                 onFocus={() => onFocus('Email')}
                 onBlur={onBlur}
               />
             </View>
+            {isError === true && (
+              <Text style={commonStyles.error}>
+                {validate.error.emailError}
+              </Text>
+            )}
             <DefaultButton
               variant={'primary'}
               text={'Submit'}
               extraStyles={{
                 width: '100%',
                 marginTop: 40,
+                opacity: isError === true || email === '' ? 0.6 : 1,
               }}
               colors={{
                 textColor: DEFAULT_COLOR.WHITE,
                 borderColor: DEFAULT_COLOR.BLUE_MEDIUM,
                 backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
               }}
+              disabled={isError === true || email === ''}
               onPress={onSubmitPress}
             />
             <View style={styles.authContainer}>

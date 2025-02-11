@@ -21,6 +21,7 @@ import {TouchableRipple} from 'react-native-paper';
 import {UserIcon} from '../../assets/icons/UserIcon';
 import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './SignUpScreen.styles';
+import {signUpUserUrl} from '../../API/API';
 import {useNavigation} from '@react-navigation/native';
 import useValidation from '../../hooks/useValidation';
 
@@ -51,21 +52,19 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
 
   const onContinuePress = async () => {
     try {
-      const response = await fetch(
-        'http://192.168.1.7:3000/api/v1/users/register',
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            username,
-            fullName,
-            email,
-            password,
-          }),
+      const url = signUpUserUrl();
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({
+          username,
+          fullName,
+          email,
+          password,
+        }),
+      });
       console.log('🚀 ~ onContinuePress ~ response:', response.json());
     } catch (error) {
       console.log('Error --->', error);
