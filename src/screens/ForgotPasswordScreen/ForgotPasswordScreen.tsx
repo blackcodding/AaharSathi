@@ -1,5 +1,5 @@
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {
+  ActivityIndicator,
   Image,
   KeyboardAvoidingView,
   ScrollView,
@@ -8,6 +8,7 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useState} from 'react';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
@@ -28,6 +29,7 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
   const [focusedField, setFocusedField] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [isError, setIsError] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigation = useNavigation();
   const validate = useValidation();
@@ -36,8 +38,13 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
 
   const styles = generateStyles({height, width});
 
+  const onSignInPress = () => {
+    navigation.navigate(SignInScreen as never);
+  };
+
   const onSubmitPress = async () => {
     try {
+      setIsLoading(true);
       const url = forgotPasswordUrl();
       const response = await fetch(url, {
         method: 'POST',
@@ -46,13 +53,18 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
         },
         body: JSON.stringify({email}),
       });
+
+      const data = await response.json();
+      if (data.statusCode === 200) {
+        onSignInPress();
+      } else {
+        //TODO: Something went wrong popup
+      }
     } catch (error) {
       console.log('Error --->', error);
+    } finally {
+      setIsLoading(false);
     }
-  };
-
-  const onSignInPress = () => {
-    navigation.navigate(SignInScreen as never);
   };
 
   const onFocus = (fieldName: string) => {
@@ -78,6 +90,11 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
         <View style={styles.mainContainer}>
+          {isLoading && (
+            <View style={commonStyles.loaderContainer}>
+              <ActivityIndicator size={60} color={DEFAULT_COLOR.OFF_WHITE} />
+            </View>
+          )}
           <View style={commonStyles.lottieContainer}>
             <Image
               source={require('../../assets/Images/ForgotPassword.png')}

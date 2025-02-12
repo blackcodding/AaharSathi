@@ -1,5 +1,5 @@
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {
+  ActivityIndicator,
   KeyboardAvoidingView,
   ScrollView,
   Text,
@@ -7,10 +7,11 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useState} from 'react';
 
-import AuthenticationScreen from '../AuthenticationScreen/AuthenticationScreen';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
+import DashboardScreen from '../DashboardScreen/DashboardScreen';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import ForgotPasswordScreen from '../ForgotPasswordScreen/ForgotPasswordScreen';
 import {ISignInScreenProps} from './SignInScreen.types';
@@ -32,6 +33,7 @@ const SignInScreen = (props: ISignInScreenProps) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [errorType, setErrorType] = useState<'email' | 'password' | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigation = useNavigation();
   const validate = useValidation();
@@ -50,6 +52,7 @@ const SignInScreen = (props: ISignInScreenProps) => {
 
   const onLoginPress = async () => {
     try {
+      setIsLoading(true);
       const url = signInUserUrl();
       const response = await fetch(url, {
         method: 'POST',
@@ -63,9 +66,15 @@ const SignInScreen = (props: ISignInScreenProps) => {
       });
 
       const data = await response.json();
-      console.log('Data --->', data.data);
+      if (data.statusCode === 200) {
+        navigation.navigate(DashboardScreen as never);
+      } else {
+        //TODO: Something went wrong popup
+      }
     } catch (error) {
       console.log('Error --->', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -109,6 +118,11 @@ const SignInScreen = (props: ISignInScreenProps) => {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
         <View style={styles.mainContainer}>
+          {isLoading && (
+            <View style={commonStyles.loaderContainer}>
+              <ActivityIndicator size={60} color={DEFAULT_COLOR.OFF_WHITE} />
+            </View>
+          )}
           <View style={commonStyles.lottieContainer}>
             <LottieView
               source={require('../../assets/Lottie/Sign.json')}

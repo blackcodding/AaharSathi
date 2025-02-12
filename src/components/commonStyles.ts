@@ -60,4 +60,13 @@ export const commonStyles = StyleSheet.create({
     marginLeft: 40,
     marginTop: 4,
   },
+  loaderContainer: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: DEFAULT_COLOR.TRANSLUCENT_COLOR,
+    zIndex: 1,
+  },
 });

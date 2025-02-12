@@ -1,5 +1,5 @@
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {
+  ActivityIndicator,
   KeyboardAvoidingView,
   ScrollView,
   Text,
@@ -7,6 +7,7 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useState} from 'react';
 
 import {AtIcon} from '../../assets/icons/AtIcon';
@@ -33,10 +34,10 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
   const [fullName, setFullName] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
-
   const [errorType, setErrorType] = useState<
     'username' | 'fullName' | 'email' | 'password' | null
   >(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigation = useNavigation();
 
@@ -52,6 +53,7 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
 
   const onContinuePress = async () => {
     try {
+      setIsLoading(true);
       const url = signUpUserUrl();
       const response = await fetch(url, {
         method: 'POST',
@@ -65,9 +67,17 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
           password,
         }),
       });
-      console.log('🚀 ~ onContinuePress ~ response:', response.json());
+
+      const data = await response.json();
+      if (data.statusCode === 200) {
+        onSignInPress();
+      } else {
+        //TODO: Something went wrong popup
+      }
     } catch (error) {
       console.log('Error --->', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -135,6 +145,11 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
         <View style={styles.mainContainer}>
+          {isLoading && (
+            <View style={commonStyles.loaderContainer}>
+              <ActivityIndicator size={60} color={DEFAULT_COLOR.OFF_WHITE} />
+            </View>
+          )}
           <View style={commonStyles.lottieContainer}>
             <LottieView
               source={require('../../assets/Lottie/Sign.json')}
