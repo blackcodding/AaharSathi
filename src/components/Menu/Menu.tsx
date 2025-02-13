@@ -95,6 +95,7 @@ export const Menu = (props: IMenuProps) => {
       const data = await response.json();
       if (data.statusCode === 200) {
         logoutUser();
+        onCloseMenuPress();
         navigation.navigate(SIGN_IN_SCREEN as never);
       } else {
         //TODO: Something went wrong popup
