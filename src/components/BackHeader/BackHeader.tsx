@@ -11,7 +11,7 @@ const BackHeader = (props: IBackHeaderProps) => {
   const {onIconPress} = props;
 
   const styles = generateStyles({});
-  const navigation = useNavigation();
+  const navigation = useNavigation() as any;
 
   return (
     <View style={styles.mainContainer}>

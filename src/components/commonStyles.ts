@@ -69,4 +69,12 @@ export const commonStyles = StyleSheet.create({
     backgroundColor: DEFAULT_COLOR.TRANSLUCENT_COLOR,
     zIndex: 1,
   },
+  logContainer: {
+    width: 180,
+    height: 180,
+  },
+  logo: {
+    width: '100%',
+    height: '100%',
+  },
 });

@@ -1,4 +1,5 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+import {EXPIRING_SOON_SCREEN, MY_LIST_SCREEN} from '../../utils/screens';
 import React, {useCallback, useState} from 'react';
 
 import AlertCard from '../../components/Cards/AlertCard/AlertCard';
@@ -9,10 +10,8 @@ import CustomBottomSheet from '../../components/CustomBottomSheet/CustomBottomSh
 import {DeleteIcon} from '../../assets/icons/DeleteIcon';
 import {ExpiringSoon} from '../../components/ExpiringSoon/ExpiringSoon';
 import Header from '../../components/Header/Header';
-import InventoryScreen from '../ExpiringSoonScreen/ExpiringSoonScreen';
 import ItemDetailModel from '../../components/ItemDetailModel/ItemDetailModel';
 import {Menu} from '../../components/Menu/Menu';
-import MyListScreen from '../MyListScreen/MyListScreen';
 import {ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
@@ -29,7 +28,7 @@ export const HomeScreen = () => {
   const [openThreeDotsBTS, setOpenThreeDotsBTS] = useState(false);
 
   const styles = generateStyles();
-  const navigation = useNavigation();
+  const navigation = useNavigation() as any;
 
   const handleCloseMenuPress = () => {
     setOpenMenu(false);
@@ -64,11 +63,11 @@ export const HomeScreen = () => {
   };
 
   const handleSeeAllExpiryCardPress = useCallback(() => {
-    navigation.navigate(InventoryScreen as never);
+    navigation.navigate(EXPIRING_SOON_SCREEN as never);
   }, []);
 
   const handleSeeAllUpcomingListPress = useCallback(() => {
-    navigation.navigate(MyListScreen as never);
+    navigation.navigate(MY_LIST_SCREEN as never);
   }, []);
 
   const toBuyData = [

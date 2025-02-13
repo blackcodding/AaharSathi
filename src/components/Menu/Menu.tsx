@@ -1,34 +1,39 @@
+import {
+  CREATE_LIST_SCREEN,
+  EXPIRING_SOON_SCREEN,
+  HOME_SCREEN,
+  MY_LIST_SCREEN,
+  RECIPE_SCREEN,
+  SIGN_IN_SCREEN,
+} from '../../utils/screens';
 import React, {useCallback} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import {getUserId, logoutUser} from '../../utils/storage';
 
 import BackHeader from '../BackHeader/BackHeader';
 import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
 import {CreateListIcon} from '../../assets/icons/TabBarIcons/CreateListIcon';
-import CreateListScreen from '../../screens/CreateListScreen/CreateListScreen';
 import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {DashboardIcon} from '../../assets/icons/TabBarIcons/DashboardIcon';
 import {ExpiringSoonIcon} from '../../assets/icons/TabBarIcons/ExpiringSoonIcon';
-import ExpiringSoonScreen from '../../screens/ExpiringSoonScreen/ExpiringSoonScreen';
 import {FeedBackIcon} from '../../assets/icons/TabBarIcons/FeedBackIcon';
 import {HelpIcon} from '../../assets/icons/TabBarIcons/HelpIcon';
-import {HomeScreen} from '../../screens/HomeScreen/HomeScreen';
 import {IMenuProps} from './Menu.types';
 import {LogoutIcon} from '../../assets/icons/LogoutIcon';
 import {MenuCard} from '../Cards/MenuCard/MenuCard';
 import {MyListIcon} from '../../assets/icons/TabBarIcons/MyListIcon';
-import MyListScreen from '../../screens/MyListScreen/MyListScreen';
 import {PencilIcon} from '../../assets/icons/PencilIcon';
 import {Profile} from '../Profile/Profile';
 import {RecipeIcon} from '../../assets/icons/TabBarIcons/Recipe';
-import RecipeScreen from '../../screens/RecipeScreen/RecipeScreen';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './Menu.styles';
+import {signOutUserUrl} from '../../API/API';
 import {useNavigation} from '@react-navigation/native';
 
 export const Menu = (props: IMenuProps) => {
   const {onCloseMenuPress, onEditProfilePress} = props;
   const styles = generateStyles();
-  const navigation = useNavigation();
+  const navigation = useNavigation() as any;
 
   const closeMenuOnDelay = useCallback(() => {
     setTimeout(() => {
@@ -37,27 +42,27 @@ export const Menu = (props: IMenuProps) => {
   }, []);
 
   const handleDashboardPress = useCallback(() => {
-    navigation.navigate(HomeScreen as never);
+    navigation.navigate(HOME_SCREEN as never);
     onCloseMenuPress();
   }, []);
 
   const onMyListPress = useCallback(() => {
-    navigation.navigate(MyListScreen as never);
+    navigation.navigate(MY_LIST_SCREEN as never);
     closeMenuOnDelay();
   }, []);
 
   const onCreateListPress = useCallback(() => {
-    navigation.navigate(CreateListScreen as never);
+    navigation.navigate(CREATE_LIST_SCREEN as never);
     closeMenuOnDelay();
   }, []);
 
   const onExpiringSoonPress = useCallback(() => {
-    navigation.navigate(ExpiringSoonScreen as never);
+    navigation.navigate(EXPIRING_SOON_SCREEN as never);
     closeMenuOnDelay();
   }, []);
 
   const onRecipePress = useCallback(() => {
-    navigation.navigate(RecipeScreen as never);
+    navigation.navigate(RECIPE_SCREEN as never);
     closeMenuOnDelay();
   }, []);
 
@@ -73,8 +78,30 @@ export const Menu = (props: IMenuProps) => {
     // TODO: Add navigation to update profile screen
   };
 
-  const onLogoutPress = () => {
-    // TODO: Add navigation to logout screen
+  const onLogoutPress = async () => {
+    try {
+      const userId = getUserId();
+      const url = signOutUserUrl();
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.statusCode === 200) {
+        logoutUser();
+        navigation.navigate(SIGN_IN_SCREEN as never);
+      } else {
+        //TODO: Something went wrong popup
+      }
+    } catch (error) {
+      console.log('Error --->', error);
+    }
   };
 
   return (

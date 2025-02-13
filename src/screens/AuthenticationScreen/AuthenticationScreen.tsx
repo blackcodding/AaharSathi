@@ -24,7 +24,7 @@ const AuthenticationScreen = (props: IAuthenticationScreenProps) => {
   const [focusedFieldIndex, setFocusedFieldIndex] = useState<number>(0);
   const [OTPArray, setOTPArray] = useState<string[]>(['', '', '', '']);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation() as any;
   const {height, width} = useWindowDimensions();
 
   const styles = generateStyles({height, width});

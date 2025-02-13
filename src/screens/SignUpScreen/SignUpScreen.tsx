@@ -17,7 +17,7 @@ import {ISignUpScreenProps} from './SignUpScreen.types';
 import {LockIcon} from '../../assets/icons/LockIcon';
 import LottieView from 'lottie-react-native';
 import {MailIcon} from '../../assets/icons/MailIcon';
-import SignInScreen from '../SignInScreen/SignInScreen';
+import {SIGN_IN_SCREEN} from '../../utils/screens';
 import {TouchableRipple} from 'react-native-paper';
 import {UserIcon} from '../../assets/icons/UserIcon';
 import {commonStyles} from '../../components/commonStyles';
@@ -39,7 +39,7 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
   >(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation() as any;
 
   const validate = useValidation();
 
@@ -48,7 +48,7 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
   const styles = generateStyles({height, width});
 
   const onSignInPress = () => {
-    navigation.navigate(SignInScreen as never);
+    navigation.navigate(SIGN_IN_SCREEN as never);
   };
 
   const onContinuePress = async () => {

@@ -19,18 +19,15 @@ import {HomeScreen} from './src/screens/HomeScreen/HomeScreen';
 import MyListScreen from './src/screens/MyListScreen/MyListScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import NetworkLogger from 'react-native-network-logger';
-import {OnboardingScreenWrapper} from './src/screens/OnboardingScreen/OnboardingScreenWrapper';
 import {PortalProvider} from '@gorhom/portal';
 import RecipeScreen from './src/screens/RecipeScreen/RecipeScreen';
 import SignInScreen from './src/screens/SignInScreen/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
+import SplashScreen from './src/screens/SplashScreen/SplashScreen';
 import {StyleSheet} from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-// import DashboardScreen from './src/screens/DashboardScreen/DashboardScreen';
-
-//TODO: Add Suspense
 const DashboardScreen = React.lazy(
   () => import('./src/screens/DashboardScreen/DashboardScreen'),
 );
@@ -40,10 +37,6 @@ function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const [showNetworkLogger, setShowNetworkLogger] = useState(false);
-
-  const OnboardingScreen = () => {
-    return <OnboardingScreenWrapper />;
-  };
 
   return (
     <GestureHandlerRootView style={styles.mainContainer}>
@@ -78,6 +71,7 @@ function App(): React.JSX.Element {
             screenOptions={{
               headerShown: false,
             }}>
+            <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
             <Stack.Screen name={'SignInScreen'} component={SignInScreen} />
             <Stack.Screen name={'SignUpScreen'} component={SignUpScreen} />
             <Stack.Screen
@@ -87,10 +81,6 @@ function App(): React.JSX.Element {
             <Stack.Screen
               name={'ForgotPasswordScreen'}
               component={ForgotPasswordScreen}
-            />
-            <Stack.Screen
-              name={'OnboardingScreen'}
-              component={OnboardingScreen}
             />
             <Stack.Screen
               name={'DashboardScreen'}

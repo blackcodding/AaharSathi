@@ -8,6 +8,10 @@ export const signUpUserUrl = () => {
   return `http://${IP_ADDRESS}:3000/api/v1/users/register`;
 };
 
+export const signOutUserUrl = () => {
+  return `http://${IP_ADDRESS}:3000/api/v1/users/logout`;
+};
+
 export const forgotPasswordUrl = () => {
   return `http://${IP_ADDRESS}:3000/api/v1/users/forgot-password`;
 };

@@ -15,7 +15,7 @@ import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeadi
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import {IForgotPasswordScreenProps} from './ForgotPasswordScreen.types';
 import {MailIcon} from '../../assets/icons/MailIcon';
-import SignInScreen from '../SignInScreen/SignInScreen';
+import {SIGN_IN_SCREEN} from '../../utils/screens';
 import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../../components/commonStyles';
 import {forgotPasswordUrl} from '../../API/API';
@@ -31,7 +31,7 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
   const [isError, setIsError] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation() as any;
   const validate = useValidation();
 
   const {height, width} = useWindowDimensions();
@@ -39,7 +39,7 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
   const styles = generateStyles({height, width});
 
   const onSignInPress = () => {
-    navigation.navigate(SignInScreen as never);
+    navigation.navigate(SIGN_IN_SCREEN as never);
   };
 
   const onSubmitPress = async () => {

@@ -4,7 +4,7 @@ import {ISignUpScreenStyleProps} from './SignUpScreen.types';
 import {StyleSheet} from 'react-native';
 
 export const generateStyles = (props: ISignUpScreenStyleProps) => {
-  const {height, width} = props || {};
+  const {height} = props || {};
 
   return StyleSheet.create({
     mainContainer: {

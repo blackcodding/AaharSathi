@@ -1,0 +1,11 @@
+export const SPLASH_SCREEN = 'SplashScreen';
+export const SIGN_IN_SCREEN = 'SignInScreen';
+export const SIGN_UP_SCREEN = 'SignUpScreen';
+export const AUTHENTICATION_SCREEN = 'AuthenticationScreen';
+export const FORGOT_PASSWORD_SCREEN = 'ForgotPasswordScreen';
+export const DASHBOARD_SCREEN = 'DashboardScreen';
+export const HOME_SCREEN = 'HomeScreen';
+export const MY_LIST_SCREEN = 'MyListScreen';
+export const CREATE_LIST_SCREEN = 'CreateListScreen';
+export const EXPIRING_SOON_SCREEN = 'ExpiringSoonScreen';
+export const RECIPE_SCREEN = 'RecipeScreen';

@@ -7,21 +7,24 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
+import {
+  DASHBOARD_SCREEN,
+  FORGOT_PASSWORD_SCREEN,
+  SIGN_UP_SCREEN,
+} from '../../utils/screens';
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useState} from 'react';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
-import DashboardScreen from '../DashboardScreen/DashboardScreen';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
-import ForgotPasswordScreen from '../ForgotPasswordScreen/ForgotPasswordScreen';
 import {ISignInScreenProps} from './SignInScreen.types';
 import {LockIcon} from '../../assets/icons/LockIcon';
 import LottieView from 'lottie-react-native';
 import {MailIcon} from '../../assets/icons/MailIcon';
-import SignUpScreen from '../SignUpScreen/SignUpScreen';
 import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './SignInScreen.styles';
+import {setUserId} from '../../utils/storage';
 import {signInUserUrl} from '../../API/API';
 import {useNavigation} from '@react-navigation/native';
 import useValidation from '../../hooks/useValidation';
@@ -35,7 +38,7 @@ const SignInScreen = (props: ISignInScreenProps) => {
   const [errorType, setErrorType] = useState<'email' | 'password' | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const navigation = useNavigation();
+  const navigation = useNavigation() as any;
   const validate = useValidation();
 
   const {height, width} = useWindowDimensions();
@@ -43,11 +46,11 @@ const SignInScreen = (props: ISignInScreenProps) => {
   const styles = generateStyles({height, width});
 
   const onSignUpPress = () => {
-    navigation.navigate(SignUpScreen as never);
+    navigation.navigate(SIGN_UP_SCREEN as never);
   };
 
   const onForgotPasswordPress = () => {
-    navigation.navigate(ForgotPasswordScreen as never);
+    navigation.navigate(FORGOT_PASSWORD_SCREEN as never);
   };
 
   const onLoginPress = async () => {
@@ -67,7 +70,8 @@ const SignInScreen = (props: ISignInScreenProps) => {
 
       const data = await response.json();
       if (data.statusCode === 200) {
-        navigation.navigate(DashboardScreen as never);
+        setUserId(data.message.user._id);
+        navigation.replace(DASHBOARD_SCREEN as never);
       } else {
         //TODO: Something went wrong popup
       }
