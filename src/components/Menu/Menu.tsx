@@ -8,7 +8,6 @@ import {
 } from '../../utils/screens';
 import React, {useCallback} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {getUserId, logoutUser} from '../../utils/storage';
 
 import BackHeader from '../BackHeader/BackHeader';
 import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
@@ -27,7 +26,7 @@ import {Profile} from '../Profile/Profile';
 import {RecipeIcon} from '../../assets/icons/TabBarIcons/Recipe';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './Menu.styles';
-import {signOutUserUrl} from '../../API/API';
+import {logoutUser} from '../../utils/storage';
 import {useNavigation} from '@react-navigation/native';
 
 export const Menu = (props: IMenuProps) => {
@@ -79,30 +78,9 @@ export const Menu = (props: IMenuProps) => {
   };
 
   const onLogoutPress = async () => {
-    try {
-      const userId = getUserId();
-      const url = signOutUserUrl();
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          userId,
-        }),
-      });
-
-      const data = await response.json();
-      if (data.statusCode === 200) {
-        logoutUser();
-        onCloseMenuPress();
-        navigation.navigate(SIGN_IN_SCREEN as never);
-      } else {
-        //TODO: Something went wrong popup
-      }
-    } catch (error) {
-      console.log('Error --->', error);
-    }
+    logoutUser();
+    onCloseMenuPress();
+    navigation.navigate(SIGN_IN_SCREEN as never);
   };
 
   return (

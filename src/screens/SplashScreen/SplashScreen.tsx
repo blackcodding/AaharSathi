@@ -8,12 +8,13 @@ import {
 } from 'react-native';
 import {DASHBOARD_SCREEN, SIGN_IN_SCREEN} from '../../utils/screens';
 import React, {useEffect} from 'react';
+import {decodeToken, isTokenValid} from '../../utils/jwt';
 
 import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {ISplashScreenProps} from './SplashScreen.types';
 import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './SplashScreen.styles';
-import {getUserId} from '../../utils/storage';
+import {getTokens} from '../../utils/storage';
 import {useNavigation} from '@react-navigation/native';
 
 const SplashScreen = (props: ISplashScreenProps) => {
@@ -26,14 +27,17 @@ const SplashScreen = (props: ISplashScreenProps) => {
   const styles = generateStyles({height, width});
 
   useEffect(() => {
-    setTimeout(() => {
-      const userId = getUserId();
-      if (userId) {
+    const handleUserLoginFlow = async () => {
+      const {accessToken}: any = await getTokens();
+      const decodedToken: any = decodeToken(accessToken?.toString());
+      if (isTokenValid(decodedToken)) {
         navigation.replace(DASHBOARD_SCREEN as never);
       } else {
         navigation.replace(SIGN_IN_SCREEN as never);
       }
-    }, 250);
+    };
+
+    handleUserLoginFlow();
   }, []);
 
   return (

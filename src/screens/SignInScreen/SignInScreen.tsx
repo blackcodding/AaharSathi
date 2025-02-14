@@ -24,7 +24,7 @@ import {MailIcon} from '../../assets/icons/MailIcon';
 import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './SignInScreen.styles';
-import {setUserId} from '../../utils/storage';
+import {setTokens} from '../../utils/storage';
 import {signInUserUrl} from '../../API/API';
 import {useNavigation} from '@react-navigation/native';
 import useValidation from '../../hooks/useValidation';
@@ -70,7 +70,11 @@ const SignInScreen = (props: ISignInScreenProps) => {
 
       const data = await response.json();
       if (data.statusCode === 200) {
-        setUserId(data.message.user._id);
+        await setTokens({
+          accessToken: data.message.accessToken,
+          refreshToken: data.message.refreshToken,
+          refreshTokenExpiry: data.message.user.refreshTokenExpiry,
+        });
         navigation.replace(DASHBOARD_SCREEN as never);
       } else {
         //TODO: Something went wrong popup

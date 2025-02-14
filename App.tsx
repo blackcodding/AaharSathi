@@ -7,6 +7,7 @@
 
 import {Image, StatusBar, View, useColorScheme} from 'react-native';
 import React, {useState} from 'react';
+import {decode as atob, encode as btoa} from 'base-64';
 
 import AuthenticationScreen from './src/screens/AuthenticationScreen/AuthenticationScreen';
 import CreateListScreen from './src/screens/CreateListScreen/CreateListScreen';
@@ -31,6 +32,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 const DashboardScreen = React.lazy(
   () => import('./src/screens/DashboardScreen/DashboardScreen'),
 );
+
+if (!global.atob) {
+  global.atob = atob;
+}
+
+if (!global.btoa) {
+  global.btoa = btoa;
+}
 
 function App(): React.JSX.Element {
   const Stack = createNativeStackNavigator();
