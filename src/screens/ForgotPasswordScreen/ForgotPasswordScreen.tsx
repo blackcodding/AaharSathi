@@ -61,7 +61,7 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
         //TODO: Something went wrong popup
       }
     } catch (error) {
-      console.log('Error --->', error);
+      //TODO: Log error to error controller
     } finally {
       setIsLoading(false);
     }

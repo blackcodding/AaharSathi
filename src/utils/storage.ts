@@ -6,7 +6,6 @@ export const storage = new MMKV();
 interface ITokensProps {
   accessToken: string;
   refreshToken: string;
-  refreshTokenExpiry: string;
 }
 
 export const setTokens = async (tokens: ITokensProps) => {
@@ -14,7 +13,7 @@ export const setTokens = async (tokens: ITokensProps) => {
   try {
     await RNSecureStorage.setItem('tokens', JSON.stringify(tokens), {});
   } catch (error) {
-    console.error('Failed to set tokens:', error);
+    return null;
   }
 };
 
@@ -23,7 +22,6 @@ export const getTokens = async () => {
     const tokens = await RNSecureStorage.getItem('tokens');
     return tokens ? JSON.parse(tokens) : null;
   } catch (error) {
-    console.error('Failed to get tokens:', error);
     return {};
   }
 };

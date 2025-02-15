@@ -75,7 +75,7 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
         //TODO: Something went wrong popup
       }
     } catch (error) {
-      console.log('Error --->', error);
+      //TODO: Log error to error controller
     } finally {
       setIsLoading(false);
     }

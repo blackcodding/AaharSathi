@@ -71,16 +71,15 @@ const SignInScreen = (props: ISignInScreenProps) => {
       const data = await response.json();
       if (data.statusCode === 200) {
         await setTokens({
-          accessToken: data.message.accessToken,
-          refreshToken: data.message.refreshToken,
-          refreshTokenExpiry: data.message.user.refreshTokenExpiry,
+          accessToken: data.data.accessToken,
+          refreshToken: data.data.refreshToken,
         });
         navigation.replace(DASHBOARD_SCREEN as never);
       } else {
         //TODO: Something went wrong popup
       }
     } catch (error) {
-      console.log('Error --->', error);
+      //TODO: Log error to error controller
     } finally {
       setIsLoading(false);
     }
