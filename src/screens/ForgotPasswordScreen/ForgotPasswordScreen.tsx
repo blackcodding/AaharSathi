@@ -121,7 +121,9 @@ const ForgotPasswordScreen = (props: IForgotPasswordScreenProps) => {
                   {
                     borderBottomColor:
                       focusedField === 'Email'
-                        ? DEFAULT_COLOR.RED_LIGHT
+                        ? isError
+                          ? DEFAULT_COLOR.RED_LIGHT
+                          : DEFAULT_COLOR.GREEN_DARK
                         : DEFAULT_COLOR.GRAY_LIGHT,
                   },
                 ]}

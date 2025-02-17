@@ -1,5 +1,6 @@
 import {
   ActivityIndicator,
+  Image,
   KeyboardAvoidingView,
   ScrollView,
   Text,
@@ -15,7 +16,6 @@ import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeadi
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import {ISignUpScreenProps} from './SignUpScreen.types';
 import {LockIcon} from '../../assets/icons/LockIcon';
-import LottieView from 'lottie-react-native';
 import {MailIcon} from '../../assets/icons/MailIcon';
 import {SIGN_IN_SCREEN} from '../../utils/screens';
 import {TouchableRipple} from 'react-native-paper';
@@ -150,13 +150,17 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
               <ActivityIndicator size={60} color={DEFAULT_COLOR.OFF_WHITE} />
             </View>
           )}
-          <View style={commonStyles.lottieContainer}>
-            <LottieView
-              source={require('../../assets/Lottie/Sign.json')}
-              style={commonStyles.lottie}
-              autoPlay
-              loop
-            />
+          <View style={commonStyles.logoMainContainer}>
+            <View style={commonStyles.logContainer}>
+              <Image
+                source={require('../../assets/Images/GrocListicLogo.png')}
+                style={commonStyles.logo}
+              />
+            </View>
+            <Text style={commonStyles.logoTextContainer}>
+              <Text style={commonStyles.logoFirstHalf}>{'Groc'}</Text>
+              <Text style={commonStyles.logoSecondHalf}>{'Listic'}</Text>
+            </Text>
           </View>
           <View style={styles.signUpContainer}>
             <ContainerHeading
@@ -174,7 +178,9 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                   {
                     borderBottomColor:
                       focusedField === 'User Name'
-                        ? DEFAULT_COLOR.RED_LIGHT
+                        ? errorType === 'username'
+                          ? DEFAULT_COLOR.RED_LIGHT
+                          : DEFAULT_COLOR.GREEN_DARK
                         : DEFAULT_COLOR.GRAY_LIGHT,
                   },
                 ]}
@@ -202,7 +208,9 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                   {
                     borderBottomColor:
                       focusedField === 'Full Name'
-                        ? DEFAULT_COLOR.RED_LIGHT
+                        ? errorType === 'fullName'
+                          ? DEFAULT_COLOR.RED_LIGHT
+                          : DEFAULT_COLOR.GREEN_DARK
                         : DEFAULT_COLOR.GRAY_LIGHT,
                   },
                 ]}
@@ -230,7 +238,9 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                   {
                     borderBottomColor:
                       focusedField === 'Email'
-                        ? DEFAULT_COLOR.RED_LIGHT
+                        ? errorType === 'email'
+                          ? DEFAULT_COLOR.RED_LIGHT
+                          : DEFAULT_COLOR.GREEN_DARK
                         : DEFAULT_COLOR.GRAY_LIGHT,
                   },
                 ]}
@@ -260,7 +270,9 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                   {
                     borderBottomColor:
                       focusedField === 'Password'
-                        ? DEFAULT_COLOR.RED_LIGHT
+                        ? errorType === 'password'
+                          ? DEFAULT_COLOR.RED_LIGHT
+                          : DEFAULT_COLOR.GREEN_DARK
                         : DEFAULT_COLOR.GRAY_LIGHT,
                   },
                 ]}

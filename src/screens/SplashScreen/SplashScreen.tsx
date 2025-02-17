@@ -3,6 +3,7 @@ import {
   Image,
   KeyboardAvoidingView,
   ScrollView,
+  Text,
   View,
   useWindowDimensions,
 } from 'react-native';
@@ -52,6 +53,10 @@ const SplashScreen = (props: ISplashScreenProps) => {
               style={commonStyles.logo}
             />
           </View>
+          <Text style={commonStyles.logoTextContainer}>
+            <Text style={commonStyles.logoFirstHalf}>{'Groc'}</Text>
+            <Text style={commonStyles.logoSecondHalf}>{'Listic'}</Text>
+          </Text>
           <ActivityIndicator size={28} color={DEFAULT_COLOR.BLUE_MEDIUM} />
         </View>
       </ScrollView>

@@ -1,5 +1,6 @@
 import {
   ActivityIndicator,
+  Image,
   KeyboardAvoidingView,
   ScrollView,
   Text,
@@ -19,7 +20,6 @@ import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeadi
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import {ISignInScreenProps} from './SignInScreen.types';
 import {LockIcon} from '../../assets/icons/LockIcon';
-import LottieView from 'lottie-react-native';
 import {MailIcon} from '../../assets/icons/MailIcon';
 import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../../components/commonStyles';
@@ -130,13 +130,17 @@ const SignInScreen = (props: ISignInScreenProps) => {
               <ActivityIndicator size={60} color={DEFAULT_COLOR.OFF_WHITE} />
             </View>
           )}
-          <View style={commonStyles.lottieContainer}>
-            <LottieView
-              source={require('../../assets/Lottie/Sign.json')}
-              style={commonStyles.lottie}
-              autoPlay
-              loop
-            />
+          <View style={commonStyles.logoMainContainer}>
+            <View style={commonStyles.logContainer}>
+              <Image
+                source={require('../../assets/Images/GrocListicLogo.png')}
+                style={commonStyles.logo}
+              />
+            </View>
+            <Text style={commonStyles.logoTextContainer}>
+              <Text style={commonStyles.logoFirstHalf}>{'Groc'}</Text>
+              <Text style={commonStyles.logoSecondHalf}>{'Listic'}</Text>
+            </Text>
           </View>
           <View style={styles.loginContainer}>
             <ContainerHeading
@@ -153,7 +157,9 @@ const SignInScreen = (props: ISignInScreenProps) => {
                   {
                     borderBottomColor:
                       focusedField === 'Email'
-                        ? DEFAULT_COLOR.RED_LIGHT
+                        ? errorType === 'email'
+                          ? DEFAULT_COLOR.RED_LIGHT
+                          : DEFAULT_COLOR.GREEN_DARK
                         : DEFAULT_COLOR.GRAY_LIGHT,
                   },
                 ]}
@@ -180,7 +186,9 @@ const SignInScreen = (props: ISignInScreenProps) => {
                   {
                     borderBottomColor:
                       focusedField === 'Password'
-                        ? DEFAULT_COLOR.RED_LIGHT
+                        ? errorType === 'password'
+                          ? DEFAULT_COLOR.RED_LIGHT
+                          : DEFAULT_COLOR.GREEN_DARK
                         : DEFAULT_COLOR.GRAY_LIGHT,
                   },
                 ]}

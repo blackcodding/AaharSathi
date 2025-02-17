@@ -20,6 +20,11 @@ export const commonStyles = StyleSheet.create({
     flex: 1,
     paddingBottom: 8,
   },
+  logoMainContainer: {
+    flex: 0.35,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   lottieContainer: {
     flex: 0.35,
     justifyContent: 'center',
@@ -70,11 +75,25 @@ export const commonStyles = StyleSheet.create({
     zIndex: 1,
   },
   logContainer: {
-    width: 180,
-    height: 180,
+    width: 148,
+    height: 148,
   },
   logo: {
     width: '100%',
     height: '100%',
+  },
+  logoTextContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontFamily: 'Roboto-Medium',
+    fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_LARGE,
+    marginBottom: 8,
+  },
+  logoFirstHalf: {
+    color: DEFAULT_COLOR.BLUE_DARK,
+  },
+  logoSecondHalf: {
+    color: DEFAULT_COLOR.ORANGE_MEDIUM,
   },
 });
