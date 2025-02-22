@@ -1,5 +1,10 @@
 import {
-  ActivityIndicator,
+  DASHBOARD_SCREEN,
+  FORGOT_PASSWORD_SCREEN,
+  SIGN_UP_SCREEN,
+} from '../../utils/screens';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+import {
   Image,
   KeyboardAvoidingView,
   ScrollView,
@@ -8,12 +13,6 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
-import {
-  DASHBOARD_SCREEN,
-  FORGOT_PASSWORD_SCREEN,
-  SIGN_UP_SCREEN,
-} from '../../utils/screens';
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useState} from 'react';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
@@ -125,11 +124,6 @@ const SignInScreen = (props: ISignInScreenProps) => {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
         <View style={styles.mainContainer}>
-          {isLoading && (
-            <View style={commonStyles.loaderContainer}>
-              <ActivityIndicator size={60} color={DEFAULT_COLOR.OFF_WHITE} />
-            </View>
-          )}
           <View style={commonStyles.logoMainContainer}>
             <View style={commonStyles.logContainer}>
               <Image
@@ -223,6 +217,7 @@ const SignInScreen = (props: ISignInScreenProps) => {
                 backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
               }}
               disabled={disabled()}
+              isLoading={isLoading}
               onPress={onLoginPress}
             />
             <View style={styles.authContainer}>

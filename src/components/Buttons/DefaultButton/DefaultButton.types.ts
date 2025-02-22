@@ -11,6 +11,8 @@ export interface IDefaultButtonProps {
   colors?: IColorsProps;
   alignSelf?: 'center' | 'flex-start' | 'flex-end';
   disabled?: boolean;
+  isLoading?: boolean;
+  loaderColor?: string;
   onPress?: () => void;
 }
 

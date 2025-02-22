@@ -1,5 +1,5 @@
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {
-  ActivityIndicator,
   Image,
   KeyboardAvoidingView,
   ScrollView,
@@ -8,10 +8,8 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
-import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import React, {useState} from 'react';
 
-import {AtIcon} from '../../assets/icons/AtIcon';
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
 import {ISignUpScreenProps} from './SignUpScreen.types';
@@ -30,12 +28,11 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
   const {} = props;
 
   const [focusedField, setFocusedField] = useState<string>('');
-  const [username, setUsername] = useState<string | null>(null);
   const [fullName, setFullName] = useState<string | null>(null);
   const [email, setEmail] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
   const [errorType, setErrorType] = useState<
-    'username' | 'fullName' | 'email' | 'password' | null
+    'fullName' | 'email' | 'password' | null
   >(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -61,7 +58,6 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username,
           fullName,
           email,
           password,
@@ -87,15 +83,6 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
 
   const onBlur = () => {
     setFocusedField('');
-  };
-
-  const handleUsername = (username: string) => {
-    setUsername(username);
-    if (validate.isValidUsername(username)) {
-      setErrorType(null);
-    } else {
-      setErrorType('username');
-    }
   };
 
   const handleFullName = (fullName: string) => {
@@ -128,7 +115,6 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
   const disabled = () => {
     if (
       errorType !== null ||
-      username === '' ||
       fullName === '' ||
       email === '' ||
       password === ''
@@ -145,11 +131,6 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
         showsVerticalScrollIndicator={false}
         keyboardShouldPersistTaps={'handled'}>
         <View style={styles.mainContainer}>
-          {isLoading && (
-            <View style={commonStyles.loaderContainer}>
-              <ActivityIndicator size={60} color={DEFAULT_COLOR.OFF_WHITE} />
-            </View>
-          )}
           <View style={commonStyles.logoMainContainer}>
             <View style={commonStyles.logContainer}>
               <Image
@@ -167,36 +148,6 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
               title={'Sign Up'}
               titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_EXTRA_EXTRA_LARGE}
             />
-
-            <View style={commonStyles.inputBoxContainer}>
-              <View style={commonStyles.inputIcon}>
-                <AtIcon />
-              </View>
-              <TextInput
-                style={[
-                  commonStyles.inputBox,
-                  {
-                    borderBottomColor:
-                      focusedField === 'User Name'
-                        ? errorType === 'username'
-                          ? DEFAULT_COLOR.RED_LIGHT
-                          : DEFAULT_COLOR.GREEN_DARK
-                        : DEFAULT_COLOR.GRAY_LIGHT,
-                  },
-                ]}
-                placeholder={'User Name'}
-                onChangeText={text => {
-                  handleUsername(text);
-                }}
-                onFocus={() => onFocus('User Name')}
-                onBlur={onBlur}
-              />
-            </View>
-            {errorType === 'username' && (
-              <Text style={commonStyles.error}>
-                {validate.error.usernameError}
-              </Text>
-            )}
 
             <View style={commonStyles.inputBoxContainer}>
               <View style={commonStyles.inputIcon}>
@@ -304,6 +255,7 @@ const SignUpScreen = (props: ISignUpScreenProps) => {
                 backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
               }}
               disabled={disabled()}
+              isLoading={isLoading}
               onPress={onContinuePress}
             />
             <View style={styles.authContainer}>
