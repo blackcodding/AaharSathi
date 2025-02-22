@@ -14,7 +14,7 @@ import {generateStyles} from './CustomBottomSheet.styles';
 
 const CustomBottomSheet = (props: IBottomSheetProps) => {
   const {
-    snapPoints = ['30%', '40%'],
+    snapPoints = ['43%', '45%'],
     heading,
     icon,
     children,

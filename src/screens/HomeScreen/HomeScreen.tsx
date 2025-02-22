@@ -297,7 +297,6 @@ export const HomeScreen = () => {
 
       {openToBuyBTS && (
         <CustomBottomSheet
-          snapPoints={['42%']}
           heading={'Edit Item'}
           icon={<DeleteIcon />}
           onIconPress={() => {
@@ -321,7 +320,6 @@ export const HomeScreen = () => {
 
       {openAddItemBTS && (
         <CustomBottomSheet
-          snapPoints={['42%']}
           heading={'Add Item'}
           icon={<CrossIcon />}
           onIconPress={() => {
@@ -345,7 +343,6 @@ export const HomeScreen = () => {
 
       {openExpiringSoonBTS && (
         <CustomBottomSheet
-          snapPoints={['42%']}
           heading={'Expiring in 3 days'}
           icon={<DeleteIcon />}
           children={<ItemDetailModel actionType={'delete'} />}
@@ -357,7 +354,6 @@ export const HomeScreen = () => {
 
       {openAddListItemBTS && (
         <CustomBottomSheet
-          snapPoints={['42%']}
           heading={'Add List Item'}
           icon={<CrossIcon />}
           onIconPress={() => {
@@ -381,7 +377,6 @@ export const HomeScreen = () => {
 
       {openThreeDotsBTS && (
         <CustomBottomSheet
-          snapPoints={['42%']}
           heading={'Select Option'}
           icon={<CrossIcon />}
           onIconPress={() => {

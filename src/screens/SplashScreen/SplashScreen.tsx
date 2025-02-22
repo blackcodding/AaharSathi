@@ -31,11 +31,11 @@ const SplashScreen = (props: ISplashScreenProps) => {
     const handleUserLoginFlow = async () => {
       const {accessToken}: any = await getTokens();
       const decodedToken: any = decodeToken(accessToken?.toString());
-      if (isTokenValid(decodedToken)) {
-        navigation.replace(DASHBOARD_SCREEN as never);
-      } else {
-        navigation.replace(SIGN_IN_SCREEN as never);
-      }
+      setTimeout(() => {
+        isTokenValid(decodedToken)
+          ? navigation.replace(DASHBOARD_SCREEN as never)
+          : navigation.replace(SIGN_IN_SCREEN as never);
+      }, 300);
     };
 
     handleUserLoginFlow();
