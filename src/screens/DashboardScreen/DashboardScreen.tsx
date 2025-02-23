@@ -1,3 +1,4 @@
+import React, {useEffect} from 'react';
 import {Text, View} from 'react-native';
 
 import {CreateListIcon} from '../../assets/icons/TabBarIcons/CreateListIcon';
@@ -10,11 +11,12 @@ import {HomeScreen} from '../HomeScreen/HomeScreen';
 import {IDashboardScreenProps} from './DashboardScreen.types';
 import {MyListIcon} from '../../assets/icons/TabBarIcons/MyListIcon';
 import MyListScreen from '../MyListScreen/MyListScreen';
-import React from 'react';
 import {RecipeIcon} from '../../assets/icons/TabBarIcons/Recipe';
 import RecipeScreen from '../RecipeScreen/RecipeScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {generateStyles} from './DashboardScreen.styles';
+import {getUserDetailsUrl} from '../../API/API';
+import {getUserId} from '../../utils/storage';
 import {useKeyboardVisible} from '../../hooks/useKeyboardVisible';
 
 const DashboardScreen = (props: IDashboardScreenProps) => {
@@ -24,6 +26,29 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
 
   const Tab = createBottomTabNavigator();
   const isKeyboardVisible = useKeyboardVisible();
+
+  useEffect(() => {
+    const getUserDetails = async () => {
+      try {
+        const url = getUserDetailsUrl();
+        const userId = await getUserId();
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({userId}),
+        });
+
+        const data = await response.json();
+
+        if (data.statusCode === 200) {
+        }
+      } catch (error) {}
+    };
+
+    getUserDetails();
+  }, []);
 
   return (
     <View style={styles.mainContainer}>

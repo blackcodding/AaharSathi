@@ -14,6 +14,7 @@ import {
   useWindowDimensions,
 } from 'react-native';
 import React, {useState} from 'react';
+import {setTokens, setUserId} from '../../utils/storage';
 
 import {ContainerHeading} from '../../components/ContainerHeading/ContainerHeading';
 import {DefaultButton} from '../../components/Buttons/DefaultButton/DefaultButton';
@@ -23,7 +24,6 @@ import {MailIcon} from '../../assets/icons/MailIcon';
 import {TouchableRipple} from 'react-native-paper';
 import {commonStyles} from '../../components/commonStyles';
 import {generateStyles} from './SignInScreen.styles';
-import {setTokens} from '../../utils/storage';
 import {signInUserUrl} from '../../API/API';
 import {useNavigation} from '@react-navigation/native';
 import useValidation from '../../hooks/useValidation';
@@ -67,12 +67,16 @@ const SignInScreen = (props: ISignInScreenProps) => {
         }),
       });
 
+      // Get response from api call, convert it to json using .json() and then stored it in data
+      // data = { ...Complete API response data }
       const data = await response.json();
+
       if (data.statusCode === 200) {
-        await setTokens({
+        setTokens({
           accessToken: data.data.accessToken,
           refreshToken: data.data.refreshToken,
         });
+        setUserId(data.data.userId);
         navigation.replace(DASHBOARD_SCREEN as never);
       } else {
         //TODO: Something went wrong popup

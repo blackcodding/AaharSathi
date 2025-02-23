@@ -29,7 +29,7 @@ export const getTokens = async () => {
 export const setUserId = async (userId: string) => {
   if (!userId) return;
   try {
-    await RNSecureStorage.setItem('userId', JSON.stringify(userId), {});
+    await RNSecureStorage.setItem('userId', userId, {});
   } catch (error) {
     return null;
   }

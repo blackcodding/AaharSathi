@@ -30,6 +30,8 @@ export const HomeScreen = () => {
   const styles = generateStyles();
   const navigation = useNavigation() as any;
 
+  const userName = 'Supriya';
+
   const handleCloseMenuPress = () => {
     setOpenMenu(false);
   };
@@ -248,7 +250,7 @@ export const HomeScreen = () => {
         <Header />
         <AlertCard onPress={onUpdatePress} />
         <ContainerHeading
-          title={'Welcome Supriya'}
+          title={`Welcome ${userName}`}
           titleColor={DEFAULT_COLOR.BLACK}
           titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
           subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
