@@ -26,6 +26,24 @@ export const getTokens = async () => {
   }
 };
 
+export const setUserId = async (userId: string) => {
+  if (!userId) return;
+  try {
+    await RNSecureStorage.setItem('userId', JSON.stringify(userId), {});
+  } catch (error) {
+    return null;
+  }
+};
+
+export const getUserId = async () => {
+  try {
+    const id = await RNSecureStorage.getItem('userId');
+    return id;
+  } catch (error) {
+    return '';
+  }
+};
+
 export const logoutUser = async () => {
   await RNSecureStorage.clear();
 };
