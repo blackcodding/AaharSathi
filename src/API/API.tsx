@@ -1,31 +1,38 @@
 const IP_ADDRESS = '192.168.1.2';
 
-const USER_URL = `http://${IP_ADDRESS}:3000/api/v1/users`;
+const URL = {
+  USER_URL: `http://${IP_ADDRESS}:3000/api/v1/users`,
+  LIST_URL: `http://${IP_ADDRESS}:3000/api/v1/lists`,
+};
 
 export const signInUserUrl = () => {
-  return `${USER_URL}/login`;
+  return `${URL.USER_URL}/login`;
 };
 
 export const signUpUserUrl = () => {
-  return `${USER_URL}/register`;
+  return `${URL.USER_URL}/register`;
 };
 
 export const signOutUserUrl = () => {
-  return `${USER_URL}/logout`;
+  return `${URL.USER_URL}/logout`;
 };
 
 export const forgotPasswordUrl = () => {
-  return `${USER_URL}/forgot-password`;
+  return `${URL.USER_URL}/forgot-password`;
 };
 
 export const refreshTokenUrl = () => {
-  return `${USER_URL}/refresh-token`;
+  return `${URL.USER_URL}/refresh-token`;
 };
 
 export const resetPasswordUrl = () => {
-  return `${USER_URL}/reset-password`;
+  return `${URL.USER_URL}/reset-password`;
 };
 
 export const getUserDetailsUrl = () => {
-  return `${USER_URL}/user-details`;
+  return `${URL.USER_URL}/user-details`;
+};
+
+export const createListUrl = () => {
+  return `${URL.LIST_URL}/create-list`;
 };

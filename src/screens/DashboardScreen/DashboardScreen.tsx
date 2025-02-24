@@ -43,8 +43,12 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         const data = await response.json();
 
         if (data.statusCode === 200) {
+        } else {
+          //TODO: Something went wrong popup
         }
-      } catch (error) {}
+      } catch (error) {
+        //TODO: Log error to error controller
+      }
     };
 
     getUserDetails();
