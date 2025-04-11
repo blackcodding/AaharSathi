@@ -9,8 +9,8 @@ import {generateStyles} from './AlertCard.styles';
 
 const AlertCard = (props: IAlertCardProps) => {
   const {
-    title = 'New version is available',
-    description = 'Update now to get latest features',
+    title = 'Update Available',
+    description = 'Get the latest features now',
     onPress,
   } = props;
 
@@ -25,7 +25,7 @@ const AlertCard = (props: IAlertCardProps) => {
       </View>
       <View style={styles.buttonContainer}>
         <DefaultButton
-          text={'Update Now'}
+          text={'Update'}
           colors={{
             textColor: DEFAULT_COLOR.WHITE,
             borderColor: DEFAULT_COLOR.BLUE_MEDIUM,
