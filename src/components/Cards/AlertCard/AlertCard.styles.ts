@@ -19,12 +19,12 @@ export const generateStyles = (props: IAlertCardStyleProps) => {
       alignItems: 'center',
       paddingHorizontal: 10,
       paddingVertical: 12,
-      marginVertical: 8,
+      marginVertical: 12,
       borderRadius: 12,
       borderWidth: 1,
       backgroundColor: DEFAULT_COLOR.ALERT_LIGHT,
       borderColor: DEFAULT_COLOR.ALERT_MEDIUM,
-      shadowColor: DEFAULT_COLOR.ALERT_MEDIUM,
+      shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
       ...DEFAULT_SHADOW,
     },
     infoContainer: {
@@ -41,6 +41,8 @@ export const generateStyles = (props: IAlertCardStyleProps) => {
       fontSize: descriptionSize,
       color: DEFAULT_COLOR.BLACK,
     },
-    buttonContainer: {},
+    buttonContainer: {
+      flex: 0.6,
+    },
   });
 };

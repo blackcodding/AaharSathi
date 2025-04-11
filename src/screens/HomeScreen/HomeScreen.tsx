@@ -18,6 +18,7 @@ import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
+import {useUpdate} from '../../hooks/useUpdate';
 
 export const HomeScreen = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -29,6 +30,7 @@ export const HomeScreen = () => {
 
   const styles = generateStyles();
   const navigation = useNavigation() as any;
+  const {isAppUpdateAvailable} = useUpdate();
 
   const userName = 'Supriya';
 
@@ -61,7 +63,7 @@ export const HomeScreen = () => {
   };
 
   const onUpdatePress = () => {
-    //TODO: On Update Press Functionality
+    //TODO: On Update Press Functiona lity
   };
 
   const handleSeeAllExpiryCardPress = useCallback(() => {
@@ -248,13 +250,13 @@ export const HomeScreen = () => {
         style={styles.mainContainer}
         showsVerticalScrollIndicator={false}>
         <Header />
-        <AlertCard onPress={onUpdatePress} />
         <ContainerHeading
           title={`Welcome ${userName}`}
           titleColor={DEFAULT_COLOR.BLACK}
           titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
           subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
         />
+        {isAppUpdateAvailable && <AlertCard onPress={onUpdatePress} />}
         <View>
           <ContainerHeading title={'To Buy'} />
           <ToBuy

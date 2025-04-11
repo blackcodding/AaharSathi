@@ -3,6 +3,7 @@ const IP_ADDRESS = '192.168.1.2';
 const URL = {
   USER_URL: `http://${IP_ADDRESS}:3000/api/v1/users`,
   LIST_URL: `http://${IP_ADDRESS}:3000/api/v1/lists`,
+  CONFIG_URL: `http://${IP_ADDRESS}:3000/api/v1/configs`,
 };
 
 export const signInUserUrl = () => {
@@ -31,6 +32,10 @@ export const resetPasswordUrl = () => {
 
 export const getUserDetailsUrl = () => {
   return `${URL.USER_URL}/user-details`;
+};
+
+export const getVersionUrl = () => {
+  return `${URL.CONFIG_URL}/latest-version`;
 };
 
 export const createListUrl = () => {
