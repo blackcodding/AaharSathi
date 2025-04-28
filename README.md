@@ -1,5 +1,14 @@
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
+# Sample Images
+
+![Screenshot_1745831457](https://github.com/user-attachments/assets/b5ed1be6-77fe-4592-b24d-a74b321a7849)
+![Screenshot_1745831428](https://github.com/user-attachments/assets/0f406b70-7dec-4f4f-ab74-f02ac9c6f12e)
+![Screenshot_1745831437](https://github.com/user-attachments/assets/7c3d394b-a9a3-41d3-abfb-814ce1ac4175)
+![Screenshot_1745831737](https://github.com/user-attachments/assets/f7d57f19-79ef-4cb2-8348-90ae3ea97d45)
+![Screenshot_1745831740](https://github.com/user-attachments/assets/ecf87628-4d48-4fa4-bc36-635327fbb6b0)
+![Screenshot_1745831745](https://github.com/user-attachments/assets/508ac91a-f2e1-463f-9280-84fb132329f3)
+
 # Getting Started
 
 >**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
