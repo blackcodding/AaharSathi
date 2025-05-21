@@ -9,6 +9,10 @@ export interface IInputBoxProps {
   showSearchIcon?: boolean;
   showCrossIcon?: boolean;
   inputBoxStyles?: any;
+  textInputStyles?: any;
+  placeholderTextColor?: string;
+  value?: string;
+  setValue?: any;
 }
 
 export interface IInputBoxStyleProps {

@@ -21,6 +21,7 @@ import MyListScreen from './src/screens/MyListScreen/MyListScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import NetworkLogger from 'react-native-network-logger';
 import {PortalProvider} from '@gorhom/portal';
+import {Provider} from 'react-redux';
 import RecipeScreen from './src/screens/RecipeScreen/RecipeScreen';
 import SignInScreen from './src/screens/SignInScreen/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
@@ -28,6 +29,7 @@ import SplashScreen from './src/screens/SplashScreen/SplashScreen';
 import {StyleSheet} from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import store from './src/store';
 
 const DashboardScreen = React.lazy(
   () => import('./src/screens/DashboardScreen/DashboardScreen'),
@@ -50,64 +52,64 @@ function App(): React.JSX.Element {
   return (
     <GestureHandlerRootView style={styles.mainContainer}>
       <NavigationContainer>
-        <PortalProvider>
-          <DraggableView containerStyle={styles.loggerContainer}>
-            <TouchableRipple
-              borderless={true}
-              onPress={() => {
-                setShowNetworkLogger(status => !status);
-              }}
-              style={styles.logger}>
-              <Image
-                style={styles.loggerImage}
-                source={{
-                  uri: 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Shinchan.jpg?updatedAt=1727286136981',
+        <Provider store={store}>
+          <PortalProvider>
+            <DraggableView containerStyle={styles.loggerContainer}>
+              <TouchableRipple
+                borderless={true}
+                onPress={() => {
+                  setShowNetworkLogger(status => !status);
                 }}
-              />
-            </TouchableRipple>
-          </DraggableView>
+                style={styles.logger}>
+                <Image
+                  style={styles.loggerImage}
+                  source={require('./src/assets/Images/NetworkLogger.png')}
+                />
+              </TouchableRipple>
+            </DraggableView>
 
-          {showNetworkLogger && (
-            <View style={styles.networkLoggerContainer}>
-              <NetworkLogger />
-            </View>
-          )}
-          <StatusBar
-            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-            backgroundColor={DEFAULT_COLOR.WHITE}
-          />
-          <Stack.Navigator
-            screenOptions={{
-              headerShown: false,
-            }}>
-            <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
-            <Stack.Screen name={'SignInScreen'} component={SignInScreen} />
-            <Stack.Screen name={'SignUpScreen'} component={SignUpScreen} />
-            <Stack.Screen
-              name={'AuthenticationScreen'}
-              component={AuthenticationScreen}
+            {showNetworkLogger && (
+              <View style={styles.networkLoggerContainer}>
+                <NetworkLogger />
+              </View>
+            )}
+            <StatusBar
+              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+              backgroundColor={DEFAULT_COLOR.WHITE}
             />
-            <Stack.Screen
-              name={'ForgotPasswordScreen'}
-              component={ForgotPasswordScreen}
-            />
-            <Stack.Screen
-              name={'DashboardScreen'}
-              component={DashboardScreen}
-            />
-            <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
-            <Stack.Screen name={'MyListScreen'} component={MyListScreen} />
-            <Stack.Screen
-              name={'CreateListScreen'}
-              component={CreateListScreen}
-            />
-            <Stack.Screen
-              name={'ExpiringSoonScreen'}
-              component={ExpiringSoonScreen}
-            />
-            <Stack.Screen name={'RecipeScreen'} component={RecipeScreen} />
-          </Stack.Navigator>
-        </PortalProvider>
+            <Stack.Navigator
+              screenOptions={{
+                headerShown: false,
+              }}>
+              <Stack.Screen name={'SplashScreen'} component={SplashScreen} />
+              <Stack.Screen name={'SignInScreen'} component={SignInScreen} />
+              <Stack.Screen name={'SignUpScreen'} component={SignUpScreen} />
+              <Stack.Screen
+                name={'AuthenticationScreen'}
+                component={AuthenticationScreen}
+              />
+              <Stack.Screen
+                name={'ForgotPasswordScreen'}
+                component={ForgotPasswordScreen}
+              />
+              <Stack.Screen
+                name={'DashboardScreen'}
+                component={DashboardScreen}
+              />
+              <Stack.Screen name={'HomeScreen'} component={HomeScreen} />
+              <Stack.Screen name={'MyListScreen'} component={MyListScreen} />
+              <Stack.Screen
+                name={'CreateListScreen'}
+                component={CreateListScreen}
+              />
+              <Stack.Screen
+                name={'ExpiringSoonScreen'}
+                component={ExpiringSoonScreen}
+              />
+              <Stack.Screen name={'RecipeScreen'} component={RecipeScreen} />
+            </Stack.Navigator>
+          </PortalProvider>
+        </Provider>
       </NavigationContainer>
     </GestureHandlerRootView>
   );
@@ -122,14 +124,16 @@ const styles = StyleSheet.create({
   },
   loggerContainer: {
     position: 'absolute',
-    bottom: 20,
-    right: 20,
+    bottom: 56,
+    right: 16,
     zIndex: 1,
   },
   logger: {
     width: 40,
     height: 40,
     borderRadius: 12,
+    borderWidth: 1,
+    borderColor: DEFAULT_COLOR.CRIMSON,
     backgroundColor: DEFAULT_COLOR.RED_LIGHT,
     overflow: 'hidden',
   },

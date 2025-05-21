@@ -18,6 +18,7 @@ import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
 import {generateStyles} from './HomeScreen.styles';
 import {useNavigation} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 import {useUpdate} from '../../hooks/useUpdate';
 
 export const HomeScreen = () => {
@@ -31,8 +32,9 @@ export const HomeScreen = () => {
   const styles = generateStyles();
   const navigation = useNavigation() as any;
   const {isAppUpdateAvailable} = useUpdate();
+  const {userDetails, loading} = useSelector((state: any) => state.user);
 
-  const userName = 'Supriya';
+  const {fullName} = userDetails || {};
 
   const handleCloseMenuPress = () => {
     setOpenMenu(false);
@@ -251,7 +253,7 @@ export const HomeScreen = () => {
         showsVerticalScrollIndicator={false}>
         <Header />
         <ContainerHeading
-          title={`Welcome ${userName}`}
+          title={`Welcome ${fullName}`}
           titleColor={DEFAULT_COLOR.BLACK}
           titleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
           subTitleSize={DEFAULT_FONT_SIZE.FONT_SIZE_LARGE}
@@ -292,12 +294,7 @@ export const HomeScreen = () => {
         <BannerCard heading={'This is the heading of Banner Card'} />
       </ScrollView>
 
-      {openMenu && (
-        <Menu
-          onCloseMenuPress={handleCloseMenuPress}
-          onEditProfilePress={handleEditProfilePress}
-        />
-      )}
+      {openMenu && <Menu onCloseMenuPress={handleCloseMenuPress} />}
 
       {openToBuyBTS && (
         <CustomBottomSheet

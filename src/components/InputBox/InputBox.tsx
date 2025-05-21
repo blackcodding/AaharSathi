@@ -7,6 +7,7 @@ import {IInputBoxProps} from './InputBox.types';
 import {SearchIcon} from '../../assets/icons/SearchIcon';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './InputBox.styles';
+import noop from 'lodash/noop';
 
 const InputBox = (props: IInputBoxProps) => {
   const {
@@ -18,11 +19,13 @@ const InputBox = (props: IInputBoxProps) => {
     showSearchIcon = false,
     showCrossIcon = false,
     inputBoxStyles,
+    textInputStyles,
+    placeholderTextColor,
+    value = '',
+    setValue = noop,
   } = props;
 
   const isError = false;
-
-  const [value, setValue] = useState('');
 
   const [shouldShowCrossIcon, setShouldShowCrossIcon] = useState(showCrossIcon);
 
@@ -49,6 +52,7 @@ const InputBox = (props: IInputBoxProps) => {
       )}
       <TextInput
         placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
         multiline={multiline}
         autoFocus={autoFocus}
         keyboardType={keyboardType}
@@ -57,7 +61,7 @@ const InputBox = (props: IInputBoxProps) => {
         onChangeText={text => {
           setValue(text);
         }}
-        style={styles.input}
+        style={[styles.input, textInputStyles]}
       />
       {showCrossIcon && shouldShowCrossIcon && (
         <TouchableRipple

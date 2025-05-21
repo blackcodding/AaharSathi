@@ -56,10 +56,7 @@ const Header = (props: IHeaderProps) => {
       </View>
       {openMenu && (
         <Portal>
-          <Menu
-            onCloseMenuPress={handleCloseMenuPress}
-            onEditProfilePress={handleEditProfilePress}
-          />
+          <Menu onCloseMenuPress={handleCloseMenuPress} />
         </Portal>
       )}
     </View>

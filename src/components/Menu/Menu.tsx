@@ -6,18 +6,22 @@ import {
   RECIPE_SCREEN,
   SIGN_IN_SCREEN,
 } from '../../utils/screens';
-import React, {useCallback} from 'react';
+import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
+import React, {useCallback, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import {getUserId, logoutUser} from '../../utils/storage';
+import {useDispatch, useSelector} from 'react-redux';
 
 import BackHeader from '../BackHeader/BackHeader';
+import {CheckIcon} from '../../assets/icons/CheckIcon';
 import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
 import {CreateListIcon} from '../../assets/icons/TabBarIcons/CreateListIcon';
-import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {DashboardIcon} from '../../assets/icons/TabBarIcons/DashboardIcon';
 import {ExpiringSoonIcon} from '../../assets/icons/TabBarIcons/ExpiringSoonIcon';
 import {FeedBackIcon} from '../../assets/icons/TabBarIcons/FeedBackIcon';
 import {HelpIcon} from '../../assets/icons/TabBarIcons/HelpIcon';
 import {IMenuProps} from './Menu.types';
+import InputBox from '../InputBox/InputBox';
 import {LogoutIcon} from '../../assets/icons/LogoutIcon';
 import {MenuCard} from '../Cards/MenuCard/MenuCard';
 import {MyListIcon} from '../../assets/icons/TabBarIcons/MyListIcon';
@@ -26,19 +30,61 @@ import {Profile} from '../Profile/Profile';
 import {RecipeIcon} from '../../assets/icons/TabBarIcons/Recipe';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './Menu.styles';
-import {logoutUser} from '../../utils/storage';
+import {updateUserDetailsUrl} from '../../API/API';
 import {useNavigation} from '@react-navigation/native';
+import {userSlice} from '../../slices/userSlice';
 
 export const Menu = (props: IMenuProps) => {
-  const {onCloseMenuPress, onEditProfilePress} = props;
+  const {onCloseMenuPress} = props;
+
+  const [editEnabled, setEditEnabled] = useState(false);
+
   const styles = generateStyles();
   const navigation = useNavigation() as any;
+  const dispatch = useDispatch();
+  const {userDetails} = useSelector((state: any) => state.user);
+  const {fullName, email} = userDetails;
+
+  const [name, setName] = useState(fullName || '');
 
   const closeMenuOnDelay = useCallback(() => {
     setTimeout(() => {
       onCloseMenuPress();
     }, 100);
   }, []);
+
+  const onEditProfilePress = useCallback(async () => {
+    if (editEnabled) {
+      try {
+        dispatch(userSlice.actions.setLoading(true));
+        const url = updateUserDetailsUrl();
+        const userId = await getUserId();
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({userId, fullName: name}),
+        });
+
+        const data = await response.json();
+
+        if (data.statusCode === 200) {
+          dispatch(userSlice.actions.setUserDetails(data.data));
+        } else {
+          dispatch(userSlice.actions.setError('Something went wrong!'));
+        }
+      } catch (error) {
+        dispatch(userSlice.actions.setError('User not found!'));
+      } finally {
+        dispatch(userSlice.actions.setLoading(false));
+        setEditEnabled(false);
+      }
+    } else {
+      setName('');
+      setEditEnabled(true);
+    }
+  }, [editEnabled, name]);
 
   const handleDashboardPress = useCallback(() => {
     navigation.navigate(HOME_SCREEN as never);
@@ -94,15 +140,39 @@ export const Menu = (props: IMenuProps) => {
           <View style={styles.profileContainer}>
             <Profile />
             <View style={styles.personalDetailsContainer}>
-              <Text style={styles.name}>{'Supriya Barai'}</Text>
-              <Text style={styles.phoneNumber}>{'0123456789'}</Text>
+              {editEnabled ? (
+                <InputBox
+                  inputBoxStyles={{
+                    marginHorizontal: 0,
+                    alignSelf: 'flex-start',
+                  }}
+                  textInputStyles={{
+                    minWidth: '70%',
+                    borderWidth: 0,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                    color: DEFAULT_COLOR.BLACK,
+                    fontFamily: 'Roboto-Medium',
+                    fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+                    backgroundColor: DEFAULT_COLOR.OFF_WHITE,
+                  }}
+                  placeholder={fullName}
+                  placeholderTextColor={DEFAULT_COLOR.GRAY_DARK}
+                  autoFocus
+                  value={name}
+                  setValue={setName}
+                />
+              ) : (
+                <Text style={styles.name}>{fullName}</Text>
+              )}
+              <Text style={styles.phoneNumber}>{email}</Text>
             </View>
           </View>
           <TouchableRipple
             borderless={true}
             style={styles.iconStyles}
             onPress={onEditProfilePress}>
-            <PencilIcon />
+            {editEnabled ? <CheckIcon /> : <PencilIcon />}
           </TouchableRipple>
         </View>
         <View style={styles.Menu}>

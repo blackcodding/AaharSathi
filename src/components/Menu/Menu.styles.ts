@@ -12,7 +12,7 @@ export const generateStyles = () => {
     },
     menuContainer: {
       height: '100%',
-      maxWidth: '85%',
+      maxWidth: '86%',
       backgroundColor: DEFAULT_COLOR.OFF_WHITE,
     },
     Menu: {
@@ -54,6 +54,7 @@ export const generateStyles = () => {
       color: DEFAULT_COLOR.BLACK,
       fontFamily: 'Roboto-Medium',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+      paddingVertical: 1,
     },
     phoneNumber: {
       color: DEFAULT_COLOR.BLACK,

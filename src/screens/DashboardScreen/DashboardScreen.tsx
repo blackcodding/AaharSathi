@@ -17,7 +17,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {generateStyles} from './DashboardScreen.styles';
 import {getUserDetailsUrl} from '../../API/API';
 import {getUserId} from '../../utils/storage';
+import {useDispatch} from 'react-redux';
 import {useKeyboardVisible} from '../../hooks/useKeyboardVisible';
+import {userSlice} from '../../slices/userSlice';
 
 const DashboardScreen = (props: IDashboardScreenProps) => {
   const {} = props;
@@ -26,10 +28,12 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
 
   const Tab = createBottomTabNavigator();
   const isKeyboardVisible = useKeyboardVisible();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getUserDetails = async () => {
       try {
+        dispatch(userSlice.actions.setLoading(true));
         const url = getUserDetailsUrl();
         const userId = await getUserId();
         const response = await fetch(url, {
@@ -43,11 +47,14 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
         const data = await response.json();
 
         if (data.statusCode === 200) {
+          dispatch(userSlice.actions.setUserDetails(data.data));
         } else {
-          //TODO: Something went wrong popup
+          dispatch(userSlice.actions.setError('Something went wrong!'));
         }
       } catch (error) {
-        //TODO: Log error to error controller
+        dispatch(userSlice.actions.setError('User not found!'));
+      } finally {
+        dispatch(userSlice.actions.setLoading(false));
       }
     };
 

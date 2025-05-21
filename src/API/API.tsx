@@ -34,6 +34,10 @@ export const getUserDetailsUrl = () => {
   return `${URL.USER_URL}/user-details`;
 };
 
+export const updateUserDetailsUrl = () => {
+  return `${URL.USER_URL}/update-user`;
+};
+
 export const getVersionUrl = () => {
   return `${URL.CONFIG_URL}/latest-version`;
 };

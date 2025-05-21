@@ -7,7 +7,7 @@ import {generateStyles} from './Profile.styles';
 
 export const Profile = (props: IProfileProps) => {
   const {
-    image = 'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Shinchan.jpg?updatedAt=1727286136981',
+    image = '',
     icon = <UserIcon />,
     borderColor,
     showBorder = true,
