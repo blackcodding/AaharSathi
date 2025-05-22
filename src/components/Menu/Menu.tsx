@@ -26,6 +26,7 @@ import {LogoutIcon} from '../../assets/icons/LogoutIcon';
 import {MenuCard} from '../Cards/MenuCard/MenuCard';
 import {MyListIcon} from '../../assets/icons/TabBarIcons/MyListIcon';
 import {PencilIcon} from '../../assets/icons/PencilIcon';
+import {PopUp} from '../PopUp/PopUp';
 import {Profile} from '../Profile/Profile';
 import {RecipeIcon} from '../../assets/icons/TabBarIcons/Recipe';
 import {TouchableRipple} from 'react-native-paper';
@@ -46,6 +47,8 @@ export const Menu = (props: IMenuProps) => {
   const {fullName, email} = userDetails;
 
   const [name, setName] = useState(fullName || '');
+  const [showPopup, setShowPopup] = useState(false);
+  const [showFeedback, setShowFeedback] = useState(false);
 
   const closeMenuOnDelay = useCallback(() => {
     setTimeout(() => {
@@ -112,11 +115,11 @@ export const Menu = (props: IMenuProps) => {
   }, []);
 
   const onHelpPress = () => {
-    // TODO: Add navigation to help screen
+    setShowPopup(true);
   };
 
   const onFeedbackPress = () => {
-    // TODO: Add navigation to feedback screen
+    setShowFeedback(true);
   };
 
   const onUpdatePress = () => {
@@ -210,13 +213,13 @@ export const Menu = (props: IMenuProps) => {
               icon={<HelpIcon />}
               name={'Help'}
               shouldFlex={true}
-              onButtonPress={onHelpPress}
+              handleMenuCardPress={onHelpPress}
             />
             <MenuCard
               icon={<FeedBackIcon strokeColor={DEFAULT_COLOR.GREEN_DARK} />}
               name={'Feedback'}
               shouldFlex={true}
-              onButtonPress={onFeedbackPress}
+              handleMenuCardPress={onFeedbackPress}
             />
           </View>
           <View style={styles.menuHeader}>
@@ -236,6 +239,30 @@ export const Menu = (props: IMenuProps) => {
             handleMenuCardPress={onLogoutPress}
           />
         </View>
+        {showPopup && (
+          <PopUp
+            title={'Stuck Somewhere?'}
+            text={`We're here for you, feel free to reach out at the email below`}
+            subtext={'grocListicSupport@gmail.com'}
+            onClosePress={() => {
+              setShowPopup(false);
+            }}
+          />
+        )}
+        {showFeedback && (
+          <PopUp
+            title={'How was your experience?'}
+            text={`We’d love to hear your feedback.`}
+            subtext={'Tap the stars to rate and help us improve.'}
+            enableRating
+            onClosePress={() => {
+              setShowFeedback(false);
+            }}
+            onSubmitRating={(selectedStarId: number) => {
+              setShowFeedback(false);
+            }}
+          />
+        )}
       </TouchableOpacity>
     </TouchableOpacity>
   );

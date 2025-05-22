@@ -38,8 +38,8 @@ export const MenuCard = (props: IMenuCardProps) => {
             text={buttonLabel}
             colors={{
               textColor: DEFAULT_COLOR.WHITE,
-              borderColor: DEFAULT_COLOR.GREEN_MEDIUM,
-              backgroundColor: DEFAULT_COLOR.GREEN_MEDIUM,
+              borderColor: DEFAULT_COLOR.BLUE_MEDIUM,
+              backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
             }}
             onPress={onButtonPress}
           />

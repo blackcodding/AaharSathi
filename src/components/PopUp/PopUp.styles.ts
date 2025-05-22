@@ -15,7 +15,7 @@ export const generateStyles = () => {
     },
     popUpContainer: {
       maxHeight: '60%',
-      maxWidth: '80%',
+      maxWidth: '85%',
       paddingVertical: 20,
       paddingHorizontal: 20,
       borderRadius: 12,
@@ -24,20 +24,37 @@ export const generateStyles = () => {
     headingContainer: {
       marginBottom: 10,
     },
-    text: {
+    title: {
       color: DEFAULT_COLOR.BLACK,
       marginRight: 40,
-      fontFamily: 'Roboto-Regular',
-      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+      fontFamily: 'Roboto-Bold',
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_LARGE,
     },
     icon: {
       position: 'absolute',
       right: 2,
       borderRadius: 100,
     },
-    subText: {
-      color: DEFAULT_COLOR.GRAY_DARK,
+    text: {
+      marginTop: 8,
+      color: DEFAULT_COLOR.BLACK,
       fontFamily: 'Roboto-Regular',
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+    },
+    subText: {
+      marginTop: 4,
+      color: DEFAULT_COLOR.GRAY_MEDIUM,
+      fontFamily: 'Roboto-Medium',
+      fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_MEDIUM,
+    },
+    ratingContainer: {
+      flexDirection: 'column',
+    },
+    starContainer: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginVertical: 16,
     },
   });
 };
