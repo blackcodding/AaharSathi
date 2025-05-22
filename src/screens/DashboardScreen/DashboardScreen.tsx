@@ -46,7 +46,7 @@ const DashboardScreen = (props: IDashboardScreenProps) => {
 
         const data = await response.json();
 
-        if (data.statusCode === 200) {
+        if (response.ok) {
           dispatch(userSlice.actions.setUserDetails(data.data));
         } else {
           dispatch(userSlice.actions.setError('Something went wrong!'));

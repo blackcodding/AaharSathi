@@ -1,25 +1,54 @@
-import {Text, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {categoriesData, getStepSize, unitOptions} from '../../Data/commonData';
 
+import Chip from '../Chip/Chip';
 import {DEFAULT_COLOR} from '../../Theme/Theme';
 import {DefaultButton} from '../Buttons/DefaultButton/DefaultButton';
+import DropDown from '../DropDown/DropDown';
 import {IItemDetailModelProps} from './ItemDetailModel.types';
 import InputBox from '../InputBox/InputBox';
 import {MinusIcon} from '../../assets/icons/MinusIcon';
 import {PlusIcon} from '../../assets/icons/PlusIcon';
-import React from 'react';
 import {TouchableRipple} from 'react-native-paper';
 import {generateStyles} from './ItemDetailModel.styles';
 import noop from 'lodash/noop';
+import {toNumber} from 'lodash';
+import {v4 as uuidv4} from 'uuid';
 
 const ItemDetailModel = (props: IItemDetailModelProps) => {
   const {
     actionType,
-    onQuantityPress = noop,
+    itemData,
     onSavePress = noop,
     onCancelPress = noop,
   } = props;
 
+  const [name, setName] = useState(itemData?.name || '');
+  const [quantity, setQuantity] = useState(itemData?.quantity || '');
+  const [category, setCategory] = useState(itemData?.category || 'Grocery');
+  const [unit, setUnit] = useState(itemData?.unit || 'gm');
+
   const styles = generateStyles({});
+
+  useEffect(() => {
+    setQuantity('');
+  }, [unit]);
+
+  const onQuantityPress = (action: 'plus' | 'minus') => {
+    const step = getStepSize(unit);
+    setQuantity((prev: string) => {
+      const current = toNumber(prev);
+      let newValue =
+        action === 'plus' ? current + step : Math.max(0, current - step);
+      if (unit === 'gm' || unit === 'ml' || unit === 'pc' || unit === 'pkt') {
+        return Math.round(newValue).toString();
+      }
+      return newValue.toFixed(1).toString();
+    });
+  };
+
+  const uniqueId = uuidv4();
 
   return (
     <View style={styles.mainContainer}>
@@ -30,16 +59,18 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
           inputBoxStyles={{
             flex: 0.7,
           }}
+          value={name}
+          setValue={setName}
         />
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.textStyle}>{'Quantity'}</Text>
+        <Text style={styles.textStyle}>{`Quantity`}</Text>
         <View style={styles.quantityContainer}>
           {actionType !== 'delete' && (
             <TouchableRipple
               borderless={true}
               onPress={() => {
-                onQuantityPress('add');
+                onQuantityPress('minus');
               }}
               style={styles.iconContainer}>
               <MinusIcon
@@ -49,12 +80,17 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
               />
             </TouchableRipple>
           )}
-          <InputBox placeholder={'0'} keyboardType={'numeric'} />
+          <InputBox
+            placeholder={'0'}
+            keyboardType={'numeric'}
+            value={quantity}
+            setValue={setQuantity}
+          />
           {actionType !== 'delete' && (
             <TouchableRipple
               borderless={true}
               onPress={() => {
-                onQuantityPress('delete');
+                onQuantityPress('plus');
               }}
               style={styles.iconContainer}>
               <PlusIcon
@@ -64,16 +100,33 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
               />
             </TouchableRipple>
           )}
+          <DropDown unit={unit} setUnit={setUnit} data={unitOptions} />
         </View>
       </View>
       <View style={styles.itemContainer}>
-        <Text style={styles.textStyle}>{'Category'}</Text>
-        <InputBox
-          placeholder={'Enter Category'}
-          inputBoxStyles={{
-            flex: 0.6,
-          }}
-        />
+        <View style={styles.categoryContainer}>
+          <Text style={styles.textStyle}>{'Category'}</Text>
+          <FlatList
+            data={categoriesData}
+            keyExtractor={item => item.id}
+            renderItem={({item}) => {
+              return (
+                <Chip
+                  chipName={item.name}
+                  selectedChip={category}
+                  onPress={() => {
+                    setCategory(item.name);
+                  }}
+                />
+              );
+            }}
+            horizontal={true}
+            contentContainerStyle={{
+              marginTop: 4,
+            }}
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
       </View>
       {actionType !== 'delete' && (
         <View style={styles.buttonContainer}>
@@ -89,7 +142,15 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
               borderColor: DEFAULT_COLOR.BLUE_MEDIUM,
               backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
             }}
-            onPress={onSavePress}
+            onPress={() =>
+              onSavePress({
+                id: uniqueId,
+                name,
+                quantity,
+                unit,
+                category,
+              })
+            }
           />
           <DefaultButton
             variant={'primary'}

@@ -4,6 +4,7 @@
  *
  * @format
  */
+import 'react-native-get-random-values';
 
 import {Image, StatusBar, View, useColorScheme} from 'react-native';
 import React, {useState} from 'react';

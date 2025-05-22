@@ -15,8 +15,7 @@ export const useUpdate = () => {
         const url = getVersionUrl();
         const response = await fetch(url);
         const data = await response.json();
-        const {latestVersion} = data;
-        console.log('🌐 Latest Version from server:', latestVersion);
+        const {latestVersion} = data?.data;
 
         if (latestVersion !== currentVersion) {
           setIsAppUpdateAvailable(true);

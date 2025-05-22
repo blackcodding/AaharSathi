@@ -6,6 +6,7 @@ export const generateStyles = () => {
   return StyleSheet.create({
     mainContainer: {
       width: '22%',
+      height: 75,
       backgroundColor: DEFAULT_COLOR.WHITE,
       borderWidth: 1,
       borderRadius: 12,

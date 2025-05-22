@@ -71,7 +71,7 @@ const SignInScreen = (props: ISignInScreenProps) => {
       // data = { ...Complete API response data }
       const data = await response.json();
 
-      if (data.statusCode === 200) {
+      if (response.ok) {
         setTokens({
           accessToken: data.data.accessToken,
           refreshToken: data.data.refreshToken,

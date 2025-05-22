@@ -6,35 +6,13 @@ import Chip from '../Chip/Chip';
 import {ContainerHeading} from '../ContainerHeading/ContainerHeading';
 import {IChipContainerProps} from './ChipContainer.types';
 import {UpcomingList} from '../UpcomingList/UpcomingList';
+import {chipData} from '../../Data/commonData';
 import {generateStyles} from './ChipContainer.styles';
 
 const ChipContainer = (props: IChipContainerProps) => {
   const {data} = props;
 
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-
-  const chipData = [
-    {
-      id: '1',
-      name: 'All',
-    },
-    {
-      id: '2',
-      name: 'Grocery',
-    },
-    {
-      id: '3',
-      name: 'Household',
-    },
-    {
-      id: '4',
-      name: 'Party',
-    },
-    {
-      id: '5',
-      name: 'Others',
-    },
-  ];
 
   const filteredData = useMemo(() => {
     if (selectedCategory === 'All') {
@@ -79,8 +57,9 @@ const ChipContainer = (props: IChipContainerProps) => {
         horizontal={true}
         contentContainerStyle={{
           marginTop: 4,
-          marginBottom: 12,
+          marginBottom: 8,
         }}
+        showsHorizontalScrollIndicator={false}
       />
       <ContainerHeading
         title={`${selectedCategory} List`}
@@ -94,6 +73,9 @@ const ChipContainer = (props: IChipContainerProps) => {
         listStyles={{
           width: '100%',
         }}
+        onAddItemPress={() => {}}
+        onDetailsPress={() => {}}
+        onOptionsPress={() => {}}
       />
     </View>
   );

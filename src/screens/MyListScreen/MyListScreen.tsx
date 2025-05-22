@@ -3,6 +3,7 @@ import Header from '../../components/Header/Header';
 import {IMyListScreenProps} from './MyListScreen.types';
 import React from 'react';
 import {ScrollView} from 'react-native';
+import {chipData} from '../../Data/commonData';
 import {generateStyles} from './MyListScreen.styles';
 
 const MyListScreen = (props: IMyListScreenProps) => {

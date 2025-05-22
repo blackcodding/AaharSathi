@@ -31,7 +31,7 @@ const CreateListScreen = (props: ICreateListScreenProps) => {
 
       const data = await response.json();
 
-      if (data.statusCode === 200) {
+      if (response.ok) {
       } else {
         //TODO: Something went wrong popup
       }

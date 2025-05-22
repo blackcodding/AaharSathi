@@ -1,7 +1,7 @@
 export interface IItemDetailModelProps {
   actionType: 'add' | 'edit' | 'delete';
-  onQuantityPress?: (action: 'add' | 'delete') => void;
-  onSavePress?: () => void;
+  itemData?: any;
+  onSavePress?: (item: any) => void;
   onCancelPress?: () => void;
 }
 

@@ -17,6 +17,7 @@ export const generateStyles = (props: IItemDetailModelStyleProps) => {
       paddingTop: 16,
     },
     textStyle: {
+      marginBottom: 12,
       fontFamily: 'Roboto-Regular',
       color: DEFAULT_COLOR.BLACK,
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
@@ -32,7 +33,7 @@ export const generateStyles = (props: IItemDetailModelStyleProps) => {
       backgroundColor: DEFAULT_COLOR.BLUE_MEDIUM,
     },
     quantityContainer: {
-      flex: 0.5,
+      flex: 0.75,
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -40,7 +41,23 @@ export const generateStyles = (props: IItemDetailModelStyleProps) => {
     buttonContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      marginTop: 32,
+      marginTop: 36,
+    },
+    categoryContainer: {
+      flexDirection: 'column',
+    },
+    unitBox: {
+      paddingVertical: 10,
+      paddingHorizontal: 14,
+      borderWidth: 1,
+      borderColor: DEFAULT_COLOR.GRAY_LIGHT,
+      borderRadius: 6,
+      marginTop: 6,
+    },
+
+    unitText: {
+      color: DEFAULT_COLOR.BLACK,
+      fontSize: 16,
     },
   });
 };

@@ -16,7 +16,9 @@ import {ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
+import {createToBuyItemUrl} from '../../API/API';
 import {generateStyles} from './HomeScreen.styles';
+import {getTokens} from '../../utils/storage';
 import {useNavigation} from '@react-navigation/native';
 import {useSelector} from 'react-redux';
 import {useUpdate} from '../../hooks/useUpdate';
@@ -28,6 +30,8 @@ export const HomeScreen = () => {
   const [openAddItemBTS, setOpenAddItemBTS] = useState(false);
   const [openAddListItemBTS, setOpenAddListItemBTS] = useState(false);
   const [openThreeDotsBTS, setOpenThreeDotsBTS] = useState(false);
+
+  const [toBuyData, setToBuyData] = useState([]);
 
   const styles = generateStyles();
   const navigation = useNavigation() as any;
@@ -65,7 +69,7 @@ export const HomeScreen = () => {
   };
 
   const onUpdatePress = () => {
-    //TODO: On Update Press Functiona lity
+    //TODO: On Update Press Functionality
   };
 
   const handleSeeAllExpiryCardPress = useCallback(() => {
@@ -76,61 +80,34 @@ export const HomeScreen = () => {
     navigation.navigate(MY_LIST_SCREEN as never);
   }, []);
 
-  const toBuyData = [
-    {
-      id: '1',
-      tagDetail: '30 Mar',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: '',
-    },
-    {
-      id: '2',
-      tagDetail: '30 Apr',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: 'Grocery',
-    },
-    {
-      id: '3',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: 'Household',
-    },
-    {
-      id: '4',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: 'Party',
-    },
-    {
-      id: '5',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: 'Travel',
-    },
-    {
-      id: '6',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-    },
-  ];
+  const handleOnItemAdd = useCallback(async (item: any) => {
+    try {
+      const tokens = await getTokens();
+      if (!tokens?.accessToken) {
+        throw new Error('User not authenticated');
+      }
+
+      const url = createToBuyItemUrl();
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${tokens?.accessToken}`,
+        },
+        body: JSON.stringify({...item}),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+      } else {
+        console.error('API Error:', data.message || 'Something went wrong');
+      }
+    } catch (error) {
+      console.error('Error in adding item:', error);
+    }
+  }, []);
 
   const expiringSoonData = [
     {
@@ -141,50 +118,6 @@ export const HomeScreen = () => {
       name: 'Apple',
       quantity: '100 gms',
       category: '',
-    },
-    {
-      id: '2',
-      tagDetail: '30 Apr',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: 'Grocery',
-    },
-    {
-      id: '3',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: 'Household',
-    },
-    {
-      id: '4',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: 'Party',
-    },
-    {
-      id: '5',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: 'Travel',
-    },
-    {
-      id: '6',
-      tagDetail: '30 Jun',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
     },
   ];
 
@@ -298,6 +231,7 @@ export const HomeScreen = () => {
 
       {openToBuyBTS && (
         <CustomBottomSheet
+          snapPoints={['50%']}
           heading={'Edit Item'}
           icon={<DeleteIcon />}
           onIconPress={() => {
@@ -306,7 +240,7 @@ export const HomeScreen = () => {
           children={
             <ItemDetailModel
               actionType={'edit'}
-              onQuantityPress={() => {}}
+              itemData={{}}
               onSavePress={() => {}}
               onCancelPress={() => {
                 setOpenToBuyBTS(false);
@@ -321,6 +255,7 @@ export const HomeScreen = () => {
 
       {openAddItemBTS && (
         <CustomBottomSheet
+          snapPoints={['50%']}
           heading={'Add Item'}
           icon={<CrossIcon />}
           onIconPress={() => {
@@ -329,8 +264,7 @@ export const HomeScreen = () => {
           children={
             <ItemDetailModel
               actionType={'add'}
-              onQuantityPress={() => {}}
-              onSavePress={() => {}}
+              onSavePress={handleOnItemAdd}
               onCancelPress={() => {
                 setOpenAddItemBTS(false);
               }}
@@ -346,7 +280,7 @@ export const HomeScreen = () => {
         <CustomBottomSheet
           heading={'Expiring in 3 days'}
           icon={<DeleteIcon />}
-          children={<ItemDetailModel actionType={'delete'} />}
+          children={<ItemDetailModel actionType={'delete'} itemData={{}} />}
           onClose={() => {
             setOpenExpiringSoonBTS(false);
           }}
@@ -363,7 +297,6 @@ export const HomeScreen = () => {
           children={
             <ItemDetailModel
               actionType={'add'}
-              onQuantityPress={() => {}}
               onSavePress={() => {}}
               onCancelPress={() => {
                 setOpenAddListItemBTS(false);

@@ -13,6 +13,7 @@ export const generateStyles = (props: IChipStyleProps) => {
       borderRadius: 50,
       borderWidth: 1,
       marginRight: 4,
+      marginBottom: 4,
       borderColor:
         chipName === selectedChip
           ? DEFAULT_COLOR.BLACK
@@ -22,7 +23,6 @@ export const generateStyles = (props: IChipStyleProps) => {
           ? DEFAULT_COLOR.OFF_WHITE
           : DEFAULT_COLOR.WHITE,
       shadowColor: DEFAULT_COLOR.GRAY_MEDIUM,
-      ...DEFAULT_SHADOW,
     },
     textDecoration: {
       color: DEFAULT_COLOR.BLACK,
