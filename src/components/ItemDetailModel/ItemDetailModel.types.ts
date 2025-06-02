@@ -3,6 +3,7 @@ export interface IItemDetailModelProps {
   itemData?: any;
   onSavePress?: (item: any) => void;
   onCancelPress?: () => void;
+  onDeletePress?: (id: string) => void;
 }
 
 export interface IItemDetailModelStyleProps {}

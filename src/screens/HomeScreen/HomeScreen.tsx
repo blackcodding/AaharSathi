@@ -1,6 +1,7 @@
 import {DEFAULT_COLOR, DEFAULT_FONT_SIZE} from '../../Theme/Theme';
 import {EXPIRING_SOON_SCREEN, MY_LIST_SCREEN} from '../../utils/screens';
 import React, {useCallback, useState} from 'react';
+import {createToBuyItemUrl, deleteToBuyItemUrl} from '../../API/API';
 
 import AlertCard from '../../components/Cards/AlertCard/AlertCard';
 import BannerCard from '../../components/Cards/BannerCard/BannerCard';
@@ -16,7 +17,6 @@ import {ScrollView} from 'react-native';
 import {ToBuy} from '../../components/ToBuy/ToBuy';
 import {UpcomingList} from '../../components/UpcomingList/UpcomingList';
 import {View} from 'react-native';
-import {createToBuyItemUrl} from '../../API/API';
 import {generateStyles} from './HomeScreen.styles';
 import {getTokens} from '../../utils/storage';
 import {useNavigation} from '@react-navigation/native';
@@ -30,8 +30,9 @@ export const HomeScreen = () => {
   const [openAddItemBTS, setOpenAddItemBTS] = useState(false);
   const [openAddListItemBTS, setOpenAddListItemBTS] = useState(false);
   const [openThreeDotsBTS, setOpenThreeDotsBTS] = useState(false);
-
   const [toBuyData, setToBuyData] = useState([]);
+  const [expiringSoonData, setExpiringSoonData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const styles = generateStyles();
   const navigation = useNavigation() as any;
@@ -42,10 +43,6 @@ export const HomeScreen = () => {
 
   const handleCloseMenuPress = () => {
     setOpenMenu(false);
-  };
-
-  const handleEditProfilePress = () => {
-    //TODO: On Edit Profile Press Functionality
   };
 
   const onItemPress = () => {
@@ -80,8 +77,9 @@ export const HomeScreen = () => {
     navigation.navigate(MY_LIST_SCREEN as never);
   }, []);
 
-  const handleOnItemAdd = useCallback(async (item: any) => {
+  const handleOnItemAdd = async (item: any) => {
     try {
+      setIsLoading(true);
       const tokens = await getTokens();
       if (!tokens?.accessToken) {
         throw new Error('User not authenticated');
@@ -106,20 +104,44 @@ export const HomeScreen = () => {
       }
     } catch (error) {
       console.error('Error in adding item:', error);
+    } finally {
+      setIsLoading(false);
+      setOpenAddItemBTS(false);
     }
-  }, []);
+  };
 
-  const expiringSoonData = [
-    {
-      id: '1',
-      tagDetail: '30 Mar',
-      image:
-        'https://ik.imagekit.io/s1qqeedcv/AaharSathi/Fruits%20Images/apple.png?updatedAt=1721483701391',
-      name: 'Apple',
-      quantity: '100 gms',
-      category: '',
-    },
-  ];
+  const handleOnItemDelete = async (id: string) => {
+    try {
+      setIsLoading(true);
+      const tokens = await getTokens();
+      if (!tokens?.accessToken) {
+        throw new Error('User not authenticated');
+      }
+
+      const url = deleteToBuyItemUrl(id);
+
+      const response = await fetch(url, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${tokens?.accessToken}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+      } else {
+        console.error('API Error:', data.message || 'Something went wrong');
+      }
+    } catch (error) {
+      console.error('Error in adding item:', error);
+    } finally {
+      setIsLoading(false);
+      setOpenExpiringSoonBTS(false);
+      setOpenToBuyBTS(false);
+    }
+  };
 
   const upcomingListData = [
     {
@@ -231,11 +253,11 @@ export const HomeScreen = () => {
 
       {openToBuyBTS && (
         <CustomBottomSheet
-          snapPoints={['50%']}
+          snapPoints={['45%']}
           heading={'Edit Item'}
           icon={<DeleteIcon />}
           onIconPress={() => {
-            //TODO: On Icon Press Delete Functionality
+            handleOnItemDelete('');
           }}
           children={
             <ItemDetailModel
@@ -255,7 +277,7 @@ export const HomeScreen = () => {
 
       {openAddItemBTS && (
         <CustomBottomSheet
-          snapPoints={['50%']}
+          snapPoints={['45%']}
           heading={'Add Item'}
           icon={<CrossIcon />}
           onIconPress={() => {
@@ -278,9 +300,19 @@ export const HomeScreen = () => {
 
       {openExpiringSoonBTS && (
         <CustomBottomSheet
+          snapPoints={['45%']}
           heading={'Expiring in 3 days'}
-          icon={<DeleteIcon />}
-          children={<ItemDetailModel actionType={'delete'} itemData={{}} />}
+          icon={<DeleteIcon strokeColor={DEFAULT_COLOR.RED_DARK} />}
+          onIconPress={() => {
+            handleOnItemDelete('');
+          }}
+          children={
+            <ItemDetailModel
+              actionType={'delete'}
+              itemData={{}}
+              onDeletePress={handleOnItemDelete}
+            />
+          }
           onClose={() => {
             setOpenExpiringSoonBTS(false);
           }}
@@ -289,6 +321,7 @@ export const HomeScreen = () => {
 
       {openAddListItemBTS && (
         <CustomBottomSheet
+          snapPoints={['45%']}
           heading={'Add List Item'}
           icon={<CrossIcon />}
           onIconPress={() => {
@@ -311,6 +344,7 @@ export const HomeScreen = () => {
 
       {openThreeDotsBTS && (
         <CustomBottomSheet
+          snapPoints={['45%']}
           heading={'Select Option'}
           icon={<CrossIcon />}
           onIconPress={() => {

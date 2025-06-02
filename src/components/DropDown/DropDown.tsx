@@ -11,14 +11,15 @@ interface IDropDownProps {
   setUnit: (unit: string) => void;
   data: any;
   itemData?: any;
+  actionType: 'add' | 'edit' | 'delete';
 }
 
 export const DropDown = (props: IDropDownProps) => {
-  const {unit, setUnit, data} = props;
+  const {unit, setUnit, data, actionType} = props;
 
   const [menuVisible, setMenuVisible] = useState(false);
 
-  const styles = generateStyles({menuVisible});
+  const styles = generateStyles({menuVisible, actionType});
 
   return (
     <View style={styles.mainContainer}>
@@ -26,11 +27,22 @@ export const DropDown = (props: IDropDownProps) => {
         <Text style={styles.text}>{unit}</Text>
         <TouchableRipple
           borderless
-          onPress={() => {
-            setMenuVisible(prev => !prev);
-          }}
+          onPress={
+            actionType !== 'delete'
+              ? () => {
+                  setMenuVisible(prev => !prev);
+                }
+              : undefined
+          }
           style={styles.iconContainer}>
-          <ChevronIcon strokeColor={DEFAULT_COLOR.GRAY_MEDIUM} />
+          <ChevronIcon
+            strokeColor={DEFAULT_COLOR.GRAY_MEDIUM}
+            fillColor={
+              actionType === 'delete'
+                ? DEFAULT_COLOR.GRAY_LIGHT
+                : DEFAULT_COLOR.WHITE
+            }
+          />
         </TouchableRipple>
       </View>
 
@@ -39,6 +51,7 @@ export const DropDown = (props: IDropDownProps) => {
           {data.map((unit: string) => {
             return (
               <TouchableOpacity
+                key={unit}
                 activeOpacity={0.7}
                 onPress={() => {
                   setUnit(unit);

@@ -27,6 +27,8 @@ const CustomBottomSheet = (props: IBottomSheetProps) => {
   return (
     <Portal>
       <BottomSheet
+        enablePanDownToClose
+        onClose={onClose}
         snapPoints={snapPoints}
         backdropComponent={props => (
           <BottomSheetBackdrop

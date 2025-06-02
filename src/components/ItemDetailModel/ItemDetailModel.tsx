@@ -22,6 +22,7 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
     itemData,
     onSavePress = noop,
     onCancelPress = noop,
+    onDeletePress = noop,
   } = props;
 
   const [name, setName] = useState(itemData?.name || '');
@@ -32,7 +33,9 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
   const styles = generateStyles({});
 
   useEffect(() => {
-    setQuantity('');
+    if (unit !== itemData?.unit) {
+      setQuantity('');
+    }
   }, [unit]);
 
   const onQuantityPress = (action: 'plus' | 'minus') => {
@@ -61,6 +64,7 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
           }}
           value={name}
           setValue={setName}
+          editable={actionType !== 'delete'}
         />
       </View>
       <View style={styles.itemContainer}>
@@ -85,6 +89,7 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
             keyboardType={'numeric'}
             value={quantity}
             setValue={setQuantity}
+            editable={actionType !== 'delete'}
           />
           {actionType !== 'delete' && (
             <TouchableRipple
@@ -100,7 +105,12 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
               />
             </TouchableRipple>
           )}
-          <DropDown unit={unit} setUnit={setUnit} data={unitOptions} />
+          <DropDown
+            unit={unit}
+            setUnit={setUnit}
+            data={unitOptions}
+            actionType={actionType}
+          />
         </View>
       </View>
       <View style={styles.itemContainer}>
@@ -114,9 +124,14 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
                 <Chip
                   chipName={item.name}
                   selectedChip={category}
-                  onPress={() => {
-                    setCategory(item.name);
-                  }}
+                  actionType={actionType}
+                  onPress={
+                    actionType !== 'delete'
+                      ? () => {
+                          setCategory(item.name);
+                        }
+                      : undefined
+                  }
                 />
               );
             }}
@@ -159,6 +174,24 @@ const ItemDetailModel = (props: IItemDetailModelProps) => {
               flex: 1,
             }}
             onPress={onCancelPress}
+          />
+        </View>
+      )}
+      {actionType === 'delete' && (
+        <View style={styles.buttonContainer}>
+          <DefaultButton
+            variant={'primary'}
+            text={'Delete'}
+            extraStyles={{
+              flex: 1,
+              marginRight: 12,
+            }}
+            colors={{
+              textColor: DEFAULT_COLOR.WHITE,
+              borderColor: DEFAULT_COLOR.RED_DARK,
+              backgroundColor: DEFAULT_COLOR.RED_MEDIUM,
+            }}
+            onPress={() => onDeletePress(itemData?.id)}
           />
         </View>
       )}

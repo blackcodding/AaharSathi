@@ -4,10 +4,11 @@ import {StyleSheet} from 'react-native';
 
 interface IDropDownStyleProps {
   menuVisible: boolean;
+  actionType: string;
 }
 
 export const generateStyles = (props: IDropDownStyleProps) => {
-  const {menuVisible = false} = props;
+  const {menuVisible = false, actionType} = props;
 
   return StyleSheet.create({
     mainContainer: {
@@ -27,13 +28,19 @@ export const generateStyles = (props: IDropDownStyleProps) => {
       borderTopRightRadius: 8,
       borderBottomLeftRadius: menuVisible ? 0 : 8,
       borderBottomRightRadius: menuVisible ? 0 : 8,
-      backgroundColor: DEFAULT_COLOR.WHITE,
+      backgroundColor:
+        actionType === 'delete'
+          ? DEFAULT_COLOR.GRAY_LIGHT
+          : DEFAULT_COLOR.WHITE,
     },
     text: {
       width: '60%',
       fontFamily: 'Roboto-Regular ',
       fontSize: DEFAULT_FONT_SIZE.FONT_SIZE_REGULAR,
-      color: DEFAULT_COLOR.BLACK,
+      color:
+        actionType === 'delete'
+          ? DEFAULT_COLOR.GRAY_MEDIUM
+          : DEFAULT_COLOR.BLACK,
     },
     iconContainer: {
       borderRadius: 100,
